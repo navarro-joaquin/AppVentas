@@ -136,5 +136,12 @@ namespace AppVentas
             FrmConfiguracion frm = new FrmConfiguracion();
             frm.Show();
         }
+
+        private void MnuItemListadoVentas_Click(object sender, EventArgs e)
+        {
+            FrmVentas frm = new FrmVentas();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

@@ -40,7 +40,6 @@
             this.txtNITCI = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lblTotalRegistros = new System.Windows.Forms.Label();
@@ -154,16 +153,6 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Location = new System.Drawing.Point(292, 441);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(91, 33);
-            this.btnCerrar.TabIndex = 4;
-            this.btnCerrar.Text = "&Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -265,10 +254,10 @@
             // 
             this.tabPage2.Controls.Add(this.gbxDatos);
             this.tabPage2.Controls.Add(this.btnGuardar);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(638, 355);
+            this.tabPage2.Size = new System.Drawing.Size(638, 353);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Datos";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -288,10 +277,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 484);
+            this.ClientSize = new System.Drawing.Size(671, 442);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.btnCerrar);
             this.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmCliente";
@@ -321,7 +309,6 @@
         private System.Windows.Forms.TextBox txtNITCI;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

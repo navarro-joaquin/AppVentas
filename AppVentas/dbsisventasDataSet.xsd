@@ -430,7 +430,7 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, fecha_comp
               <Mapping SourceColumn="imagen" DataSetColumn="imagen" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ActualizarStock" Modifier="Public" Name="ActualizarStock" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="ActualizarStock">
+              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ActualizarStock" Modifier="Public" Name="ActualizarStock" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ActualizarStock">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [producto] SET [stock] = [stock] - @cantidad WHERE id = @id_producto</CommandText>
@@ -451,7 +451,7 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, fecha_comp
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="EditarProducto" Modifier="Public" Name="EditarProducto" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="EditarProducto">
+              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="EditarProducto" Modifier="Public" Name="EditarProducto" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="EditarProducto">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [producto] SET [codigo] = @codigo, [nombre_producto] = @nombre_producto, [marca] = @marca, [valor_compra] = @valor_compra, [valor_venta] = @valor_venta, [fecha_compra] = @fecha_compra, [fecha_vencimiento] = @fecha_vencimiento, [stock] = @stock, [stock_minimo] = @stock_minimo, [descripcion] = @descripcion, [imagen] = @imagen, [id_proveedor] = @id_proveedor, [id_categoria] = @id_categoria WHERE ([id] = @Original_id)</CommandText>
@@ -474,7 +474,7 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, fecha_comp
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="EliminarProducto" Modifier="Public" Name="EliminarProducto" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="EliminarProducto">
+              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="EliminarProducto" Modifier="Public" Name="EliminarProducto" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="EliminarProducto">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM [dbo].[producto] WHERE ([id] = @Original_id)</CommandText>
@@ -484,7 +484,7 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, fecha_comp
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="dbsisventas.dbo.generar_codigo" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="GenerarCodigo" Modifier="Public" Name="GenerarCodigo" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="GenerarCodigo">
+              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="dbsisventas.dbo.generar_codigo" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="GenerarCodigo" Modifier="Public" Name="GenerarCodigo" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="GenerarCodigo">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.generar_codigo</CommandText>
@@ -495,7 +495,7 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, fecha_comp
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertarProducto" Modifier="Public" Name="InsertarProducto" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InsertarProducto">
+              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertarProducto" Modifier="Public" Name="InsertarProducto" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="InsertarProducto">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [producto] ([codigo], [nombre_producto], [marca], [valor_compra], [valor_venta], [fecha_compra], [fecha_vencimiento], [stock], [stock_minimo], [descripcion], [imagen], [id_proveedor], [id_categoria]) VALUES (@codigo, @nombre_producto, @marca, @valor_compra, @valor_venta, @fecha_compra, @fecha_vencimiento, @stock, @stock_minimo, @descripcion, @imagen, @id_proveedor, @id_categoria)</CommandText>
@@ -517,7 +517,7 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, fecha_comp
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="dbsisventas.dbo.producto" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ObtenerID" Modifier="Public" Name="ObtenerID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="ObtenerID">
+              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="dbsisventas.dbo.producto" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ObtenerID" Modifier="Public" Name="ObtenerID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="ObtenerID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT id FROM producto WHERE codigo = @codigo AND nombre_producto = @nombre_producto</CommandText>
@@ -1058,6 +1058,61 @@ SELECT id, numero_factura, fecha, total_venta, descuento, importe_pagado, codigo
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vista_ventas_realizadasTableAdapter" GeneratorDataComponentClassName="vista_ventas_realizadasTableAdapter" Name="vista_ventas_realizadas" UserDataComponentName="vista_ventas_realizadasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="dbsisventas.dbo.vista_ventas_realizadas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, numero_factura, fecha, total_venta, descuento, importe_pagado, nit_cliente, cliente, vendedor FROM dbo.vista_ventas_realizadas</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="numero_factura" DataSetColumn="numero_factura" />
+              <Mapping SourceColumn="fecha" DataSetColumn="fecha" />
+              <Mapping SourceColumn="total_venta" DataSetColumn="total_venta" />
+              <Mapping SourceColumn="descuento" DataSetColumn="descuento" />
+              <Mapping SourceColumn="importe_pagado" DataSetColumn="importe_pagado" />
+              <Mapping SourceColumn="nit_cliente" DataSetColumn="nit_cliente" />
+              <Mapping SourceColumn="cliente" DataSetColumn="cliente" />
+              <Mapping SourceColumn="vendedor" DataSetColumn="vendedor" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="dbsisventas.dbo.vista_ventas_realizadas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="BuscarPorCliente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="BuscarPorCliente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="BuscarPorCliente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, numero_factura, fecha, total_venta, descuento, importe_pagado, nit_cliente, cliente, vendedor FROM dbo.vista_ventas_realizadas WHERE cliente LIKE (@cliente + '%')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="cliente" ColumnName="cliente" DataSourceName="dbsisventas.dbo.vista_ventas_realizadas" DataTypeServer="varchar(60)" DbType="AnsiString" Direction="Input" ParameterName="@cliente" Precision="0" ProviderType="VarChar" Scale="0" Size="60" SourceColumn="cliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="dbsisventas.dbo.vista_ventas_realizadas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="BuscarPorFecha" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="BuscarPorFecha" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="BuscarPorFecha">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, numero_factura, fecha, total_venta, descuento, importe_pagado, nit_cliente, cliente, vendedor FROM dbo.vista_ventas_realizadas WHERE fecha = @fecha</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fecha" ColumnName="fecha" DataSourceName="dbsisventas.dbo.vista_ventas_realizadas" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fecha" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="fecha" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectName="dbsisventas.dbo.vista_ventas_realizadas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="BuscarPorVendedor" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="BuscarPorVendedor" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="BuscarPorVendedor">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, numero_factura, fecha, total_venta, descuento, importe_pagado, nit_cliente, cliente, vendedor FROM dbo.vista_ventas_realizadas WHERE vendedor LIKE (@vendedor + '%')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="vendedor" ColumnName="vendedor" DataSourceName="dbsisventas.dbo.vista_ventas_realizadas" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@vendedor" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="vendedor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1411,6 +1466,45 @@ SELECT id, numero_factura, fecha, total_venta, descuento, importe_pagado, codigo
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="vista_ventas_realizadas" msprop:Generator_TableClassName="vista_ventas_realizadasDataTable" msprop:Generator_TableVarName="tablevista_ventas_realizadas" msprop:Generator_TablePropName="vista_ventas_realizadas" msprop:Generator_RowDeletingName="vista_ventas_realizadasRowDeleting" msprop:Generator_RowChangingName="vista_ventas_realizadasRowChanging" msprop:Generator_RowEvHandlerName="vista_ventas_realizadasRowChangeEventHandler" msprop:Generator_RowDeletedName="vista_ventas_realizadasRowDeleted" msprop:Generator_UserTableName="vista_ventas_realizadas" msprop:Generator_RowChangedName="vista_ventas_realizadasRowChanged" msprop:Generator_RowEvArgName="vista_ventas_realizadasRowChangeEvent" msprop:Generator_RowClassName="vista_ventas_realizadasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="numero_factura" msprop:Generator_ColumnVarNameInTable="columnnumero_factura" msprop:Generator_ColumnPropNameInRow="numero_factura" msprop:Generator_ColumnPropNameInTable="numero_facturaColumn" msprop:Generator_UserColumnName="numero_factura">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" />
+              <xs:element name="total_venta" msprop:Generator_ColumnVarNameInTable="columntotal_venta" msprop:Generator_ColumnPropNameInRow="total_venta" msprop:Generator_ColumnPropNameInTable="total_ventaColumn" msprop:Generator_UserColumnName="total_venta" type="xs:decimal" />
+              <xs:element name="descuento" msprop:Generator_ColumnVarNameInTable="columndescuento" msprop:Generator_ColumnPropNameInRow="descuento" msprop:Generator_ColumnPropNameInTable="descuentoColumn" msprop:Generator_UserColumnName="descuento" type="xs:decimal" />
+              <xs:element name="importe_pagado" msprop:Generator_ColumnVarNameInTable="columnimporte_pagado" msprop:Generator_ColumnPropNameInRow="importe_pagado" msprop:Generator_ColumnPropNameInTable="importe_pagadoColumn" msprop:Generator_UserColumnName="importe_pagado" type="xs:decimal" />
+              <xs:element name="nit_cliente" msprop:Generator_ColumnVarNameInTable="columnnit_cliente" msprop:Generator_ColumnPropNameInRow="nit_cliente" msprop:Generator_ColumnPropNameInTable="nit_clienteColumn" msprop:Generator_UserColumnName="nit_cliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cliente" msprop:Generator_ColumnVarNameInTable="columncliente" msprop:Generator_ColumnPropNameInRow="cliente" msprop:Generator_ColumnPropNameInTable="clienteColumn" msprop:Generator_UserColumnName="cliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vendedor" msprop:Generator_ColumnVarNameInTable="columnvendedor" msprop:Generator_ColumnPropNameInRow="vendedor" msprop:Generator_ColumnPropNameInTable="vendedorColumn" msprop:Generator_UserColumnName="vendedor">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1443,6 +1537,10 @@ SELECT id, numero_factura, fecha, total_venta, descuento, importe_pagado, codigo
     </xs:unique>
     <xs:unique name="venta_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:venta" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="vista_ventas_realizadas_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vista_ventas_realizadas" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
   </xs:element>

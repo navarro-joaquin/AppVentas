@@ -298,7 +298,7 @@ namespace AppVentas
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error5" + ex.Message);
+                    //MessageBox.Show("Error5" + ex.Message);
                 }
             }
         }
