@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
@@ -88,7 +89,7 @@ namespace AppVentas
             ev.HasMorePages = (m_currentPageIndex < m_streams.Count);
         }
 
-        public void Imprimir(string nit_cliente, string nombre_cliente, string fecha_venta, string numero_recibo, string numero_nit)
+        public void Imprimir(string nit_cliente, string nombre_cliente, string fecha_venta, string numero_recibo, string numero_nit, int id_venta)
         {
             LocalReport report = new LocalReport();
             report.ReportPath = @"RepRecibo.rdlc";
@@ -100,6 +101,26 @@ namespace AppVentas
             reportParams.Add(new ReportParameter("NumeroRecibo", numero_recibo));
             reportParams.Add(new ReportParameter("NumeroNit", numero_nit));
             report.SetParameters(reportParams);
+
+            Consultas con = new Consultas();
+            string cs = AppVentas.Properties.Settings.Default.dbsisventasConnString;
+            SqlConnection cn = new SqlConnection(cs);
+
+            string query = "select p.nombre_producto, dv.cantidad, dv.precio, dv.subtotal, v.total_venta from detalle_venta dv " +
+                            "inner join producto p " +
+                            "on dv.id_producto = p.id " +
+                            "inner join venta v " +
+                            "on dv.id_venta = v.id " +
+                            "where id_venta = " + id_venta;
+
+            SqlDataAdapter da = new SqlDataAdapter(query, cn);
+            da.Fill(con, con.Tables[0].TableName);
+
+            ReportDataSource rds = new ReportDataSource("Detalle_Venta", con.Tables[0]);
+
+            report.DataSources.Clear();
+            report.DataSources.Add(rds);
+
             report.Refresh();
             Export(report);
             Print();

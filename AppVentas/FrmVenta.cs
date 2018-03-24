@@ -349,7 +349,7 @@ namespace AppVentas
                         {
                             //Imprimir recibo
                             string numero_nit = "10381527";
-                            recibo.Imprimir(txtNITCI.Text, txtNombreCliente.Text, DateTime.Today.ToShortDateString(), id_venta.ToString().PadLeft(7, '0'), numero_nit);
+                            recibo.Imprimir(txtNITCI.Text, txtNombreCliente.Text, DateTime.Today.ToShortDateString(), id_venta.ToString().PadLeft(7, '0'), numero_nit, id_venta);
                         }
 
                         //Limpiar datos del cliente

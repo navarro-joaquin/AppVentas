@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.sp_vista_reciboTableAdapter = new AppVentas.ConsultasTableAdapters.sp_vista_reciboTableAdapter();
+            this.consultas = new AppVentas.Consultas();
+            ((System.ComponentModel.ISupportInitialize)(this.consultas)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -41,6 +44,15 @@
             this.reportViewer1.Size = new System.Drawing.Size(933, 623);
             this.reportViewer1.TabIndex = 0;
             // 
+            // sp_vista_reciboTableAdapter
+            // 
+            this.sp_vista_reciboTableAdapter.ClearBeforeFill = true;
+            // 
+            // consultas
+            // 
+            this.consultas.DataSetName = "Consultas";
+            this.consultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // FrmRepRecibo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -52,6 +64,7 @@
             this.Name = "FrmRepRecibo";
             this.Text = "FrmRepRecibo";
             this.Load += new System.EventHandler(this.FrmRepRecibo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.consultas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -59,5 +72,7 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private ConsultasTableAdapters.sp_vista_reciboTableAdapter sp_vista_reciboTableAdapter;
+        private Consultas consultas;
     }
 }

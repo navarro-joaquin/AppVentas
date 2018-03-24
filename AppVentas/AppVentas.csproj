@@ -65,6 +65,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Consultas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dbsisventasDataSet.cs">
       <DependentUpon>dbsisventasDataSet.xsd</DependentUpon>
     </Compile>
@@ -215,6 +220,17 @@
     <EmbeddedResource Include="RepRecibo.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <None Include="Consultas.xsc">
+      <DependentUpon>Consultas.xsd</DependentUpon>
+    </None>
+    <None Include="Consultas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Consultas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Consultas.xss">
+      <DependentUpon>Consultas.xsd</DependentUpon>
+    </None>
     <None Include="dbsisventasDataSet.xsc">
       <DependentUpon>dbsisventasDataSet.xsd</DependentUpon>
     </None>
