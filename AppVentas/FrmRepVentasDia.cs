@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using Microsoft.Reporting.WinForms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace AppVentas
 {
@@ -52,6 +53,31 @@ namespace AppVentas
             this.reportViewer1.Refresh();
 
             this.reportViewer1.RefreshReport();
+
+            //GenerarPDF();
+        }
+
+        private void GenerarPDF()
+        {
+            string fecha = DateTime.Today.ToString("dd-MM-yyyy");
+            string nombre = this.usuarioTableAdapter.ObtenerNombreUsuario(id_usuario);
+
+            Warning[] warnings;
+            string[] streamids;
+            string mimetype;
+            string encoding;
+            string fileNameExtension;
+
+            byte[] bytes = reportViewer1.LocalReport.Render(
+                "PDF", null, out mimetype, out encoding,
+                out fileNameExtension, out streamids, out warnings);
+
+            string nombre_archivo = @"Reportes\Ventas-" + @fecha + "-" + nombre + ".pdf";
+
+            using (FileStream fs = new FileStream(nombre_archivo, FileMode.Create))
+            {
+                fs.Write(bytes, 0, bytes.Length);
+            }
         }
     }
 }

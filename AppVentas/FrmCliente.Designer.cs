@@ -31,11 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label lblNombre;
             System.Windows.Forms.Label lblNITCI;
+            System.Windows.Forms.Label lblCodigoDescuento;
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbsisventasDataSet = new AppVentas.dbsisventasDataSet();
             this.clienteTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.clienteTableAdapter();
             this.tableAdapterManager = new AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
+            this.txtCodigoDescuento = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtNITCI = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -45,27 +47,29 @@
             this.lblTotalRegistros = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.cmbBuscar = new System.Windows.Forms.ComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             lblNombre = new System.Windows.Forms.Label();
             lblNITCI = new System.Windows.Forms.Label();
+            lblCodigoDescuento = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).BeginInit();
             this.gbxDatos.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new System.Drawing.Point(76, 36);
+            lblNombre.Location = new System.Drawing.Point(40, 36);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new System.Drawing.Size(55, 18);
             lblNombre.TabIndex = 0;
@@ -74,11 +78,20 @@
             // lblNITCI
             // 
             lblNITCI.AutoSize = true;
-            lblNITCI.Location = new System.Drawing.Point(76, 65);
+            lblNITCI.Location = new System.Drawing.Point(40, 65);
             lblNITCI.Name = "lblNITCI";
             lblNITCI.Size = new System.Drawing.Size(46, 18);
             lblNITCI.TabIndex = 2;
             lblNITCI.Text = "NIT/CI:";
+            // 
+            // lblCodigoDescuento
+            // 
+            lblCodigoDescuento.AutoSize = true;
+            lblCodigoDescuento.Location = new System.Drawing.Point(40, 92);
+            lblCodigoDescuento.Name = "lblCodigoDescuento";
+            lblCodigoDescuento.Size = new System.Drawing.Size(112, 18);
+            lblCodigoDescuento.TabIndex = 4;
+            lblCodigoDescuento.Text = "Código descuento:";
             // 
             // clienteBindingSource
             // 
@@ -102,33 +115,43 @@
             this.tableAdapterManager.detalle_ventaTableAdapter = null;
             this.tableAdapterManager.productoTableAdapter = null;
             this.tableAdapterManager.proveedorTableAdapter = null;
+            this.tableAdapterManager.tipo_clienteTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuarioTableAdapter = null;
             this.tableAdapterManager.ventaTableAdapter = null;
             // 
             // gbxDatos
             // 
+            this.gbxDatos.Controls.Add(lblCodigoDescuento);
+            this.gbxDatos.Controls.Add(this.txtCodigoDescuento);
             this.gbxDatos.Controls.Add(lblNombre);
             this.gbxDatos.Controls.Add(this.txtNombre);
             this.gbxDatos.Controls.Add(lblNITCI);
             this.gbxDatos.Controls.Add(this.txtNITCI);
             this.gbxDatos.Location = new System.Drawing.Point(7, 98);
             this.gbxDatos.Name = "gbxDatos";
-            this.gbxDatos.Size = new System.Drawing.Size(623, 111);
+            this.gbxDatos.Size = new System.Drawing.Size(623, 140);
             this.gbxDatos.TabIndex = 1;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Introducción de Datos";
             // 
+            // txtCodigoDescuento
+            // 
+            this.txtCodigoDescuento.Location = new System.Drawing.Point(175, 89);
+            this.txtCodigoDescuento.Name = "txtCodigoDescuento";
+            this.txtCodigoDescuento.Size = new System.Drawing.Size(158, 21);
+            this.txtCodigoDescuento.TabIndex = 5;
+            // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(140, 33);
+            this.txtNombre.Location = new System.Drawing.Point(175, 33);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(391, 21);
             this.txtNombre.TabIndex = 1;
             // 
             // txtNITCI
             // 
-            this.txtNITCI.Location = new System.Drawing.Point(140, 62);
+            this.txtNITCI.Location = new System.Drawing.Point(175, 62);
             this.txtNITCI.Name = "txtNITCI";
             this.txtNITCI.Size = new System.Drawing.Size(158, 21);
             this.txtNITCI.TabIndex = 3;
@@ -165,10 +188,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
+            this.tabPage1.Controls.Add(this.dgvCliente);
             this.tabPage1.Controls.Add(this.lblTotalRegistros);
             this.tabPage1.Controls.Add(this.txtBuscar);
             this.tabPage1.Controls.Add(this.cmbBuscar);
-            this.tabPage1.Controls.Add(this.dgvCliente);
             this.tabPage1.Controls.Add(this.btnEliminar);
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
@@ -209,47 +233,6 @@
             this.cmbBuscar.Size = new System.Drawing.Size(140, 26);
             this.cmbBuscar.TabIndex = 5;
             // 
-            // dgvCliente
-            // 
-            this.dgvCliente.AllowUserToAddRows = false;
-            this.dgvCliente.AllowUserToDeleteRows = false;
-            this.dgvCliente.AutoGenerateColumns = false;
-            this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.dgvCliente.DataSource = this.clienteBindingSource;
-            this.dgvCliente.Location = new System.Drawing.Point(7, 79);
-            this.dgvCliente.Name = "dgvCliente";
-            this.dgvCliente.ReadOnly = true;
-            this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCliente.Size = new System.Drawing.Size(623, 266);
-            this.dgvCliente.TabIndex = 4;
-            this.dgvCliente.DoubleClick += new System.EventHandler(this.dgvCliente_DoubleClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "nombre";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "nit_ci";
-            this.dataGridViewTextBoxColumn3.HeaderText = "NIT/CI";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.gbxDatos);
@@ -273,6 +256,56 @@
             this.lblTitulo.TabIndex = 6;
             this.lblTitulo.Text = "Clientes";
             // 
+            // dgvCliente
+            // 
+            this.dgvCliente.AllowUserToAddRows = false;
+            this.dgvCliente.AllowUserToDeleteRows = false;
+            this.dgvCliente.AutoGenerateColumns = false;
+            this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dgvCliente.DataSource = this.clienteBindingSource;
+            this.dgvCliente.Location = new System.Drawing.Point(7, 86);
+            this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.ReadOnly = true;
+            this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCliente.Size = new System.Drawing.Size(616, 261);
+            this.dgvCliente.TabIndex = 7;
+            this.dgvCliente.DoubleClick += new System.EventHandler(this.dgvCliente_DoubleClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "nombre";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "nit_ci";
+            this.dataGridViewTextBoxColumn3.HeaderText = "NIT/CI";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "codigo_descuento";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Código Descuento";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -292,8 +325,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,10 +348,12 @@
         private System.Windows.Forms.Label lblTotalRegistros;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.ComboBox cmbBuscar;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.TextBox txtCodigoDescuento;
         private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

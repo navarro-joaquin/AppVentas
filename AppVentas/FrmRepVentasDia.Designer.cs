@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.usuarioTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.usuarioTableAdapter();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -40,6 +41,10 @@
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(826, 479);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // usuarioTableAdapter
+            // 
+            this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
             // FrmRepVentasDia
             // 
@@ -59,5 +64,6 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private dbsisventasDataSetTableAdapters.usuarioTableAdapter usuarioTableAdapter;
     }
 }

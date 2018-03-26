@@ -167,5 +167,12 @@ namespace AppVentas
             FrmRepVentasDiaAdm frm = new FrmRepVentasDiaAdm();
             frm.Show();
         }
+
+        private void MnuItemTipoCliente_Click(object sender, EventArgs e)
+        {
+            FrmTipoCliente frm = new FrmTipoCliente();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

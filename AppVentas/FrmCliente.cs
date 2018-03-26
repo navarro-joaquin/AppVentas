@@ -60,9 +60,11 @@ namespace AppVentas
                 {
                     string nombre = txtNombre.Text;
                     string nit_ci = txtNITCI.Text;
+                    string codigo_descuento = txtCodigoDescuento.Text;
+                    
                     try
                     {
-                        this.clienteTableAdapter.InsertarCliente(nombre, nit_ci);
+                        this.clienteTableAdapter.InsertarClienteDescuento(nombre, nit_ci, codigo_descuento);
                         MessageBox.Show("Registro guardado correctamente");
                         ActualizarListado();
                         LimpiarCajas();
@@ -85,9 +87,10 @@ namespace AppVentas
                     {
                         string nombre = txtNombre.Text;
                         string nit_ci = txtNITCI.Text;
+                        string codigo_descuento = txtCodigoDescuento.Text;
                         try
                         {
-                            this.clienteTableAdapter.EditarCliente(nombre, nit_ci, id_editar);
+                            this.clienteTableAdapter.EditarClienteDescuento(nombre, nit_ci, codigo_descuento, id_editar);
                             MessageBox.Show("guardado correctamente");
                             ActualizarListado();
                             LimpiarCajas();
@@ -109,6 +112,7 @@ namespace AppVentas
             id_editar = Convert.ToInt32(dgvCliente.CurrentRow.Cells[0].Value);
             txtNombre.Text = dgvCliente.CurrentRow.Cells[1].Value.ToString();
             txtNITCI.Text = dgvCliente.CurrentRow.Cells[2].Value.ToString();
+            txtCodigoDescuento.Text = dgvCliente.CurrentRow.Cells[3].Value.ToString();
             tabControl1.SelectedIndex = 1;
             Editar = true;
             Nuevo = false;
