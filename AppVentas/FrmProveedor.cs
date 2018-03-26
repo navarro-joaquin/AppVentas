@@ -21,6 +21,14 @@ namespace AppVentas
             InitializeComponent();
         }
 
+        public FrmProveedor(string nombre)
+        {
+            InitializeComponent();
+            tabControl1.SelectedIndex = 1;
+            txtNombreEmpresa.Text = nombre;
+            txtRepresentante.Focus();
+        }
+
         private void FrmProveedor_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'dbsisventasDataSet.proveedor' Puede moverla o quitarla según sea necesario.

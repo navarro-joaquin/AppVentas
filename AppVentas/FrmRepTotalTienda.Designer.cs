@@ -1,6 +1,6 @@
 ﻿namespace AppVentas
 {
-    partial class FrmRepRecibo
+    partial class FrmRepTotalTienda
     {
         /// <summary>
         /// Required designer variable.
@@ -29,26 +29,19 @@
         private void InitializeComponent()
         {
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.consultas = new AppVentas.Consultas();
-            ((System.ComponentModel.ISupportInitialize)(this.consultas)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "AppVentas.RepRecibo.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "AppVentas.RepTotalTienda.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(933, 623);
             this.reportViewer1.TabIndex = 0;
             // 
-            // consultas
-            // 
-            this.consultas.DataSetName = "Consultas";
-            this.consultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // FrmRepRecibo
+            // FrmRepTotalTienda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -56,10 +49,9 @@
             this.Controls.Add(this.reportViewer1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "FrmRepRecibo";
-            this.Text = "FrmRepRecibo";
-            this.Load += new System.EventHandler(this.FrmRepRecibo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.consultas)).EndInit();
+            this.Name = "FrmRepTotalTienda";
+            this.Text = "FrmRepTotalTienda";
+            this.Load += new System.EventHandler(this.FrmRepTotalTienda_Load);
             this.ResumeLayout(false);
 
         }
@@ -67,6 +59,5 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private Consultas consultas;
     }
 }

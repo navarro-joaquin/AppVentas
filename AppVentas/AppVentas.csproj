@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LinqToExcel, Version=1.11.0.0, Culture=neutral, PublicKeyToken=9c8ea65a58f03f1f, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\LinqToExcel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -52,6 +55,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Remotion, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Interfaces, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -78,6 +90,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbsisventasDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EntidadHojaExcel.cs" />
+    <Compile Include="Excel.cs" />
     <Compile Include="FrmAlertas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,11 +158,35 @@
     <Compile Include="FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRepNuevosProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRepNuevosProductos.Designer.cs">
+      <DependentUpon>FrmRepNuevosProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRepRecibo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmRepRecibo.Designer.cs">
       <DependentUpon>FrmRepRecibo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRepTotalTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRepTotalTienda.Designer.cs">
+      <DependentUpon>FrmRepTotalTienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRepVentasDia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRepVentasDia.Designer.cs">
+      <DependentUpon>FrmRepVentasDia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRepVentasDiaAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRepVentasDiaAdm.Designer.cs">
+      <DependentUpon>FrmRepVentasDiaAdm.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUsuario.cs">
       <SubType>Form</SubType>
@@ -204,8 +242,20 @@
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmRepNuevosProductos.resx">
+      <DependentUpon>FrmRepNuevosProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRepRecibo.resx">
       <DependentUpon>FrmRepRecibo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRepTotalTienda.resx">
+      <DependentUpon>FrmRepTotalTienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRepVentasDia.resx">
+      <DependentUpon>FrmRepVentasDia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRepVentasDiaAdm.resx">
+      <DependentUpon>FrmRepVentasDiaAdm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
@@ -226,9 +276,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RepNuevosProductos.rdlc" />
     <EmbeddedResource Include="RepRecibo.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="RepTotalTienda.rdlc" />
+    <EmbeddedResource Include="RepVentasDia.rdlc" />
     <None Include="Consultas.xsc">
       <DependentUpon>Consultas.xsd</DependentUpon>
     </None>

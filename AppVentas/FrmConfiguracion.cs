@@ -21,8 +21,8 @@ namespace AppVentas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmRepRecibo frm = new FrmRepRecibo("10381527", "Alvaro Navarro", DateTime.Today.ToShortDateString(), "0000001", "10381527");
-            frm.Show();
+            FrmRepNuevosProductos rep = new FrmRepNuevosProductos("20-02-2018");
+            rep.Show();
         }
     }
 }

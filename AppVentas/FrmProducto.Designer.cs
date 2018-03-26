@@ -91,6 +91,7 @@
             this.cmbBuscar = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnExcel = new System.Windows.Forms.Button();
             lblCodigo = new System.Windows.Forms.Label();
             lblNombreProducto = new System.Windows.Forms.Label();
             lblMarca = new System.Windows.Forms.Label();
@@ -651,6 +652,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnExcel);
             this.tabPage2.Controls.Add(this.gbxDatos);
             this.tabPage2.Controls.Add(this.btnGuardar);
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
@@ -671,6 +673,16 @@
             this.lblTitulo.Size = new System.Drawing.Size(99, 24);
             this.lblTitulo.TabIndex = 6;
             this.lblTitulo.Text = "Productos";
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Location = new System.Drawing.Point(688, 350);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(97, 46);
+            this.btnExcel.TabIndex = 3;
+            this.btnExcel.Text = "Importar\r\ndesde Excel";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // FrmProducto
             // 
@@ -753,5 +765,6 @@
         private System.Windows.Forms.ComboBox cmbBuscar;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Button btnExcel;
     }
 }

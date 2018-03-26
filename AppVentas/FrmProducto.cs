@@ -322,5 +322,97 @@ namespace AppVentas
                 }
             }
         }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Archivos de Excel (*xls;*xlsx;xlsm)|*xls;*xlsx;xlsm";
+
+            dialog.Title = "Seleccionar el archivo de Excel a importar";
+
+            dialog.FileName = string.Empty;
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string ruta_al_archivo = dialog.FileName;
+                string version = ruta_al_archivo.Substring(ruta_al_archivo.Length - 1);
+                leerDatosExcel(ruta_al_archivo, version);
+            }
+        }
+
+        private void leerDatosExcel(string ruta_al_archivo, string version)
+        {
+            var excel = new Excel();
+            var resultado = excel.ToEntidadHojaExcel(ruta_al_archivo);
+
+            int nuevos = 0, modificados = 0;
+            string fecha = "";
+
+            foreach(EntidadHojaExcel hoja in resultado)
+            {
+                string codigo_producto = hoja.codigo_producto;
+                string nombre_producto = hoja.nombre_producto;
+                string marca = hoja.marca;
+                decimal valor_compra = hoja.valor_compra;
+                decimal valor_venta = hoja.valor_venta;
+                DateTime fecha_introduccion = hoja.fecha_introduccion;
+                DateTime fecha_vencimiento = hoja.fecha_vencimiento;
+                int stock = hoja.stock;
+                int stock_minimo = hoja.stock_minimo;
+                string descripcion = hoja.descripcion;
+                string proveedor = hoja.proveedor;
+                string categoria = hoja.categoria;
+
+                int id_proveedor = Convert.ToInt32(this.proveedorTableAdapter.BuscarID(proveedor));
+                int id_categoria = Convert.ToInt32(this.categoriaTableAdapter.BuscarID(categoria));
+
+                if (id_proveedor == 0)
+                {
+                    DialogResult dialog = MessageBox.Show("El proveedor no existe, ¿Desea añadirlo?", "Proveedor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialog == DialogResult.Yes)
+                    {
+                        FrmProveedor frm = new FrmProveedor(proveedor);
+                        frm.ShowDialog();
+                        id_proveedor = Convert.ToInt32(this.proveedorTableAdapter.BuscarID(proveedor));
+                    }
+                }
+
+                if (id_categoria == 0)
+                {
+                    DialogResult dialog = MessageBox.Show("La categoría no existe, ¿Desea añadirla?", "Categoría", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialog == DialogResult.Yes)
+                    {
+                        FrmCategoria frm = new FrmCategoria(categoria);
+                        frm.ShowDialog();
+                        id_categoria = Convert.ToInt32(this.categoriaTableAdapter.BuscarID(categoria));
+                    }
+                }
+
+                int id_producto = Convert.ToInt32(this.productoTableAdapter.ObtenerID(codigo_producto, nombre_producto));
+
+                if (id_producto == 0)
+                {
+                    //Insertar producto
+                    this.productoTableAdapter.InsertarSinImagen(codigo_producto, nombre_producto, marca, valor_compra, valor_venta, fecha_introduccion.ToShortDateString(), fecha_vencimiento.ToShortDateString(), stock, stock_minimo, descripcion, id_proveedor, id_categoria);
+                    nuevos++;
+                }
+                else
+                {
+                    //Actualizar cantidad y fecha
+                    this.productoTableAdapter.NuevoStock(fecha_introduccion.ToShortDateString(), stock, id_producto);
+                    modificados++;
+                }
+
+                fecha = fecha_introduccion.ToShortDateString();
+            }
+            MessageBox.Show("Se ingresaron " + nuevos + " productos y se actualizó el stock de " + modificados + " productos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            DialogResult result = MessageBox.Show("¿Desea imprimir el reporte de productos ingresados?", "Reporte", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                FrmRepNuevosProductos frm = new FrmRepNuevosProductos(fecha);
+                frm.Show();
+            }
+        }
     }
 }

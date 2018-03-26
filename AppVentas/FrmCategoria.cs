@@ -21,6 +21,14 @@ namespace AppVentas
             InitializeComponent();
         }
 
+        public FrmCategoria(string nombre)
+        {
+            InitializeComponent();
+            tabControl1.SelectedIndex = 1;
+            txtNombre.Text = nombre;
+            txtCodigo.Focus();
+        }
+
         private void FrmCategoria_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'dbsisventasDataSet.categoria' Puede moverla o quitarla según sea necesario.

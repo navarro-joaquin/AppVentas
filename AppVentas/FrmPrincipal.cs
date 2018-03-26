@@ -143,5 +143,29 @@ namespace AppVentas
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void MnuItemRepNuevoAlmacen_Click(object sender, EventArgs e)
+        {
+            FrmRepNuevosProductos frm = new FrmRepNuevosProductos();
+            frm.Show();
+        }
+
+        private void MnuItemTotalTienda_Click(object sender, EventArgs e)
+        {
+            FrmRepTotalTienda frm = new FrmRepTotalTienda();
+            frm.Show();
+        }
+
+        private void ventasDelDíaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRepVentasDia frm = new FrmRepVentasDia(id_usuario);
+            frm.Show();
+        }
+
+        private void MnuItemVentasDiaAdm_Click(object sender, EventArgs e)
+        {
+            FrmRepVentasDiaAdm frm = new FrmRepVentasDiaAdm();
+            frm.Show();
+        }
     }
 }

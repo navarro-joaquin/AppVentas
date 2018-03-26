@@ -28,8 +28,6 @@ namespace AppVentas
             fecha_venta = fechaVenta;
             numero_recibo = numeroRecibo;
             numero_nit = numeroNit;
-
-            this.sp_vista_reciboTableAdapter.Fill(this.consultas.sp_vista_recibo, 1);
         }
 
         private void FrmRepRecibo_Load(object sender, EventArgs e)

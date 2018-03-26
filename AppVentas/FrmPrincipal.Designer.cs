@@ -43,8 +43,8 @@
             this.MnuItemClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuReportes = new System.Windows.Forms.ToolStripMenuItem();
-            this.ventasDelDíaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockEnAlmacénToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemVentasDia = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemRepNuevoAlmacen = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuVer = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemHerramientas = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemEstado = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +61,8 @@
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.usuarioTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.usuarioTableAdapter();
+            this.MnuItemTotalTienda = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemVentasDiaAdm = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -96,7 +98,7 @@
             // 
             this.MnuItemSalir.Name = "MnuItemSalir";
             this.MnuItemSalir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.MnuItemSalir.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemSalir.Size = new System.Drawing.Size(138, 22);
             this.MnuItemSalir.Text = "&Salir";
             this.MnuItemSalir.Click += new System.EventHandler(this.MnuItemSalir_Click);
             // 
@@ -113,21 +115,21 @@
             // MnuItemCategorias
             // 
             this.MnuItemCategorias.Name = "MnuItemCategorias";
-            this.MnuItemCategorias.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemCategorias.Size = new System.Drawing.Size(139, 22);
             this.MnuItemCategorias.Text = "&Categorías";
             this.MnuItemCategorias.Click += new System.EventHandler(this.MnuItemCategorias_Click);
             // 
             // MnuItemProveedores
             // 
             this.MnuItemProveedores.Name = "MnuItemProveedores";
-            this.MnuItemProveedores.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemProveedores.Size = new System.Drawing.Size(139, 22);
             this.MnuItemProveedores.Text = "&Proveedores";
             this.MnuItemProveedores.Click += new System.EventHandler(this.MnuItemProveedores_Click);
             // 
             // MnuItemProductos
             // 
             this.MnuItemProductos.Name = "MnuItemProductos";
-            this.MnuItemProductos.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemProductos.Size = new System.Drawing.Size(139, 22);
             this.MnuItemProductos.Text = "Productos";
             this.MnuItemProductos.Click += new System.EventHandler(this.MnuItemProductos_Click);
             // 
@@ -143,14 +145,14 @@
             // MnuItemListadoVentas
             // 
             this.MnuItemListadoVentas.Name = "MnuItemListadoVentas";
-            this.MnuItemListadoVentas.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemListadoVentas.Size = new System.Drawing.Size(165, 22);
             this.MnuItemListadoVentas.Text = "&Listado de Ventas";
             this.MnuItemListadoVentas.Click += new System.EventHandler(this.MnuItemListadoVentas_Click);
             // 
             // MnuItemNuevaVenta
             // 
             this.MnuItemNuevaVenta.Name = "MnuItemNuevaVenta";
-            this.MnuItemNuevaVenta.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemNuevaVenta.Size = new System.Drawing.Size(165, 22);
             this.MnuItemNuevaVenta.Text = "&Nueva Venta";
             this.MnuItemNuevaVenta.Click += new System.EventHandler(this.MnuItemNuevaVenta_Click);
             // 
@@ -166,37 +168,41 @@
             // MnuItemClientes
             // 
             this.MnuItemClientes.Name = "MnuItemClientes";
-            this.MnuItemClientes.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemClientes.Size = new System.Drawing.Size(119, 22);
             this.MnuItemClientes.Text = "&Clientes";
             this.MnuItemClientes.Click += new System.EventHandler(this.MnuItemClientes_Click);
             // 
             // MnuItemUsuarios
             // 
             this.MnuItemUsuarios.Name = "MnuItemUsuarios";
-            this.MnuItemUsuarios.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemUsuarios.Size = new System.Drawing.Size(119, 22);
             this.MnuItemUsuarios.Text = "&Usuarios";
             this.MnuItemUsuarios.Click += new System.EventHandler(this.MnuItemUsuarios_Click);
             // 
             // MnuReportes
             // 
             this.MnuReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ventasDelDíaToolStripMenuItem,
-            this.stockEnAlmacénToolStripMenuItem});
+            this.MnuItemVentasDia,
+            this.MnuItemRepNuevoAlmacen,
+            this.MnuItemTotalTienda,
+            this.MnuItemVentasDiaAdm});
             this.MnuReportes.Name = "MnuReportes";
             this.MnuReportes.Size = new System.Drawing.Size(65, 20);
             this.MnuReportes.Text = "&Reportes";
             // 
-            // ventasDelDíaToolStripMenuItem
+            // MnuItemVentasDia
             // 
-            this.ventasDelDíaToolStripMenuItem.Name = "ventasDelDíaToolStripMenuItem";
-            this.ventasDelDíaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ventasDelDíaToolStripMenuItem.Text = "&Ventas del Día";
+            this.MnuItemVentasDia.Name = "MnuItemVentasDia";
+            this.MnuItemVentasDia.Size = new System.Drawing.Size(237, 22);
+            this.MnuItemVentasDia.Text = "&Ventas del Día";
+            this.MnuItemVentasDia.Click += new System.EventHandler(this.ventasDelDíaToolStripMenuItem_Click);
             // 
-            // stockEnAlmacénToolStripMenuItem
+            // MnuItemRepNuevoAlmacen
             // 
-            this.stockEnAlmacénToolStripMenuItem.Name = "stockEnAlmacénToolStripMenuItem";
-            this.stockEnAlmacénToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.stockEnAlmacénToolStripMenuItem.Text = "&Stock en Almacén";
+            this.MnuItemRepNuevoAlmacen.Name = "MnuItemRepNuevoAlmacen";
+            this.MnuItemRepNuevoAlmacen.Size = new System.Drawing.Size(237, 22);
+            this.MnuItemRepNuevoAlmacen.Text = "Nuevos Productos en Almacén";
+            this.MnuItemRepNuevoAlmacen.Click += new System.EventHandler(this.MnuItemRepNuevoAlmacen_Click);
             // 
             // MnuVer
             // 
@@ -242,33 +248,33 @@
             // MnuItemCascada
             // 
             this.MnuItemCascada.Name = "MnuItemCascada";
-            this.MnuItemCascada.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemCascada.Size = new System.Drawing.Size(175, 22);
             this.MnuItemCascada.Text = "&Cascada";
             this.MnuItemCascada.Click += new System.EventHandler(this.MnuItemCascada_Click);
             // 
             // MnuItemVertical
             // 
             this.MnuItemVertical.Name = "MnuItemVertical";
-            this.MnuItemVertical.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemVertical.Size = new System.Drawing.Size(175, 22);
             this.MnuItemVertical.Text = "Mosaico &vertical";
             this.MnuItemVertical.Click += new System.EventHandler(this.MnuItemVertical_Click);
             // 
             // MnuItemHorizontal
             // 
             this.MnuItemHorizontal.Name = "MnuItemHorizontal";
-            this.MnuItemHorizontal.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemHorizontal.Size = new System.Drawing.Size(175, 22);
             this.MnuItemHorizontal.Text = "Mosaico &horizontal";
             this.MnuItemHorizontal.Click += new System.EventHandler(this.MnuItemHorizontal_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(172, 6);
             // 
             // MnuItemCerrarTodo
             // 
             this.MnuItemCerrarTodo.Name = "MnuItemCerrarTodo";
-            this.MnuItemCerrarTodo.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemCerrarTodo.Size = new System.Drawing.Size(175, 22);
             this.MnuItemCerrarTodo.Text = "C&errar todo";
             this.MnuItemCerrarTodo.Click += new System.EventHandler(this.MnuItemCerrarTodo_Click);
             // 
@@ -283,7 +289,7 @@
             // MnuItemConfiguracion
             // 
             this.MnuItemConfiguracion.Name = "MnuItemConfiguracion";
-            this.MnuItemConfiguracion.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemConfiguracion.Size = new System.Drawing.Size(150, 22);
             this.MnuItemConfiguracion.Text = "Configuración";
             this.MnuItemConfiguracion.Click += new System.EventHandler(this.MnuItemConfiguracion_Click);
             // 
@@ -314,6 +320,20 @@
             // usuarioTableAdapter
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
+            // 
+            // MnuItemTotalTienda
+            // 
+            this.MnuItemTotalTienda.Name = "MnuItemTotalTienda";
+            this.MnuItemTotalTienda.Size = new System.Drawing.Size(237, 22);
+            this.MnuItemTotalTienda.Text = "Precio Total Tienda";
+            this.MnuItemTotalTienda.Click += new System.EventHandler(this.MnuItemTotalTienda_Click);
+            // 
+            // MnuItemVentasDiaAdm
+            // 
+            this.MnuItemVentasDiaAdm.Name = "MnuItemVentasDiaAdm";
+            this.MnuItemVentasDiaAdm.Size = new System.Drawing.Size(237, 22);
+            this.MnuItemVentasDiaAdm.Text = "Ventas del Día (Administrador)";
+            this.MnuItemVentasDiaAdm.Click += new System.EventHandler(this.MnuItemVentasDiaAdm_Click);
             // 
             // FrmPrincipal
             // 
@@ -369,11 +389,13 @@
         private System.Windows.Forms.ToolStripMenuItem MnuItemUsuarios;
         private System.Windows.Forms.ToolStripMenuItem MnuItemNuevaVenta;
         private System.Windows.Forms.ToolStripMenuItem MnuReportes;
-        private System.Windows.Forms.ToolStripMenuItem ventasDelDíaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stockEnAlmacénToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MnuItemVentasDia;
         private dbsisventasDataSetTableAdapters.usuarioTableAdapter usuarioTableAdapter;
         private System.Windows.Forms.ToolStripMenuItem MnuHerramientas;
         private System.Windows.Forms.ToolStripMenuItem MnuItemConfiguracion;
+        private System.Windows.Forms.ToolStripMenuItem MnuItemRepNuevoAlmacen;
+        private System.Windows.Forms.ToolStripMenuItem MnuItemTotalTienda;
+        private System.Windows.Forms.ToolStripMenuItem MnuItemVentasDiaAdm;
     }
 }
 
