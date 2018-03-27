@@ -34,6 +34,7 @@ namespace AppVentas
         {
             txtNombre.ResetText();
             txtNITCI.ResetText();
+            txtCodigoDescuento.ResetText();
             txtNombre.Focus();
         }
 

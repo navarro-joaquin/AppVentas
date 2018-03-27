@@ -106,7 +106,7 @@ namespace AppVentas
             string cs = AppVentas.Properties.Settings.Default.dbsisventasConnString;
             SqlConnection cn = new SqlConnection(cs);
 
-            string query = "select p.nombre_producto, dv.cantidad, dv.precio, dv.subtotal, v.total_venta from detalle_venta dv " +
+            string query = "select p.nombre_producto, dv.cantidad, dv.precio, dv.subtotal, v.descuento, v.total_venta, (v.total_venta - v.descuento) as a_pagar from detalle_venta dv " +
                             "inner join producto p " +
                             "on dv.id_producto = p.id " +
                             "inner join venta v " +

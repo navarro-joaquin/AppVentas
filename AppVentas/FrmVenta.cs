@@ -21,12 +21,14 @@ namespace AppVentas
         private bool nuevoCliente = false;
         private int id_usuario = -1;
         private RepRecibo recibo = new RepRecibo();
+        private int porcentaje_descuento = 0;
 
         public FrmVenta(int id)
         {
             InitializeComponent();
             CrearTabla();
             txtTotal.Text = total.ToString("#0.00#");
+            txtDescuento.Text = total.ToString("#0.00#");
             id_usuario = id;
         }
 
@@ -178,6 +180,7 @@ namespace AppVentas
         {
             txtNITCI.ResetText();
             txtNombreCliente.ResetText();
+            cmbTipoCliente.SelectedIndex = 0;
         }
 
         private void LimpiarDetalle()
@@ -291,7 +294,8 @@ namespace AppVentas
                 }
                 else
                 {
-                    FrmPagado frm = new FrmPagado(total);
+                    decimal descuento = Convert.ToDecimal(txtDescuento.Text);
+                    FrmPagado frm = new FrmPagado(total - descuento);
                     frm.ShowDialog();
                     decimal importe_pagado = frm.Importe_pagado;
 
@@ -323,9 +327,9 @@ namespace AppVentas
 
                         int id_cliente = Convert.ToInt32(this.clienteTableAdapter.ObtenerID(txtNombreCliente.Text, txtNITCI.Text));
 
-                        this.ventaTableAdapter.InsertarVenta(DateTime.Today.ToShortDateString(), total, 0, importe_pagado, "00-00-00-00-00", "", id_cliente, id_usuario);
+                        this.ventaTableAdapter.InsertarVenta(DateTime.Today.ToShortDateString(), total, descuento, importe_pagado, "00-00-00-00-00", "", id_cliente, id_usuario);
 
-                        int id_venta = Convert.ToInt32(this.ventaTableAdapter.ObtenerID(DateTime.Today.ToShortDateString(), total, 0, importe_pagado, "00-00-00-00-00", "", id_cliente, id_usuario));
+                        int id_venta = Convert.ToInt32(this.ventaTableAdapter.ObtenerID(DateTime.Today.ToShortDateString(), total, descuento, importe_pagado, "00-00-00-00-00", "", id_cliente, id_usuario));
 
                         //Insertar detalle de venta
 
@@ -361,6 +365,43 @@ namespace AppVentas
                         //Reiniciar el total de la venta a 0
                         total = 0;
                         txtTotal.Text = total.ToString("#0.00#");
+                        txtDescuento.Text = total.ToString("#0.00#");
+                    }
+                }
+            }
+        }
+
+        private void FrmVenta_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'dbsisventasDataSet.tipo_cliente' Puede moverla o quitarla según sea necesario.
+            this.tipo_clienteTableAdapter.Fill(this.dbsisventasDataSet.tipo_cliente);
+
+        }
+
+        private void cmbTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTipoCliente.Text.Equals("Preferencial"))
+            {
+                if (txtNITCI.Text.Equals("") || txtNombreCliente.Text.Equals(""))
+                {
+                    MessageBox.Show("Complete los datos del cliente antes de comprobar el código");
+                }
+                else
+                {
+                    string codigo_descuento = Microsoft.VisualBasic.Interaction.InputBox("Introduzca el código de descuento del cliente", "Descuento", "");
+
+                    int id_cliente = Convert.ToInt32(this.clienteTableAdapter.ComprobarCodigo(codigo_descuento, txtNITCI.Text, txtNombreCliente.Text));
+
+                    if (id_cliente != 0)
+                    {
+                        porcentaje_descuento = Convert.ToInt32(cmbTipoCliente.SelectedValue);
+
+                        txtDescuento.Text = ((total * porcentaje_descuento) / 100).ToString("#0.00#");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El código es incorrecto");
+                        cmbTipoCliente.SelectedIndex = 0;
                     }
                 }
             }

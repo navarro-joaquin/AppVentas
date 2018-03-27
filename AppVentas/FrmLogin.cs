@@ -38,13 +38,24 @@ namespace AppVentas
                 try
                 {
                     int id = Convert.ToInt32(this.usuarioTableAdapter.Login(usuario, contraseña));
+                    int nivel_acceso = Convert.ToInt32(this.usuarioTableAdapter.GetNivelAcceso(id));
                     if (id != 0)
                     {
                         LimpiarCajas();
-                        FrmPrincipal frm = new FrmPrincipal(id);
-                        this.Hide();
-                        frm.ShowDialog();
-                        this.Show();
+                        if (nivel_acceso == 3)
+                        {
+                            FrmVistaVendedor frm = new FrmVistaVendedor(id);
+                            this.Hide();
+                            frm.ShowDialog();
+                            this.Show();
+                        }
+                        else
+                        {
+                            FrmPrincipal frm = new FrmPrincipal(id);
+                            this.Hide();
+                            frm.ShowDialog();
+                            this.Show();
+                        }
                     }
                     else
                     {

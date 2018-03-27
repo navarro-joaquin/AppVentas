@@ -41,7 +41,13 @@ namespace AppVentas
                     break;
                 case 3:
                     toolStripStatusLabel.Text = "Vendedor";
-                    MnuAlmacen.Enabled = false;
+                    MnuPersonas.Visible = false;
+                    MnuAlmacen.Visible = false;
+                    MnuItemListadoVentas.Visible = false;
+                    MnuItemVentasDiaAdm.Visible = false;
+                    MnuItemRepNuevoAlmacen.Visible = false;
+                    MnuItemTotalTienda.Visible = false;
+                    MnuHerramientas.Visible = false;
                     break;
             }
         }

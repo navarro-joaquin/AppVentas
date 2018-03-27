@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbxProducto = new System.Windows.Forms.GroupBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
@@ -43,6 +44,9 @@
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
             this.lblCodigoProducto = new System.Windows.Forms.Label();
             this.gbxCliente = new System.Windows.Forms.GroupBox();
+            this.cmbTipoCliente = new System.Windows.Forms.ComboBox();
+            this.tipoclienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbsisventasDataSet = new AppVentas.dbsisventasDataSet();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.lblNombreCliente = new System.Windows.Forms.Label();
@@ -57,8 +61,13 @@
             this.btnVender = new System.Windows.Forms.Button();
             this.ventaTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.ventaTableAdapter();
             this.detalle_ventaTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.detalle_ventaTableAdapter();
+            this.tipo_clienteTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.tipo_clienteTableAdapter();
+            this.lblDescuento = new System.Windows.Forms.Label();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
             this.gbxProducto.SuspendLayout();
             this.gbxCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoclienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).BeginInit();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).BeginInit();
             this.SuspendLayout();
@@ -201,6 +210,7 @@
             // 
             // gbxCliente
             // 
+            this.gbxCliente.Controls.Add(this.cmbTipoCliente);
             this.gbxCliente.Controls.Add(this.btnBuscarCliente);
             this.gbxCliente.Controls.Add(this.txtNombreCliente);
             this.gbxCliente.Controls.Add(this.lblNombreCliente);
@@ -212,6 +222,28 @@
             this.gbxCliente.TabIndex = 1;
             this.gbxCliente.TabStop = false;
             this.gbxCliente.Text = "Cliente:";
+            // 
+            // cmbTipoCliente
+            // 
+            this.cmbTipoCliente.DataSource = this.tipoclienteBindingSource;
+            this.cmbTipoCliente.DisplayMember = "tipo";
+            this.cmbTipoCliente.FormattingEnabled = true;
+            this.cmbTipoCliente.Location = new System.Drawing.Point(346, 23);
+            this.cmbTipoCliente.Name = "cmbTipoCliente";
+            this.cmbTipoCliente.Size = new System.Drawing.Size(121, 26);
+            this.cmbTipoCliente.TabIndex = 5;
+            this.cmbTipoCliente.ValueMember = "porcentaje_descuento";
+            this.cmbTipoCliente.SelectedIndexChanged += new System.EventHandler(this.cmbTipoCliente_SelectedIndexChanged);
+            // 
+            // tipoclienteBindingSource
+            // 
+            this.tipoclienteBindingSource.DataMember = "tipo_cliente";
+            this.tipoclienteBindingSource.DataSource = this.dbsisventasDataSet;
+            // 
+            // dbsisventasDataSet
+            // 
+            this.dbsisventasDataSet.DataSetName = "dbsisventasDataSet";
+            this.dbsisventasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnBuscarCliente
             // 
@@ -322,11 +354,35 @@
             // 
             this.detalle_ventaTableAdapter.ClearBeforeFill = true;
             // 
+            // tipo_clienteTableAdapter
+            // 
+            this.tipo_clienteTableAdapter.ClearBeforeFill = true;
+            // 
+            // lblDescuento
+            // 
+            this.lblDescuento.AutoSize = true;
+            this.lblDescuento.Location = new System.Drawing.Point(243, 575);
+            this.lblDescuento.Name = "lblDescuento";
+            this.lblDescuento.Size = new System.Drawing.Size(71, 18);
+            this.lblDescuento.TabIndex = 5;
+            this.lblDescuento.Text = "Descuento:";
+            // 
+            // txtDescuento
+            // 
+            this.txtDescuento.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtDescuento.Location = new System.Drawing.Point(336, 571);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(116, 20);
+            this.txtDescuento.TabIndex = 6;
+            this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(766, 626);
+            this.Controls.Add(this.txtDescuento);
+            this.Controls.Add(this.lblDescuento);
             this.Controls.Add(this.btnVender);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.lblTotal);
@@ -337,10 +393,13 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmVenta";
             this.Text = "FrmVenta";
+            this.Load += new System.EventHandler(this.FrmVenta_Load);
             this.gbxProducto.ResumeLayout(false);
             this.gbxProducto.PerformLayout();
             this.gbxCliente.ResumeLayout(false);
             this.gbxCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tipoclienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).EndInit();
             this.gbxListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).EndInit();
             this.ResumeLayout(false);
@@ -379,5 +438,11 @@
         private System.Windows.Forms.Button btnVender;
         private dbsisventasDataSetTableAdapters.ventaTableAdapter ventaTableAdapter;
         private dbsisventasDataSetTableAdapters.detalle_ventaTableAdapter detalle_ventaTableAdapter;
+        private System.Windows.Forms.ComboBox cmbTipoCliente;
+        private dbsisventasDataSet dbsisventasDataSet;
+        private System.Windows.Forms.BindingSource tipoclienteBindingSource;
+        private dbsisventasDataSetTableAdapters.tipo_clienteTableAdapter tipo_clienteTableAdapter;
+        private System.Windows.Forms.Label lblDescuento;
+        private System.Windows.Forms.TextBox txtDescuento;
     }
 }

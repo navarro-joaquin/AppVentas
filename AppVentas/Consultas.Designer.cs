@@ -394,6 +394,10 @@ namespace AppVentas {
             
             private global::System.Data.DataColumn columntotal_venta;
             
+            private global::System.Data.DataColumn columndescuento;
+            
+            private global::System.Data.DataColumn columna_pagar;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DetalleVentaDataTable() {
@@ -469,6 +473,22 @@ namespace AppVentas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn descuentoColumn {
+                get {
+                    return this.columndescuento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn a_pagarColumn {
+                get {
+                    return this.columna_pagar;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -504,14 +524,16 @@ namespace AppVentas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DetalleVentaRow AddDetalleVentaRow(string nombre_producto, int cantidad, decimal precio, decimal subtotal, decimal total_venta) {
+            public DetalleVentaRow AddDetalleVentaRow(string nombre_producto, int cantidad, decimal precio, decimal subtotal, decimal total_venta, decimal descuento, decimal a_pagar) {
                 DetalleVentaRow rowDetalleVentaRow = ((DetalleVentaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nombre_producto,
                         cantidad,
                         precio,
                         subtotal,
-                        total_venta};
+                        total_venta,
+                        descuento,
+                        a_pagar};
                 rowDetalleVentaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDetalleVentaRow);
                 return rowDetalleVentaRow;
@@ -539,6 +561,8 @@ namespace AppVentas {
                 this.columnprecio = base.Columns["precio"];
                 this.columnsubtotal = base.Columns["subtotal"];
                 this.columntotal_venta = base.Columns["total_venta"];
+                this.columndescuento = base.Columns["descuento"];
+                this.columna_pagar = base.Columns["a_pagar"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -554,12 +578,18 @@ namespace AppVentas {
                 base.Columns.Add(this.columnsubtotal);
                 this.columntotal_venta = new global::System.Data.DataColumn("total_venta", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntotal_venta);
+                this.columndescuento = new global::System.Data.DataColumn("descuento", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescuento);
+                this.columna_pagar = new global::System.Data.DataColumn("a_pagar", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columna_pagar);
                 this.columnnombre_producto.AllowDBNull = false;
                 this.columnnombre_producto.MaxLength = 60;
                 this.columncantidad.AllowDBNull = false;
                 this.columnprecio.AllowDBNull = false;
                 this.columnsubtotal.AllowDBNull = false;
                 this.columntotal_venta.AllowDBNull = false;
+                this.columndescuento.AllowDBNull = false;
+                this.columna_pagar.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1807,6 +1837,45 @@ namespace AppVentas {
                     this[this.tableDetalleVenta.total_ventaColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal descuento {
+                get {
+                    return ((decimal)(this[this.tableDetalleVenta.descuentoColumn]));
+                }
+                set {
+                    this[this.tableDetalleVenta.descuentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal a_pagar {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDetalleVenta.a_pagarColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'a_pagar\' de la tabla \'DetalleVenta\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDetalleVenta.a_pagarColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isa_pagarNull() {
+                return this.IsNull(this.tableDetalleVenta.a_pagarColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Seta_pagarNull() {
+                this[this.tableDetalleVenta.a_pagarColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2461,6 +2530,8 @@ namespace AppVentas.ConsultasTableAdapters {
             tableMapping.ColumnMappings.Add("precio", "precio");
             tableMapping.ColumnMappings.Add("subtotal", "subtotal");
             tableMapping.ColumnMappings.Add("total_venta", "total_venta");
+            tableMapping.ColumnMappings.Add("descuento", "descuento");
+            tableMapping.ColumnMappings.Add("a_pagar", "a_pagar");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2474,20 +2545,14 @@ namespace AppVentas.ConsultasTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "select p.nombre_producto, dv.cantidad, dv.precio, dv.subtotal, v.total_venta from" +
-                " detalle_venta dv\r\ninner join producto p\r\non dv.id_producto = p.id\r\ninner join v" +
-                "enta v\r\non dv.id_venta = v.id";
+            this._commandCollection[0].CommandText = "select p.nombre_producto, dv.cantidad, dv.precio, dv.subtotal, v.descuento, v.tot" +
+                "al_venta, (v.total_venta - v.descuento) as a_pagar from detalle_venta dv\r\ninner " +
+                "join producto p\r\non dv.id_producto = p.id\r\ninner join venta v\r\non dv.id_venta = " +
+                "v.id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "select p.nombre_producto, dv.cantidad, dv.precio, dv.subtotal, v.total_venta from" +
-                " detalle_venta dv\r\ninner join producto p\r\non dv.id_producto = p.id\r\ninner join v" +
-                "enta v\r\non dv.id_venta = v.id\r\nwhere dv.id_venta = @idventa";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idventa", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_venta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2509,32 +2574,6 @@ namespace AppVentas.ConsultasTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual Consultas.DetalleVentaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Consultas.DetalleVentaDataTable dataTable = new Consultas.DetalleVentaDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByID(Consultas.DetalleVentaDataTable dataTable, int idventa) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idventa));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Consultas.DetalleVentaDataTable GetDataByID(int idventa) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idventa));
             Consultas.DetalleVentaDataTable dataTable = new Consultas.DetalleVentaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

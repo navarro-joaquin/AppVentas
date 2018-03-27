@@ -42,6 +42,7 @@
             this.MnuPersonas = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemTipoCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemVentasDia = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemRepNuevoAlmacen = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +64,6 @@
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.usuarioTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.usuarioTableAdapter();
-            this.MnuItemTipoCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -170,16 +170,23 @@
             // MnuItemClientes
             // 
             this.MnuItemClientes.Name = "MnuItemClientes";
-            this.MnuItemClientes.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemClientes.Size = new System.Drawing.Size(154, 22);
             this.MnuItemClientes.Text = "&Clientes";
             this.MnuItemClientes.Click += new System.EventHandler(this.MnuItemClientes_Click);
             // 
             // MnuItemUsuarios
             // 
             this.MnuItemUsuarios.Name = "MnuItemUsuarios";
-            this.MnuItemUsuarios.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemUsuarios.Size = new System.Drawing.Size(154, 22);
             this.MnuItemUsuarios.Text = "&Usuarios";
             this.MnuItemUsuarios.Click += new System.EventHandler(this.MnuItemUsuarios_Click);
+            // 
+            // MnuItemTipoCliente
+            // 
+            this.MnuItemTipoCliente.Name = "MnuItemTipoCliente";
+            this.MnuItemTipoCliente.Size = new System.Drawing.Size(154, 22);
+            this.MnuItemTipoCliente.Text = "&Tipo de Cliente";
+            this.MnuItemTipoCliente.Click += new System.EventHandler(this.MnuItemTipoCliente_Click);
             // 
             // MnuReportes
             // 
@@ -336,13 +343,6 @@
             // usuarioTableAdapter
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
-            // 
-            // MnuItemTipoCliente
-            // 
-            this.MnuItemTipoCliente.Name = "MnuItemTipoCliente";
-            this.MnuItemTipoCliente.Size = new System.Drawing.Size(180, 22);
-            this.MnuItemTipoCliente.Text = "&Tipo de Cliente";
-            this.MnuItemTipoCliente.Click += new System.EventHandler(this.MnuItemTipoCliente_Click);
             // 
             // FrmPrincipal
             // 
