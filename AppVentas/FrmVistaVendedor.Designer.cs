@@ -32,6 +32,7 @@
             this.btnVender = new System.Windows.Forms.Button();
             this.btnReporte = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnProforma = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,9 +53,9 @@
             this.btnVender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVender.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.btnVender.Location = new System.Drawing.Point(101, 213);
+            this.btnVender.Location = new System.Drawing.Point(13, 213);
             this.btnVender.Name = "btnVender";
-            this.btnVender.Size = new System.Drawing.Size(248, 83);
+            this.btnVender.Size = new System.Drawing.Size(231, 73);
             this.btnVender.TabIndex = 1;
             this.btnVender.Text = "&Vender";
             this.btnVender.UseVisualStyleBackColor = false;
@@ -67,9 +68,9 @@
             this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporte.Font = new System.Drawing.Font("Trebuchet MS", 18F);
             this.btnReporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.btnReporte.Location = new System.Drawing.Point(407, 213);
+            this.btnReporte.Location = new System.Drawing.Point(515, 213);
             this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(248, 83);
+            this.btnReporte.Size = new System.Drawing.Size(231, 73);
             this.btnReporte.TabIndex = 2;
             this.btnReporte.Text = "&Generar Reporte";
             this.btnReporte.UseVisualStyleBackColor = false;
@@ -82,13 +83,28 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Trebuchet MS", 18F);
             this.btnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.btnSalir.Location = new System.Drawing.Point(252, 315);
+            this.btnSalir.Location = new System.Drawing.Point(256, 317);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(248, 83);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnProforma
+            // 
+            this.btnProforma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(96)))), ((int)(((byte)(54)))));
+            this.btnProforma.FlatAppearance.BorderSize = 0;
+            this.btnProforma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProforma.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProforma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnProforma.Location = new System.Drawing.Point(264, 213);
+            this.btnProforma.Name = "btnProforma";
+            this.btnProforma.Size = new System.Drawing.Size(231, 73);
+            this.btnProforma.TabIndex = 4;
+            this.btnProforma.Text = "&Crear Proforma";
+            this.btnProforma.UseVisualStyleBackColor = false;
+            this.btnProforma.Click += new System.EventHandler(this.btnProforma_Click);
             // 
             // FrmVistaVendedor
             // 
@@ -98,6 +114,7 @@
             this.BackgroundImage = global::AppVentas.Properties.Resources.Fondo_Claro;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(758, 457);
+            this.Controls.Add(this.btnProforma);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.btnVender);
@@ -119,5 +136,6 @@
         private System.Windows.Forms.Button btnVender;
         private System.Windows.Forms.Button btnReporte;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnProforma;
     }
 }

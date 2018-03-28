@@ -36,5 +36,11 @@ namespace AppVentas
         {
             this.Close();
         }
+
+        private void btnProforma_Click(object sender, EventArgs e)
+        {
+            FrmProforma frm = new FrmProforma(id_usuario);
+            frm.Show();
+        }
     }
 }

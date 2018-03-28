@@ -110,6 +110,30 @@ on v.id_usuario = u.id</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DetalleProformaTableAdapter" GeneratorDataComponentClassName="DetalleProformaTableAdapter" Name="DetalleProforma" UserDataComponentName="DetalleProformaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbsisventasConnString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select p.nombre_producto, dp.cantidad, dp.precio, dp.subtotal, pr.total_venta from detalle_proforma dp
+inner join producto p
+on dp.id_producto = p.id
+inner join proforma pr
+on dp.id_proforma = pr.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nombre_producto" DataSetColumn="nombre_producto" />
+              <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
+              <Mapping SourceColumn="precio" DataSetColumn="precio" />
+              <Mapping SourceColumn="subtotal" DataSetColumn="subtotal" />
+              <Mapping SourceColumn="total_venta" DataSetColumn="total_venta" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -118,7 +142,7 @@ on v.id_usuario = u.id</CommandText>
   <xs:element name="Consultas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Consultas" msprop:Generator_UserDSName="Consultas">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DetalleVenta" msprop:Generator_TableClassName="DetalleVentaDataTable" msprop:Generator_TableVarName="tableDetalleVenta" msprop:Generator_TablePropName="DetalleVenta" msprop:Generator_RowDeletingName="DetalleVentaRowDeleting" msprop:Generator_RowChangingName="DetalleVentaRowChanging" msprop:Generator_RowEvHandlerName="DetalleVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleVentaRowDeleted" msprop:Generator_UserTableName="DetalleVenta" msprop:Generator_RowChangedName="DetalleVentaRowChanged" msprop:Generator_RowEvArgName="DetalleVentaRowChangeEvent" msprop:Generator_RowClassName="DetalleVentaRow">
+        <xs:element name="DetalleVenta" msprop:Generator_TableClassName="DetalleVentaDataTable" msprop:Generator_TableVarName="tableDetalleVenta" msprop:Generator_RowChangedName="DetalleVentaRowChanged" msprop:Generator_TablePropName="DetalleVenta" msprop:Generator_RowDeletingName="DetalleVentaRowDeleting" msprop:Generator_RowChangingName="DetalleVentaRowChanging" msprop:Generator_RowEvHandlerName="DetalleVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleVentaRowDeleted" msprop:Generator_RowClassName="DetalleVentaRow" msprop:Generator_UserTableName="DetalleVenta" msprop:Generator_RowEvArgName="DetalleVentaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nombre_producto" msprop:Generator_ColumnVarNameInTable="columnnombre_producto" msprop:Generator_ColumnPropNameInRow="nombre_producto" msprop:Generator_ColumnPropNameInTable="nombre_productoColumn" msprop:Generator_UserColumnName="nombre_producto">
@@ -137,7 +161,7 @@ on v.id_usuario = u.id</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DetalleIngresoAlmacen" msprop:Generator_TableClassName="DetalleIngresoAlmacenDataTable" msprop:Generator_TableVarName="tableDetalleIngresoAlmacen" msprop:Generator_TablePropName="DetalleIngresoAlmacen" msprop:Generator_RowDeletingName="DetalleIngresoAlmacenRowDeleting" msprop:Generator_RowChangingName="DetalleIngresoAlmacenRowChanging" msprop:Generator_RowEvHandlerName="DetalleIngresoAlmacenRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleIngresoAlmacenRowDeleted" msprop:Generator_UserTableName="DetalleIngresoAlmacen" msprop:Generator_RowChangedName="DetalleIngresoAlmacenRowChanged" msprop:Generator_RowEvArgName="DetalleIngresoAlmacenRowChangeEvent" msprop:Generator_RowClassName="DetalleIngresoAlmacenRow">
+        <xs:element name="DetalleIngresoAlmacen" msprop:Generator_TableClassName="DetalleIngresoAlmacenDataTable" msprop:Generator_TableVarName="tableDetalleIngresoAlmacen" msprop:Generator_RowChangedName="DetalleIngresoAlmacenRowChanged" msprop:Generator_TablePropName="DetalleIngresoAlmacen" msprop:Generator_RowDeletingName="DetalleIngresoAlmacenRowDeleting" msprop:Generator_RowChangingName="DetalleIngresoAlmacenRowChanging" msprop:Generator_RowEvHandlerName="DetalleIngresoAlmacenRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleIngresoAlmacenRowDeleted" msprop:Generator_RowClassName="DetalleIngresoAlmacenRow" msprop:Generator_UserTableName="DetalleIngresoAlmacen" msprop:Generator_RowEvArgName="DetalleIngresoAlmacenRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="codigo" msprop:Generator_ColumnVarNameInTable="columncodigo" msprop:Generator_ColumnPropNameInRow="codigo" msprop:Generator_ColumnPropNameInTable="codigoColumn" msprop:Generator_UserColumnName="codigo">
@@ -183,7 +207,7 @@ on v.id_usuario = u.id</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DetalleTotalTienda" msprop:Generator_TableClassName="DetalleTotalTiendaDataTable" msprop:Generator_TableVarName="tableDetalleTotalTienda" msprop:Generator_RowChangedName="DetalleTotalTiendaRowChanged" msprop:Generator_TablePropName="DetalleTotalTienda" msprop:Generator_RowDeletingName="DetalleTotalTiendaRowDeleting" msprop:Generator_RowChangingName="DetalleTotalTiendaRowChanging" msprop:Generator_RowEvHandlerName="DetalleTotalTiendaRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleTotalTiendaRowDeleted" msprop:Generator_RowClassName="DetalleTotalTiendaRow" msprop:Generator_UserTableName="DetalleTotalTienda" msprop:Generator_RowEvArgName="DetalleTotalTiendaRowChangeEvent">
+        <xs:element name="DetalleTotalTienda" msprop:Generator_TableClassName="DetalleTotalTiendaDataTable" msprop:Generator_TableVarName="tableDetalleTotalTienda" msprop:Generator_TablePropName="DetalleTotalTienda" msprop:Generator_RowDeletingName="DetalleTotalTiendaRowDeleting" msprop:Generator_RowChangingName="DetalleTotalTiendaRowChanging" msprop:Generator_RowEvHandlerName="DetalleTotalTiendaRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleTotalTiendaRowDeleted" msprop:Generator_UserTableName="DetalleTotalTienda" msprop:Generator_RowChangedName="DetalleTotalTiendaRowChanged" msprop:Generator_RowEvArgName="DetalleTotalTiendaRowChangeEvent" msprop:Generator_RowClassName="DetalleTotalTiendaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="codigo" msprop:Generator_ColumnVarNameInTable="columncodigo" msprop:Generator_ColumnPropNameInRow="codigo" msprop:Generator_ColumnPropNameInTable="codigoColumn" msprop:Generator_UserColumnName="codigo">
@@ -207,7 +231,7 @@ on v.id_usuario = u.id</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DetalleVentasDia" msprop:Generator_TableClassName="DetalleVentasDiaDataTable" msprop:Generator_TableVarName="tableDetalleVentasDia" msprop:Generator_RowChangedName="DetalleVentasDiaRowChanged" msprop:Generator_TablePropName="DetalleVentasDia" msprop:Generator_RowDeletingName="DetalleVentasDiaRowDeleting" msprop:Generator_RowChangingName="DetalleVentasDiaRowChanging" msprop:Generator_RowEvHandlerName="DetalleVentasDiaRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleVentasDiaRowDeleted" msprop:Generator_RowClassName="DetalleVentasDiaRow" msprop:Generator_UserTableName="DetalleVentasDia" msprop:Generator_RowEvArgName="DetalleVentasDiaRowChangeEvent">
+        <xs:element name="DetalleVentasDia" msprop:Generator_TableClassName="DetalleVentasDiaDataTable" msprop:Generator_TableVarName="tableDetalleVentasDia" msprop:Generator_TablePropName="DetalleVentasDia" msprop:Generator_RowDeletingName="DetalleVentasDiaRowDeleting" msprop:Generator_RowChangingName="DetalleVentasDiaRowChanging" msprop:Generator_RowEvHandlerName="DetalleVentasDiaRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleVentasDiaRowDeleted" msprop:Generator_UserTableName="DetalleVentasDia" msprop:Generator_RowChangedName="DetalleVentasDiaRowChanged" msprop:Generator_RowEvArgName="DetalleVentasDiaRowChangeEvent" msprop:Generator_RowClassName="DetalleVentasDiaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="numero_factura" msprop:Generator_ColumnVarNameInTable="columnnumero_factura" msprop:Generator_ColumnPropNameInRow="numero_factura" msprop:Generator_ColumnPropNameInTable="numero_facturaColumn" msprop:Generator_UserColumnName="numero_factura">
@@ -235,6 +259,23 @@ on v.id_usuario = u.id</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="suma_total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsuma_total" msprop:Generator_ColumnPropNameInRow="suma_total" msprop:Generator_ColumnPropNameInTable="suma_totalColumn" msprop:Generator_UserColumnName="suma_total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DetalleProforma" msprop:Generator_TableClassName="DetalleProformaDataTable" msprop:Generator_TableVarName="tableDetalleProforma" msprop:Generator_TablePropName="DetalleProforma" msprop:Generator_RowDeletingName="DetalleProformaRowDeleting" msprop:Generator_RowChangingName="DetalleProformaRowChanging" msprop:Generator_RowEvHandlerName="DetalleProformaRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleProformaRowDeleted" msprop:Generator_UserTableName="DetalleProforma" msprop:Generator_RowChangedName="DetalleProformaRowChanged" msprop:Generator_RowEvArgName="DetalleProformaRowChangeEvent" msprop:Generator_RowClassName="DetalleProformaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre_producto" msprop:Generator_ColumnVarNameInTable="columnnombre_producto" msprop:Generator_ColumnPropNameInRow="nombre_producto" msprop:Generator_ColumnPropNameInTable="nombre_productoColumn" msprop:Generator_UserColumnName="nombre_producto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:int" />
+              <xs:element name="precio" msprop:Generator_ColumnVarNameInTable="columnprecio" msprop:Generator_ColumnPropNameInRow="precio" msprop:Generator_ColumnPropNameInTable="precioColumn" msprop:Generator_UserColumnName="precio" type="xs:decimal" />
+              <xs:element name="subtotal" msprop:Generator_ColumnVarNameInTable="columnsubtotal" msprop:Generator_ColumnPropNameInRow="subtotal" msprop:Generator_ColumnPropNameInTable="subtotalColumn" msprop:Generator_UserColumnName="subtotal" type="xs:decimal" />
+              <xs:element name="total_venta" msprop:Generator_ColumnVarNameInTable="columntotal_venta" msprop:Generator_ColumnPropNameInRow="total_venta" msprop:Generator_ColumnPropNameInTable="total_ventaColumn" msprop:Generator_UserColumnName="total_venta" type="xs:decimal" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
