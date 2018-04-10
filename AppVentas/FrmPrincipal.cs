@@ -37,7 +37,12 @@ namespace AppVentas
                     break;
                 case 2:
                     toolStripStatusLabel.Text = "Almacenero";
-                    MnuVentas.Enabled = false;
+                    MnuVentas.Visible = false;
+                    MnuProformas.Visible = false;
+                    MnuPersonas.Visible = false;
+                    MnuHerramientas.Visible = false;
+                    MnuItemVentasDia.Visible = false;
+                    MnuItemVentasDiaAdm.Visible = false;
                     break;
                 case 3:
                     toolStripStatusLabel.Text = "Vendedor";
@@ -92,35 +97,35 @@ namespace AppVentas
 
         private void MnuItemCategorias_Click(object sender, EventArgs e)
         {
-            FrmCategoria frm = new FrmCategoria();
+            FrmCategoria frm = new FrmCategoria(nivel_acceso);
             frm.MdiParent = this;
             frm.Show();
         }
 
         private void MnuItemUsuarios_Click(object sender, EventArgs e)
         {
-            FrmUsuario frm = new FrmUsuario();
+            FrmUsuario frm = new FrmUsuario(nivel_acceso);
             frm.MdiParent = this;
             frm.Show();
         }
 
         private void MnuItemClientes_Click(object sender, EventArgs e)
         {
-            FrmCliente frm = new FrmCliente();
+            FrmCliente frm = new FrmCliente(nivel_acceso);
             frm.MdiParent = this;
             frm.Show();
         }
 
         private void MnuItemProveedores_Click(object sender, EventArgs e)
         {
-            FrmProveedor frm = new FrmProveedor();
+            FrmProveedor frm = new FrmProveedor(nivel_acceso);
             frm.MdiParent = this;
             frm.Show();
         }
 
         private void MnuItemProductos_Click(object sender, EventArgs e)
         {
-            FrmProducto frm = new FrmProducto();
+            FrmProducto frm = new FrmProducto(nivel_acceso);
             frm.MdiParent = this;
             frm.Show();
         }
@@ -176,7 +181,20 @@ namespace AppVentas
 
         private void MnuItemTipoCliente_Click(object sender, EventArgs e)
         {
-            FrmTipoCliente frm = new FrmTipoCliente();
+            FrmTipoCliente frm = new FrmTipoCliente(nivel_acceso);
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void MnuItemNuevaProforma_Click(object sender, EventArgs e)
+        {
+            FrmProforma frm = new FrmProforma(id_usuario);
+            frm.Show();
+        }
+
+        private void MnuItemListadoProformas_Click(object sender, EventArgs e)
+        {
+            FrmListadoProformas frm = new FrmListadoProformas();
             frm.MdiParent = this;
             frm.Show();
         }

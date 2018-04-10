@@ -63,6 +63,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.MnuProformas = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemNuevaProforma = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemListadoProformas = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.usuarioTableAdapter();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -74,6 +77,7 @@
             this.MnuArchivo,
             this.MnuAlmacen,
             this.MnuVentas,
+            this.MnuProformas,
             this.MnuPersonas,
             this.MnuReportes,
             this.MnuVer,
@@ -137,8 +141,8 @@
             // MnuVentas
             // 
             this.MnuVentas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MnuItemListadoVentas,
-            this.MnuItemNuevaVenta});
+            this.MnuItemNuevaVenta,
+            this.MnuItemListadoVentas});
             this.MnuVentas.Name = "MnuVentas";
             this.MnuVentas.Size = new System.Drawing.Size(53, 20);
             this.MnuVentas.Text = "&Ventas";
@@ -340,6 +344,29 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
+            // MnuProformas
+            // 
+            this.MnuProformas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MnuItemNuevaProforma,
+            this.MnuItemListadoProformas});
+            this.MnuProformas.Name = "MnuProformas";
+            this.MnuProformas.Size = new System.Drawing.Size(74, 20);
+            this.MnuProformas.Text = "P&roformas";
+            // 
+            // MnuItemNuevaProforma
+            // 
+            this.MnuItemNuevaProforma.Name = "MnuItemNuevaProforma";
+            this.MnuItemNuevaProforma.Size = new System.Drawing.Size(186, 22);
+            this.MnuItemNuevaProforma.Text = "&Nueva Proforma";
+            this.MnuItemNuevaProforma.Click += new System.EventHandler(this.MnuItemNuevaProforma_Click);
+            // 
+            // MnuItemListadoProformas
+            // 
+            this.MnuItemListadoProformas.Name = "MnuItemListadoProformas";
+            this.MnuItemListadoProformas.Size = new System.Drawing.Size(186, 22);
+            this.MnuItemListadoProformas.Text = "&Listado de Proformas";
+            this.MnuItemListadoProformas.Click += new System.EventHandler(this.MnuItemListadoProformas_Click);
+            // 
             // usuarioTableAdapter
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
@@ -406,6 +433,9 @@
         private System.Windows.Forms.ToolStripMenuItem MnuItemTotalTienda;
         private System.Windows.Forms.ToolStripMenuItem MnuItemVentasDiaAdm;
         private System.Windows.Forms.ToolStripMenuItem MnuItemTipoCliente;
+        private System.Windows.Forms.ToolStripMenuItem MnuProformas;
+        private System.Windows.Forms.ToolStripMenuItem MnuItemNuevaProforma;
+        private System.Windows.Forms.ToolStripMenuItem MnuItemListadoProformas;
     }
 }
 

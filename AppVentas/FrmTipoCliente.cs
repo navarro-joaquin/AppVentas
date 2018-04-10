@@ -15,10 +15,13 @@ namespace AppVentas
         bool Nuevo = true;
         bool Editar = false;
         int id_editar = 0;
+        int nivel_acceso = 0;
 
-        public FrmTipoCliente()
+        public FrmTipoCliente(int acceso)
         {
             InitializeComponent();
+            nivel_acceso = acceso;
+            Restringir();
         }
 
         private void FrmTipoCliente_Load(object sender, EventArgs e)
@@ -28,6 +31,14 @@ namespace AppVentas
 
             TotalRegistros();
 
+        }
+
+        private void Restringir()
+        {
+            if (nivel_acceso != 1)
+            {
+                btnEliminar.Visible = false;
+            }
         }
 
         private void LimpiarCajas()
@@ -134,12 +145,15 @@ namespace AppVentas
 
         private void dgvTipoCliente_DoubleClick(object sender, EventArgs e)
         {
-            id_editar = Convert.ToInt32(dgvTipoCliente.CurrentRow.Cells[0].Value);
-            txtTipo.Text = dgvTipoCliente.CurrentRow.Cells[1].Value.ToString();
-            txtPorcentajeDescuento.Text = dgvTipoCliente.CurrentRow.Cells[2].Value.ToString();
-            tabControl1.SelectedIndex = 1;
-            Editar = true;
-            Nuevo = false;
+            if (nivel_acceso == 1)
+            {
+                id_editar = Convert.ToInt32(dgvTipoCliente.CurrentRow.Cells[0].Value);
+                txtTipo.Text = dgvTipoCliente.CurrentRow.Cells[1].Value.ToString();
+                txtPorcentajeDescuento.Text = dgvTipoCliente.CurrentRow.Cells[2].Value.ToString();
+                tabControl1.SelectedIndex = 1;
+                Editar = true;
+                Nuevo = false;
+            }
         }
     }
 }

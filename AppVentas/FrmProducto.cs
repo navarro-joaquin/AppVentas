@@ -15,10 +15,13 @@ namespace AppVentas
         private bool Nuevo = true;
         private bool Editar = true;
         private int id_editar = 0;
+        private int nivel_acceso = 0;
 
-        public FrmProducto()
+        public FrmProducto(int acceso)
         {
             InitializeComponent();
+            nivel_acceso = acceso;
+            Restringir();
         }
 
         private void FrmProducto_Load(object sender, EventArgs e)
@@ -34,6 +37,15 @@ namespace AppVentas
 
             cmbBuscar.SelectedIndex = 0;
             TotalRegistros();
+        }
+
+        private void Restringir()
+        {
+            if (nivel_acceso != 1)
+            {
+                btnEliminar.Visible = false;
+                btnExcel.Visible = false;
+            }
         }
 
         private void LimpiarCajas()
@@ -198,40 +210,42 @@ namespace AppVentas
 
         private void dgvProducto_DoubleClick(object sender, EventArgs e)
         {
-            
-            id_editar = Convert.ToInt32(dgvProducto.CurrentRow.Cells[0].Value);
-            txtCodigo.Text = dgvProducto.CurrentRow.Cells[1].Value.ToString();
-            txtNombreProducto.Text = dgvProducto.CurrentRow.Cells[2].Value.ToString();
-            txtMarca.Text = dgvProducto.CurrentRow.Cells[3].Value.ToString();
-            txtValorCompra.Text = dgvProducto.CurrentRow.Cells[4].Value.ToString();
-            txtValorVenta.Text = dgvProducto.CurrentRow.Cells[5].Value.ToString();
-            dtpFechaCompra.Value = Convert.ToDateTime(dgvProducto.CurrentRow.Cells[6].Value.ToString());
-            dtpFechaVencimiento.Value = Convert.ToDateTime(dgvProducto.CurrentRow.Cells[7].Value.ToString());
-            txtStock.Text = dgvProducto.CurrentRow.Cells[8].Value.ToString();
-            txtStockMinimo.Text = dgvProducto.CurrentRow.Cells[9].Value.ToString();
-            txtDescripcion.Text = dgvProducto.CurrentRow.Cells[10].Value.ToString();
-
-            if (dgvProducto.CurrentRow.Cells[11].Value is DBNull)
+            if (nivel_acceso == 1)
             {
-                pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
-                pbxImagen.Image = global::AppVentas.Properties.Resources.file;
+                id_editar = Convert.ToInt32(dgvProducto.CurrentRow.Cells[0].Value);
+                txtCodigo.Text = dgvProducto.CurrentRow.Cells[1].Value.ToString();
+                txtNombreProducto.Text = dgvProducto.CurrentRow.Cells[2].Value.ToString();
+                txtMarca.Text = dgvProducto.CurrentRow.Cells[3].Value.ToString();
+                txtValorCompra.Text = dgvProducto.CurrentRow.Cells[4].Value.ToString();
+                txtValorVenta.Text = dgvProducto.CurrentRow.Cells[5].Value.ToString();
+                dtpFechaCompra.Value = Convert.ToDateTime(dgvProducto.CurrentRow.Cells[6].Value.ToString());
+                dtpFechaVencimiento.Value = Convert.ToDateTime(dgvProducto.CurrentRow.Cells[7].Value.ToString());
+                txtStock.Text = dgvProducto.CurrentRow.Cells[8].Value.ToString();
+                txtStockMinimo.Text = dgvProducto.CurrentRow.Cells[9].Value.ToString();
+                txtDescripcion.Text = dgvProducto.CurrentRow.Cells[10].Value.ToString();
+
+                if (dgvProducto.CurrentRow.Cells[11].Value is DBNull)
+                {
+                    pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pbxImagen.Image = global::AppVentas.Properties.Resources.file;
+                }
+                else
+                {
+
+                    byte[] imagenBuffer = (byte[])dgvProducto.CurrentRow.Cells[11].Value;
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream(imagenBuffer);
+                    pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pbxImagen.Image = Image.FromStream(ms);
+                }
+
+                cmbProveedor.Text = dgvProducto.CurrentRow.Cells[12].Value.ToString();
+                cmbCategoria.Text = dgvProducto.CurrentRow.Cells[13].Value.ToString();
+
+                tabControl1.SelectedIndex = 1;
+
+                Nuevo = false;
+                Editar = true;
             }
-            else
-            {
-
-                byte[] imagenBuffer = (byte[])dgvProducto.CurrentRow.Cells[11].Value;
-                System.IO.MemoryStream ms = new System.IO.MemoryStream(imagenBuffer);
-                pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
-                pbxImagen.Image = Image.FromStream(ms);
-            }
-
-            cmbProveedor.Text = dgvProducto.CurrentRow.Cells[12].Value.ToString();
-            cmbCategoria.Text = dgvProducto.CurrentRow.Cells[13].Value.ToString();
-
-            tabControl1.SelectedIndex = 1;
-
-            Nuevo = false;
-            Editar = true;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -345,7 +359,7 @@ namespace AppVentas
             var excel = new Excel();
             var resultado = excel.ToEntidadHojaExcel(ruta_al_archivo);
 
-            int nuevos = 0, modificados = 0;
+            int nuevos = 0, modificados = 0, omitidos = 0;
             string fecha = "";
 
             foreach(EntidadHojaExcel hoja in resultado)
@@ -390,22 +404,29 @@ namespace AppVentas
 
                 int id_producto = Convert.ToInt32(this.productoTableAdapter.ObtenerID(codigo_producto, nombre_producto));
 
-                if (id_producto == 0)
+                if (id_proveedor == 0 || id_categoria == 0)
                 {
-                    //Insertar producto
-                    this.productoTableAdapter.InsertarSinImagen(codigo_producto, nombre_producto, marca, valor_compra, valor_venta, fecha_introduccion.ToShortDateString(), fecha_vencimiento.ToShortDateString(), stock, stock_minimo, descripcion, id_proveedor, id_categoria);
-                    nuevos++;
+                    omitidos++;
                 }
                 else
                 {
-                    //Actualizar cantidad y fecha
-                    this.productoTableAdapter.NuevoStock(fecha_introduccion.ToShortDateString(), stock, id_producto);
-                    modificados++;
+                    if (id_producto == 0)
+                    {
+                        //Insertar producto
+                        this.productoTableAdapter.InsertarSinImagen(codigo_producto, nombre_producto, marca, valor_compra, valor_venta, fecha_introduccion.ToShortDateString(), fecha_vencimiento.ToShortDateString(), stock, stock_minimo, descripcion, id_proveedor, id_categoria);
+                        nuevos++;
+                    }
+                    else
+                    {
+                        //Actualizar cantidad y fecha
+                        this.productoTableAdapter.NuevoStock(fecha_introduccion.ToShortDateString(), stock, id_producto);
+                        modificados++;
+                    }
                 }
 
                 fecha = fecha_introduccion.ToShortDateString();
             }
-            MessageBox.Show("Se ingresaron " + nuevos + " productos y se actualizó el stock de " + modificados + " productos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Se ingresaron " + nuevos + " productos, se actualizó el stock de " + modificados + " productos y se omitieron " + omitidos + " productos de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             DialogResult result = MessageBox.Show("¿Desea imprimir el reporte de productos ingresados?", "Reporte", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)

@@ -15,10 +15,13 @@ namespace AppVentas
         private bool Nuevo = true;
         private bool Editar = false;
         private int id_editar = 0;
+        private int nivel_acceso = 0;
 
-        public FrmProveedor()
+        public FrmProveedor(int acceso)
         {
             InitializeComponent();
+            nivel_acceso = acceso;
+            Restringir();
         }
 
         public FrmProveedor(string nombre)
@@ -36,6 +39,14 @@ namespace AppVentas
 
             cmbBuscar.SelectedIndex = 0;
             TotalRegistros();
+        }
+
+        private void Restringir()
+        {
+            if (nivel_acceso != 1)
+            {
+                btnEliminar.Visible = false;
+            }
         }
 
         private void LimpiarCajas()
@@ -155,17 +166,20 @@ namespace AppVentas
 
         private void dgvProveedor_DoubleClick(object sender, EventArgs e)
         {
-            id_editar = Convert.ToInt32(dgvProveedor.CurrentRow.Cells[0].Value);
-            txtNombreEmpresa.Text = dgvProveedor.CurrentRow.Cells[1].Value.ToString();
-            txtRepresentante.Text = dgvProveedor.CurrentRow.Cells[2].Value.ToString();
-            txtNITCI.Text = dgvProveedor.CurrentRow.Cells[3].Value.ToString();
-            txtDireccion.Text = dgvProveedor.CurrentRow.Cells[4].Value.ToString();
-            txtTelefono.Text = dgvProveedor.CurrentRow.Cells[5].Value.ToString();
+            if (nivel_acceso == 1)
+            {
+                id_editar = Convert.ToInt32(dgvProveedor.CurrentRow.Cells[0].Value);
+                txtNombreEmpresa.Text = dgvProveedor.CurrentRow.Cells[1].Value.ToString();
+                txtRepresentante.Text = dgvProveedor.CurrentRow.Cells[2].Value.ToString();
+                txtNITCI.Text = dgvProveedor.CurrentRow.Cells[3].Value.ToString();
+                txtDireccion.Text = dgvProveedor.CurrentRow.Cells[4].Value.ToString();
+                txtTelefono.Text = dgvProveedor.CurrentRow.Cells[5].Value.ToString();
 
-            tabControl1.SelectedIndex = 1;
+                tabControl1.SelectedIndex = 1;
 
-            Nuevo = true;
-            Editar = false;
+                Nuevo = true;
+                Editar = false;
+            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

@@ -15,10 +15,13 @@ namespace AppVentas
         bool Nuevo = true;
         bool Editar = false;
         int id_editar = 0;
+        int nivel_acceso = 0;
 
-        public FrmCliente()
+        public FrmCliente(int acceso)
         {
             InitializeComponent();
+            nivel_acceso = acceso;
+            Restringir();
         }
 
         private void FrmCliente_Load(object sender, EventArgs e)
@@ -28,6 +31,14 @@ namespace AppVentas
 
             cmbBuscar.SelectedIndex = 0;
             TotalRegistros();
+        }
+
+        private void Restringir()
+        {
+            if (nivel_acceso != 1)
+            {
+                btnEliminar.Visible = false;
+            }
         }
 
         private void LimpiarCajas()
@@ -110,13 +121,16 @@ namespace AppVentas
 
         private void dgvCliente_DoubleClick(object sender, EventArgs e)
         {
-            id_editar = Convert.ToInt32(dgvCliente.CurrentRow.Cells[0].Value);
-            txtNombre.Text = dgvCliente.CurrentRow.Cells[1].Value.ToString();
-            txtNITCI.Text = dgvCliente.CurrentRow.Cells[2].Value.ToString();
-            txtCodigoDescuento.Text = dgvCliente.CurrentRow.Cells[3].Value.ToString();
-            tabControl1.SelectedIndex = 1;
-            Editar = true;
-            Nuevo = false;
+            if (nivel_acceso == 1)
+            {
+                id_editar = Convert.ToInt32(dgvCliente.CurrentRow.Cells[0].Value);
+                txtNombre.Text = dgvCliente.CurrentRow.Cells[1].Value.ToString();
+                txtNITCI.Text = dgvCliente.CurrentRow.Cells[2].Value.ToString();
+                txtCodigoDescuento.Text = dgvCliente.CurrentRow.Cells[3].Value.ToString();
+                tabControl1.SelectedIndex = 1;
+                Editar = true;
+                Nuevo = false;
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

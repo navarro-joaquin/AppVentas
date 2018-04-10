@@ -15,10 +15,13 @@ namespace AppVentas
         bool Nuevo = true;
         bool Editar = false;
         int id_editar = 0;
+        int nivel_acceso = 0;
 
-        public FrmCategoria()
+        public FrmCategoria(int acceso)
         {
             InitializeComponent();
+            nivel_acceso = acceso;
+            Restringir();
         }
 
         public FrmCategoria(string nombre)
@@ -36,6 +39,14 @@ namespace AppVentas
 
             cmbBuscar.SelectedIndex = 0;
             TotalRegistros();
+        }
+
+        private void Restringir()
+        {
+            if (nivel_acceso != 1)
+            {
+                btnEliminar.Visible = false;
+            }
         }
 
         private void LimpiarCajas()
@@ -116,14 +127,17 @@ namespace AppVentas
 
         private void dgvCategoria_DoubleClick(object sender, EventArgs e)
         {
-            id_editar = Convert.ToInt32(dgvCategoria.CurrentRow.Cells[0].Value.ToString());
-            txtNombre.Text = dgvCategoria.CurrentRow.Cells[1].Value.ToString();
-            txtCodigo.Text = dgvCategoria.CurrentRow.Cells[2].Value.ToString();
+            if (nivel_acceso == 1)
+            {
+                id_editar = Convert.ToInt32(dgvCategoria.CurrentRow.Cells[0].Value.ToString());
+                txtNombre.Text = dgvCategoria.CurrentRow.Cells[1].Value.ToString();
+                txtCodigo.Text = dgvCategoria.CurrentRow.Cells[2].Value.ToString();
 
-            tabControl1.SelectedIndex = 1;
+                tabControl1.SelectedIndex = 1;
 
-            Editar = true;
-            Nuevo = false;
+                Editar = true;
+                Nuevo = false;
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

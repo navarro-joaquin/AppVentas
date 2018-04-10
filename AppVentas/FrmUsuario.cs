@@ -16,8 +16,9 @@ namespace AppVentas
         private bool Nuevo = true;
         private bool Editar = false;
         private int id_editar = 0;
+        private int nivel_acceso;
 
-        public FrmUsuario()
+        public FrmUsuario(int acceso)
         {
             InitializeComponent();
 
@@ -28,6 +29,8 @@ namespace AppVentas
             cmbNivelAcceso.DataSource = accesos;
             cmbNivelAcceso.ValueMember = "Id";
             cmbNivelAcceso.DisplayMember = "Value";
+            nivel_acceso = acceso;
+            Restringir();
         }
 
         private void FrmUsuario_Load(object sender, EventArgs e)
@@ -37,6 +40,14 @@ namespace AppVentas
 
             cmbBuscar.SelectedIndex = 0;
             TotalRegistros();
+        }
+
+        private void Restringir()
+        {
+            if (nivel_acceso != 1)
+            {
+                btnEliminar.Visible = false;
+            }
         }
 
         private void LimpiarCajas()
@@ -166,20 +177,23 @@ namespace AppVentas
 
         private void dgvUsuarios_DoubleClick(object sender, EventArgs e)
         {
-            id_editar = Convert.ToInt32(dgvUsuarios.CurrentRow.Cells[0].Value);
-            txtNombres.Text = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
-            txtApellidos.Text = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();
-            txtCI.Text = dgvUsuarios.CurrentRow.Cells[3].Value.ToString();
-            txtTelefono.Text = dgvUsuarios.CurrentRow.Cells[4].Value.ToString();
-            txtDireccion.Text = dgvUsuarios.CurrentRow.Cells[5].Value.ToString();
-            cmbNivelAcceso.SelectedIndex = Convert.ToInt32(dgvUsuarios.CurrentRow.Cells[6].Value) - 1;
-            txtUsuario.Text = dgvUsuarios.CurrentRow.Cells[7].Value.ToString();
-            txtContraseña.Text = dgvUsuarios.CurrentRow.Cells[8].Value.ToString();
+            if (nivel_acceso == 1)
+            {
+                id_editar = Convert.ToInt32(dgvUsuarios.CurrentRow.Cells[0].Value);
+                txtNombres.Text = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
+                txtApellidos.Text = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();
+                txtCI.Text = dgvUsuarios.CurrentRow.Cells[3].Value.ToString();
+                txtTelefono.Text = dgvUsuarios.CurrentRow.Cells[4].Value.ToString();
+                txtDireccion.Text = dgvUsuarios.CurrentRow.Cells[5].Value.ToString();
+                cmbNivelAcceso.SelectedIndex = Convert.ToInt32(dgvUsuarios.CurrentRow.Cells[6].Value) - 1;
+                txtUsuario.Text = dgvUsuarios.CurrentRow.Cells[7].Value.ToString();
+                txtContraseña.Text = dgvUsuarios.CurrentRow.Cells[8].Value.ToString();
 
-            tabControl1.SelectedIndex = 1;
+                tabControl1.SelectedIndex = 1;
 
-            Editar = true;
-            Nuevo = false;
+                Editar = true;
+                Nuevo = false;
+            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
