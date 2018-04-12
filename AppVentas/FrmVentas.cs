@@ -64,6 +64,23 @@ namespace AppVentas
 
         private void dgvVentas_DoubleClick(object sender, EventArgs e)
         {
+            int id_venta = Convert.ToInt32(dgvVentas.CurrentRow.Cells[0].Value);
+            string nit_cliente = dgvVentas.CurrentRow.Cells[6].Value.ToString();
+            string nombre_cliente = dgvVentas.CurrentRow.Cells[7].Value.ToString();
+            decimal descuento = Convert.ToDecimal(dgvVentas.CurrentRow.Cells[4].Value);
+            FrmDetalleVenta frm = new FrmDetalleVenta(id_venta, nit_cliente, nombre_cliente, descuento);
+            frm.Show();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string fecha_buscar = dtpFecha.Value.ToShortDateString();
+
+            this.vista_ventas_realizadasTableAdapter.BuscarPorFecha(this.dbsisventasDataSet.vista_ventas_realizadas, fecha_buscar);
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
             string nit_cliente = dgvVentas.CurrentRow.Cells[6].Value.ToString();
             string nombre_cliente = dgvVentas.CurrentRow.Cells[7].Value.ToString();
             string fecha_venta = dgvVentas.CurrentRow.Cells[2].Value.ToString();
@@ -72,13 +89,6 @@ namespace AppVentas
             int id_venta = Convert.ToInt32(dgvVentas.CurrentRow.Cells[0].Value.ToString());
 
             recibo.Imprimir(nit_cliente, nombre_cliente, fecha_venta, numero_recibo, numero_nit, id_venta);
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            string fecha_buscar = dtpFecha.Value.ToShortDateString();
-
-            this.vista_ventas_realizadasTableAdapter.BuscarPorFecha(this.dbsisventasDataSet.vista_ventas_realizadas, fecha_buscar);
         }
     }
 }

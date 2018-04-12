@@ -12,9 +12,11 @@ namespace AppVentas
 {
     public partial class FrmLogin : Form
     {
+        RegistroCaja registro;
         public FrmLogin()
         {
             InitializeComponent();
+            registro = new RegistroCaja();
         }
 
         private void LimpiarCajas()
@@ -42,20 +44,9 @@ namespace AppVentas
                     if (id != 0)
                     {
                         LimpiarCajas();
-                        if (nivel_acceso == 3)
-                        {
-                            FrmVistaVendedor frm = new FrmVistaVendedor(id);
-                            this.Hide();
-                            frm.ShowDialog();
-                            this.Show();
-                        }
-                        else
-                        {
-                            FrmPrincipal frm = new FrmPrincipal(id);
-                            this.Hide();
-                            frm.ShowDialog();
-                            this.Show();
-                        }
+                        this.Hide();
+                        registro.InicioCaja(nivel_acceso, id);
+                        this.Show();
                     }
                     else
                     {

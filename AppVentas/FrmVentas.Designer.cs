@@ -48,6 +48,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.vista_ventas_realizadasTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.vista_ventas_realizadasTableAdapter();
             this.tableAdapterManager = new AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.gbxVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_ventas_realizadasBindingSource)).BeginInit();
@@ -213,18 +214,32 @@
             this.tableAdapterManager.categoriaTableAdapter = null;
             this.tableAdapterManager.clienteTableAdapter = null;
             this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.detalle_proformaTableAdapter = null;
             this.tableAdapterManager.detalle_ventaTableAdapter = null;
             this.tableAdapterManager.productoTableAdapter = null;
+            this.tableAdapterManager.proformaTableAdapter = null;
             this.tableAdapterManager.proveedorTableAdapter = null;
+            this.tableAdapterManager.tipo_clienteTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuarioTableAdapter = null;
             this.tableAdapterManager.ventaTableAdapter = null;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(720, 45);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(164, 23);
+            this.btnImprimir.TabIndex = 7;
+            this.btnImprimir.Text = "&Imprimir Recibo";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 438);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.gbxVenta);
@@ -265,5 +280,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

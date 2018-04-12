@@ -90,8 +90,8 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.cmbBuscar = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.btnExcel = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
             lblCodigo = new System.Windows.Forms.Label();
             lblNombreProducto = new System.Windows.Forms.Label();
             lblMarca = new System.Windows.Forms.Label();
@@ -427,7 +427,6 @@
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(159, 21);
             this.txtMarca.TabIndex = 5;
-            this.txtMarca.TextChanged += new System.EventHandler(this.txtMarca_TextChanged);
             // 
             // cmbCategoria
             // 
@@ -439,7 +438,6 @@
             this.cmbCategoria.Size = new System.Drawing.Size(159, 26);
             this.cmbCategoria.TabIndex = 21;
             this.cmbCategoria.ValueMember = "id";
-            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
             // 
             // categoriaBindingSource
             // 
@@ -572,9 +570,12 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.categoriaTableAdapter = this.categoriaTableAdapter;
             this.tableAdapterManager.clienteTableAdapter = null;
+            this.tableAdapterManager.detalle_proformaTableAdapter = null;
             this.tableAdapterManager.detalle_ventaTableAdapter = null;
             this.tableAdapterManager.productoTableAdapter = this.productoTableAdapter;
+            this.tableAdapterManager.proformaTableAdapter = null;
             this.tableAdapterManager.proveedorTableAdapter = this.proveedorTableAdapter;
+            this.tableAdapterManager.tipo_clienteTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuarioTableAdapter = null;
             this.tableAdapterManager.ventaTableAdapter = null;
@@ -663,6 +664,16 @@
             this.tabPage2.Text = "Datos";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnExcel
+            // 
+            this.btnExcel.Location = new System.Drawing.Point(688, 350);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(97, 46);
+            this.btnExcel.TabIndex = 3;
+            this.btnExcel.Text = "Importar\r\ndesde Excel";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
@@ -673,16 +684,6 @@
             this.lblTitulo.Size = new System.Drawing.Size(99, 24);
             this.lblTitulo.TabIndex = 6;
             this.lblTitulo.Text = "Productos";
-            // 
-            // btnExcel
-            // 
-            this.btnExcel.Location = new System.Drawing.Point(688, 350);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(97, 46);
-            this.btnExcel.TabIndex = 3;
-            this.btnExcel.Text = "Importar\r\ndesde Excel";
-            this.btnExcel.UseVisualStyleBackColor = true;
-            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // FrmProducto
             // 

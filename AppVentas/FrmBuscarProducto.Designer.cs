@@ -34,8 +34,6 @@
             this.vista_productoTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.vista_productoTableAdapter();
             this.tableAdapterManager = new AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.cmbBuscar = new System.Windows.Forms.ComboBox();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +48,8 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbBuscar = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_productoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -75,9 +75,12 @@
             this.tableAdapterManager.categoriaTableAdapter = null;
             this.tableAdapterManager.clienteTableAdapter = null;
             this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.detalle_proformaTableAdapter = null;
             this.tableAdapterManager.detalle_ventaTableAdapter = null;
             this.tableAdapterManager.productoTableAdapter = null;
+            this.tableAdapterManager.proformaTableAdapter = null;
             this.tableAdapterManager.proveedorTableAdapter = null;
+            this.tableAdapterManager.tipo_clienteTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuarioTableAdapter = null;
             this.tableAdapterManager.ventaTableAdapter = null;
@@ -112,26 +115,6 @@
             this.dgvProductos.Size = new System.Drawing.Size(801, 402);
             this.dgvProductos.TabIndex = 1;
             this.dgvProductos.DoubleClick += new System.EventHandler(this.dgvProductos_DoubleClick);
-            // 
-            // cmbBuscar
-            // 
-            this.cmbBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBuscar.FormattingEnabled = true;
-            this.cmbBuscar.Items.AddRange(new object[] {
-            "Código",
-            "Nombre"});
-            this.cmbBuscar.Location = new System.Drawing.Point(12, 22);
-            this.cmbBuscar.Name = "cmbBuscar";
-            this.cmbBuscar.Size = new System.Drawing.Size(141, 26);
-            this.cmbBuscar.TabIndex = 2;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(195, 22);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(460, 21);
-            this.txtBuscar.TabIndex = 3;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -231,6 +214,26 @@
             this.dataGridViewTextBoxColumn13.HeaderText = "categoria";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // cmbBuscar
+            // 
+            this.cmbBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBuscar.FormattingEnabled = true;
+            this.cmbBuscar.Items.AddRange(new object[] {
+            "Nombre",
+            "Código"});
+            this.cmbBuscar.Location = new System.Drawing.Point(12, 22);
+            this.cmbBuscar.Name = "cmbBuscar";
+            this.cmbBuscar.Size = new System.Drawing.Size(141, 26);
+            this.cmbBuscar.TabIndex = 2;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(195, 22);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(460, 21);
+            this.txtBuscar.TabIndex = 3;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // FrmBuscarProducto
             // 

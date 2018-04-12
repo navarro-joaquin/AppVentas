@@ -299,44 +299,6 @@ namespace AppVentas
             }
         }
 
-        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Nuevo)
-            {
-                try
-                {
-                    if (txtCodigo.Text.Equals("") || txtCodigo.Text.Length < 5)
-                    {
-                        txtCodigo.Text = cmbCategoria.Text.Substring(0, 3).ToUpper() + "-";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    //MessageBox.Show("Error5" + ex.Message);
-                }
-            }
-        }
-
-        private void txtMarca_TextChanged(object sender, EventArgs e)
-        {
-            if (Nuevo)
-            {
-                if (txtCodigo.Text.Equals(cmbCategoria.Text.Substring(0, 3).ToUpper() + "-"))
-                {
-                    switch (txtMarca.Text.Length)
-                    {
-                        case 3:
-                            txtCodigo.Text += txtMarca.Text.ToUpper() + "-";
-                            break;
-                    }
-                }
-                if (txtMarca.Text.Equals("") && txtCodigo.Text.Length > 5)
-                {
-                    txtCodigo.Text = txtCodigo.Text.Substring(0, 4);
-                }
-            }
-        }
-
         private void btnExcel_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -426,7 +388,7 @@ namespace AppVentas
 
                 fecha = fecha_introduccion.ToShortDateString();
             }
-            MessageBox.Show("Se ingresaron " + nuevos + " productos, se actualizó el stock de " + modificados + " productos y se omitieron " + omitidos + " productos de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Se ingresaron " + nuevos + " productos, se actualizó el stock de " + modificados + " productos y se omitieron " + omitidos + " productos de la tabla Excel", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             DialogResult result = MessageBox.Show("¿Desea imprimir el reporte de productos ingresados?", "Reporte", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
