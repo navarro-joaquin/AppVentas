@@ -14,7 +14,7 @@ namespace AppVentas
     {
         private string producto_seleccionado;
 
-        public string Producto_seleccionado { get => producto_seleccionado; set => producto_seleccionado = value; }
+        public string Producto_seleccionado { get; set; }
 
         public FrmBuscarProducto()
         {

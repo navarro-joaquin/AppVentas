@@ -22,6 +22,7 @@ namespace AppVentas
         private int id_usuario = -1;
         private RepRecibo recibo = new RepRecibo();
         private int porcentaje_descuento = 0;
+        private List<Object> precios;
 
         public FrmVenta(int id)
         {
@@ -30,6 +31,16 @@ namespace AppVentas
             txtTotal.Text = total.ToString("#0.00#");
             txtDescuento.Text = total.ToString("#0.00#");
             id_usuario = id;
+        }
+
+        private void CargarPrecios(decimal valor_venta, decimal valor_mayorista)
+        {
+            precios = new List<object>();
+            precios.Add(new { Id = valor_venta, Value = valor_venta });
+            precios.Add(new { Id = valor_mayorista, Value = valor_mayorista });
+            cmbPrecios.DataSource = precios;
+            cmbPrecios.ValueMember = "Id";
+            cmbPrecios.DisplayMember = "Value";
         }
 
         private void CrearTabla()
@@ -52,10 +63,21 @@ namespace AppVentas
                 DataTable consulta = this.productoTableAdapter.DTBuscarProducto(codigo_producto);
                 DataRow fila = consulta.Rows[0];
 
+                decimal valor_venta, valor_mayorista;
+
                 txtNombre.Text = fila["nombre_producto"].ToString();
                 txtDescripcion.Text = fila["descripcion"].ToString();
                 txtStock.Text = fila["stock"].ToString();
-                txtPrecio.Text = fila["valor_venta"].ToString();
+                valor_venta = Convert.ToDecimal(fila["valor_venta"].ToString());
+                if (fila["valor_mayorista"].ToString() == "")
+                {
+                    valor_mayorista = valor_venta;
+                }
+                else
+                {
+                    valor_mayorista = Convert.ToDecimal(fila["valor_mayorista"].ToString());
+                }
+                CargarPrecios(valor_venta, valor_mayorista);
             }
             catch (Exception ex)
             {
@@ -84,7 +106,7 @@ namespace AppVentas
                     string codigo_producto = txtCodigoProducto.Text;
                     string nombre_producto = txtNombre.Text;
                     int cantidad = Convert.ToInt32(txtCantidad.Text);
-                    decimal precio = Convert.ToDecimal(txtPrecio.Text);
+                    decimal precio = Convert.ToDecimal(cmbPrecios.Text);
                     decimal subtotal = cantidad * precio;
 
                     DataRow filaNueva = dtDetalle.NewRow();
@@ -170,7 +192,8 @@ namespace AppVentas
             txtNombre.ResetText();
             txtDescripcion.ResetText();
             txtStock.ResetText();
-            txtPrecio.ResetText();
+            //txtPrecio.ResetText();
+            cmbPrecios.DataSource = null;
             txtCantidad.ResetText();
 
             txtCodigoProducto.Focus();
@@ -193,24 +216,14 @@ namespace AppVentas
             if (e.KeyChar == (char)Keys.Enter)
             {
                 BuscarProducto();
-                txtPrecio.Focus();
+                cmbPrecios.Focus();
+                txtCantidad.Text = "1";
                 //SendKeys.Send("{TAB}");
                 //e.Handled = true;
             }
             if (e.KeyChar == (char)Keys.Escape)
             {
                 btnBuscarProducto.PerformClick();
-            }
-        }
-
-        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                txtCantidad.Text = "1";
-                txtCantidad.Focus();
-                //SendKeys.Send("{TAB}");
-                //e.Handled = true;
             }
         }
 
@@ -327,9 +340,15 @@ namespace AppVentas
 
                         int id_cliente = Convert.ToInt32(this.clienteTableAdapter.ObtenerID(txtNombreCliente.Text, txtNITCI.Text));
 
-                        this.ventaTableAdapter.InsertarVenta(DateTime.Today.ToShortDateString(), total, descuento, importe_pagado, "00-00-00-00-00", "", id_cliente, id_usuario);
+                        DateTime fecha = DateTime.Now;
 
-                        int id_venta = Convert.ToInt32(this.ventaTableAdapter.ObtenerID(DateTime.Today.ToShortDateString(), total, descuento, importe_pagado, "00-00-00-00-00", "", id_cliente, id_usuario));
+                        this.ventaTableAdapter.InsertarVenta(fecha, total, descuento, importe_pagado, "00-00-00-00-00", "", id_cliente, id_usuario);
+
+                        //MessageBox.Show("Venta insertada");
+
+                        int id_venta = Convert.ToInt32(this.ventaTableAdapter.ObtenerID(fecha, total, descuento, importe_pagado, "00-00-00-00-00", "", id_cliente, id_usuario));
+
+                        //MessageBox.Show(id_venta.ToString());
 
                         //Insertar detalle de venta
 
@@ -353,7 +372,7 @@ namespace AppVentas
                         {
                             //Imprimir recibo
                             string numero_nit = "10381527";
-                            recibo.Imprimir(txtNITCI.Text, txtNombreCliente.Text, DateTime.Today.ToShortDateString(), id_venta.ToString().PadLeft(7, '0'), numero_nit, id_venta);
+                            recibo.Imprimir(txtNITCI.Text, txtNombreCliente.Text, fecha.ToString(), id_venta.ToString().PadLeft(7, '0'), numero_nit, id_venta);
                         }
 
                         //Limpiar datos del cliente

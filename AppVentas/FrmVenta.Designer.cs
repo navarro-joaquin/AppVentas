@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbxProducto = new System.Windows.Forms.GroupBox();
+            this.cmbPrecios = new System.Windows.Forms.ComboBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.lblStock = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
@@ -74,11 +74,11 @@
             // 
             // gbxProducto
             // 
+            this.gbxProducto.Controls.Add(this.cmbPrecios);
             this.gbxProducto.Controls.Add(this.txtCantidad);
             this.gbxProducto.Controls.Add(this.lblCantidad);
             this.gbxProducto.Controls.Add(this.txtStock);
             this.gbxProducto.Controls.Add(this.lblStock);
-            this.gbxProducto.Controls.Add(this.txtPrecio);
             this.gbxProducto.Controls.Add(this.lblPrecio);
             this.gbxProducto.Controls.Add(this.txtDescripcion);
             this.gbxProducto.Controls.Add(this.lblDescripcion);
@@ -93,6 +93,15 @@
             this.gbxProducto.TabIndex = 0;
             this.gbxProducto.TabStop = false;
             this.gbxProducto.Text = "Producto:";
+            // 
+            // cmbPrecios
+            // 
+            this.cmbPrecios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPrecios.FormattingEnabled = true;
+            this.cmbPrecios.Location = new System.Drawing.Point(625, 79);
+            this.cmbPrecios.Name = "cmbPrecios";
+            this.cmbPrecios.Size = new System.Drawing.Size(78, 26);
+            this.cmbPrecios.TabIndex = 13;
             // 
             // txtCantidad
             // 
@@ -127,16 +136,6 @@
             this.lblStock.Size = new System.Drawing.Size(43, 18);
             this.lblStock.TabIndex = 9;
             this.lblStock.Text = "Stock:";
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(625, 79);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.ReadOnly = true;
-            this.txtPrecio.Size = new System.Drawing.Size(77, 21);
-            this.txtPrecio.TabIndex = 8;
-            this.txtPrecio.TabStop = false;
-            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // lblPrecio
             // 
@@ -412,7 +411,6 @@
         private System.Windows.Forms.GroupBox gbxProducto;
         private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Label lblStock;
-        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
@@ -444,5 +442,6 @@
         private dbsisventasDataSetTableAdapters.tipo_clienteTableAdapter tipo_clienteTableAdapter;
         private System.Windows.Forms.Label lblDescuento;
         private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.ComboBox cmbPrecios;
     }
 }

@@ -198,5 +198,34 @@ namespace AppVentas
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void MnuCierreCaja_Click(object sender, EventArgs e)
+        {
+            FrmCajaCierre frm = new FrmCajaCierre(id_usuario);
+            frm.ShowDialog();
+            if (frm.Cierre_correcto)
+            {
+                this.Close();
+            }
+        }
+
+        private void MnuItemDeudaProveedores_Click(object sender, EventArgs e)
+        {
+            FrmDeudaProveedor frm = new FrmDeudaProveedor(nivel_acceso);
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void MnuItemDeudasProveedores_Click(object sender, EventArgs e)
+        {
+            FrmRepDeudaProveedores frm = new FrmRepDeudaProveedores();
+            frm.Show();
+        }
+
+        private void MnuItemBalanceDia_Click(object sender, EventArgs e)
+        {
+            FrmRepBalanceDia frm = new FrmRepBalanceDia();
+            frm.Show();
+        }
     }
 }

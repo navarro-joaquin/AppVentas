@@ -26,7 +26,10 @@ namespace AppVentas
 
         private void FrmRepVentasDia_Load(object sender, EventArgs e)
         {
-            string fecha = DateTime.Today.ToShortDateString();
+            string fecha = DateTime.Now.ToString();
+
+            string fecha1 = DateTime.Now.ToShortDateString() + " 00:00:00";
+            string fecha2 = DateTime.Now.ToShortDateString() + " 23:59:59";
 
             List<ReportParameter> reportParams = new List<ReportParameter>();
             reportParams.Add(new ReportParameter("Fecha", fecha));
@@ -42,7 +45,7 @@ namespace AppVentas
                             "on v.id_cliente = c.id " +
                             "inner join usuario u " +
                             "on v.id_usuario = u.id " +
-                            "where u.id = " + id_usuario + " and v.fecha = '" + fecha + "'";
+                            "where u.id = " + id_usuario + " and v.fecha between '" + fecha1 + "' and '" + fecha2 + "'";
             SqlDataAdapter da = new SqlDataAdapter(query, cn);
             da.Fill(con, con.Tables[3].TableName);
 

@@ -32,10 +32,8 @@
             System.Windows.Forms.Label lblNombre;
             System.Windows.Forms.Label lblNITCI;
             System.Windows.Forms.Label lblCodigoDescuento;
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbsisventasDataSet = new AppVentas.dbsisventasDataSet();
-            this.clienteTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.clienteTableAdapter();
-            this.tableAdapterManager = new AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager();
+            System.Windows.Forms.Label lblTelefono;
+            System.Windows.Forms.Label lblRepresentante;
             this.gbxDatos = new System.Windows.Forms.GroupBox();
             this.txtCodigoDescuento = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -49,27 +47,37 @@
             this.cmbBuscar = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbsisventasDataSet = new AppVentas.dbsisventasDataSet();
+            this.clienteTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.clienteTableAdapter();
+            this.tableAdapterManager = new AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtRepresentante = new System.Windows.Forms.TextBox();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             lblNombre = new System.Windows.Forms.Label();
             lblNITCI = new System.Windows.Forms.Label();
             lblCodigoDescuento = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).BeginInit();
+            lblTelefono = new System.Windows.Forms.Label();
+            lblRepresentante = new System.Windows.Forms.Label();
             this.gbxDatos.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new System.Drawing.Point(40, 36);
+            lblNombre.Location = new System.Drawing.Point(25, 36);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new System.Drawing.Size(55, 18);
             lblNombre.TabIndex = 0;
@@ -78,7 +86,7 @@
             // lblNITCI
             // 
             lblNITCI.AutoSize = true;
-            lblNITCI.Location = new System.Drawing.Point(40, 65);
+            lblNITCI.Location = new System.Drawing.Point(25, 65);
             lblNITCI.Name = "lblNITCI";
             lblNITCI.Size = new System.Drawing.Size(46, 18);
             lblNITCI.TabIndex = 2;
@@ -87,71 +95,48 @@
             // lblCodigoDescuento
             // 
             lblCodigoDescuento.AutoSize = true;
-            lblCodigoDescuento.Location = new System.Drawing.Point(40, 92);
+            lblCodigoDescuento.Location = new System.Drawing.Point(25, 92);
             lblCodigoDescuento.Name = "lblCodigoDescuento";
             lblCodigoDescuento.Size = new System.Drawing.Size(112, 18);
             lblCodigoDescuento.TabIndex = 4;
             lblCodigoDescuento.Text = "Código descuento:";
             // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataMember = "cliente";
-            this.clienteBindingSource.DataSource = this.dbsisventasDataSet;
-            // 
-            // dbsisventasDataSet
-            // 
-            this.dbsisventasDataSet.DataSetName = "dbsisventasDataSet";
-            this.dbsisventasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clienteTableAdapter
-            // 
-            this.clienteTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.categoriaTableAdapter = null;
-            this.tableAdapterManager.clienteTableAdapter = this.clienteTableAdapter;
-            this.tableAdapterManager.detalle_ventaTableAdapter = null;
-            this.tableAdapterManager.productoTableAdapter = null;
-            this.tableAdapterManager.proveedorTableAdapter = null;
-            this.tableAdapterManager.tipo_clienteTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.usuarioTableAdapter = null;
-            this.tableAdapterManager.ventaTableAdapter = null;
-            // 
             // gbxDatos
             // 
+            this.gbxDatos.Controls.Add(lblRepresentante);
+            this.gbxDatos.Controls.Add(this.txtRepresentante);
+            this.gbxDatos.Controls.Add(lblTelefono);
             this.gbxDatos.Controls.Add(lblCodigoDescuento);
             this.gbxDatos.Controls.Add(this.txtCodigoDescuento);
+            this.gbxDatos.Controls.Add(this.txtTelefono);
             this.gbxDatos.Controls.Add(lblNombre);
             this.gbxDatos.Controls.Add(this.txtNombre);
             this.gbxDatos.Controls.Add(lblNITCI);
             this.gbxDatos.Controls.Add(this.txtNITCI);
             this.gbxDatos.Location = new System.Drawing.Point(7, 98);
             this.gbxDatos.Name = "gbxDatos";
-            this.gbxDatos.Size = new System.Drawing.Size(623, 140);
+            this.gbxDatos.Size = new System.Drawing.Size(628, 146);
             this.gbxDatos.TabIndex = 1;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Introducción de Datos";
             // 
             // txtCodigoDescuento
             // 
-            this.txtCodigoDescuento.Location = new System.Drawing.Point(175, 89);
+            this.txtCodigoDescuento.Location = new System.Drawing.Point(160, 89);
             this.txtCodigoDescuento.Name = "txtCodigoDescuento";
             this.txtCodigoDescuento.Size = new System.Drawing.Size(158, 21);
             this.txtCodigoDescuento.TabIndex = 5;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(175, 33);
+            this.txtNombre.Location = new System.Drawing.Point(160, 33);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(391, 21);
+            this.txtNombre.Size = new System.Drawing.Size(442, 21);
             this.txtNombre.TabIndex = 1;
             // 
             // txtNITCI
             // 
-            this.txtNITCI.Location = new System.Drawing.Point(175, 62);
+            this.txtNITCI.Location = new System.Drawing.Point(160, 62);
             this.txtNITCI.Name = "txtNITCI";
             this.txtNITCI.Size = new System.Drawing.Size(158, 21);
             this.txtNITCI.TabIndex = 3;
@@ -235,6 +220,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.AutoScroll = true;
             this.tabPage2.Controls.Add(this.gbxDatos);
             this.tabPage2.Controls.Add(this.btnGuardar);
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
@@ -256,6 +242,70 @@
             this.lblTitulo.TabIndex = 6;
             this.lblTitulo.Text = "Clientes";
             // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataMember = "cliente";
+            this.clienteBindingSource.DataSource = this.dbsisventasDataSet;
+            // 
+            // dbsisventasDataSet
+            // 
+            this.dbsisventasDataSet.DataSetName = "dbsisventasDataSet";
+            this.dbsisventasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // clienteTableAdapter
+            // 
+            this.clienteTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.balanceTableAdapter = null;
+            this.tableAdapterManager.categoriaTableAdapter = null;
+            this.tableAdapterManager.clienteTableAdapter = this.clienteTableAdapter;
+            this.tableAdapterManager.detalle_proformaTableAdapter = null;
+            this.tableAdapterManager.detalle_ventaTableAdapter = null;
+            this.tableAdapterManager.productoTableAdapter = null;
+            this.tableAdapterManager.proformaTableAdapter = null;
+            this.tableAdapterManager.proveedorTableAdapter = null;
+            this.tableAdapterManager.tipo_clienteTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.usuarioTableAdapter = null;
+            this.tableAdapterManager.ventaTableAdapter = null;
+            // 
+            // lblTelefono
+            // 
+            lblTelefono.AutoSize = true;
+            lblTelefono.Location = new System.Drawing.Point(344, 65);
+            lblTelefono.Name = "lblTelefono";
+            lblTelefono.Size = new System.Drawing.Size(60, 18);
+            lblTelefono.TabIndex = 6;
+            lblTelefono.Text = "Teléfono:";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "telefono", true));
+            this.txtTelefono.Location = new System.Drawing.Point(444, 62);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(158, 21);
+            this.txtTelefono.TabIndex = 7;
+            // 
+            // lblRepresentante
+            // 
+            lblRepresentante.AutoSize = true;
+            lblRepresentante.Location = new System.Drawing.Point(344, 92);
+            lblRepresentante.Name = "lblRepresentante";
+            lblRepresentante.Size = new System.Drawing.Size(94, 18);
+            lblRepresentante.TabIndex = 8;
+            lblRepresentante.Text = "Representante:";
+            // 
+            // txtRepresentante
+            // 
+            this.txtRepresentante.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "nombre_representante", true));
+            this.txtRepresentante.Location = new System.Drawing.Point(444, 89);
+            this.txtRepresentante.Name = "txtRepresentante";
+            this.txtRepresentante.Size = new System.Drawing.Size(158, 21);
+            this.txtRepresentante.TabIndex = 9;
+            // 
             // dgvCliente
             // 
             this.dgvCliente.AllowUserToAddRows = false;
@@ -266,13 +316,15 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
             this.dgvCliente.DataSource = this.clienteBindingSource;
-            this.dgvCliente.Location = new System.Drawing.Point(7, 86);
+            this.dgvCliente.Location = new System.Drawing.Point(7, 95);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCliente.Size = new System.Drawing.Size(616, 261);
+            this.dgvCliente.Size = new System.Drawing.Size(625, 252);
             this.dgvCliente.TabIndex = 7;
             this.dgvCliente.DoubleClick += new System.EventHandler(this.dgvCliente_DoubleClick);
             // 
@@ -290,6 +342,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 150;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -304,7 +357,21 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Código Descuento";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "telefono";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Teléfono";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "nombre_representante";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Nombre Representante";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 150;
             // 
             // FrmCliente
             // 
@@ -318,14 +385,14 @@
             this.Name = "FrmCliente";
             this.Text = "FrmCliente";
             this.Load += new System.EventHandler(this.FrmCliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).EndInit();
             this.gbxDatos.ResumeLayout(false);
             this.gbxDatos.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -350,10 +417,14 @@
         private System.Windows.Forms.ComboBox cmbBuscar;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txtCodigoDescuento;
+        private System.Windows.Forms.TextBox txtRepresentante;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }

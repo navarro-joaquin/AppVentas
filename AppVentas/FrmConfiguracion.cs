@@ -21,8 +21,8 @@ namespace AppVentas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmRepNuevosProductos rep = new FrmRepNuevosProductos("20-02-2018");
-            rep.Show();
+            FrmPruebaReporte frm = new FrmPruebaReporte();
+            frm.Show();
         }
     }
 }

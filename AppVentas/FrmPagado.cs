@@ -15,8 +15,8 @@ namespace AppVentas
         private decimal total_venta;
         private decimal importe_pagado;
 
-        public decimal Total_venta { get => total_venta; set => total_venta = value; }
-        public decimal Importe_pagado { get => importe_pagado; set => importe_pagado = value; }
+        public decimal Total_venta { get; set; }
+        public decimal Importe_pagado { get; set; }
 
         public FrmPagado(decimal total_venta_)
         {

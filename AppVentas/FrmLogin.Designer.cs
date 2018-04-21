@@ -39,6 +39,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.usuarioTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.usuarioTableAdapter();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.balanceTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.balanceTableAdapter();
             this.gbxDatos.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -164,6 +165,10 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // balanceTableAdapter
+            // 
+            this.balanceTableAdapter.ClearBeforeFill = true;
+            // 
             // FrmLogin
             // 
             this.AcceptButton = this.btnEntrar;
@@ -205,5 +210,6 @@
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private dbsisventasDataSetTableAdapters.balanceTableAdapter balanceTableAdapter;
     }
 }

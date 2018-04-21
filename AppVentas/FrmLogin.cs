@@ -12,11 +12,9 @@ namespace AppVentas
 {
     public partial class FrmLogin : Form
     {
-        RegistroCaja registro;
         public FrmLogin()
         {
             InitializeComponent();
-            registro = new RegistroCaja();
         }
 
         private void LimpiarCajas()
@@ -45,7 +43,17 @@ namespace AppVentas
                     {
                         LimpiarCajas();
                         this.Hide();
-                        registro.InicioCaja(nivel_acceso, id);
+                        int id_balance = Convert.ToInt32(this.balanceTableAdapter.ObtenerID(DateTime.Today.ToShortDateString(), id));
+                        if (id_balance == 0)
+                        {
+                            FrmCajaInicio frm = new FrmCajaInicio(id);
+                            frm.ShowDialog();
+                            Acceso(id, nivel_acceso);
+                        }
+                        else
+                        {
+                            Acceso(id, nivel_acceso);
+                        }
                         this.Show();
                     }
                     else
@@ -59,6 +67,20 @@ namespace AppVentas
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void Acceso(int id, int nivel_acceso)
+        {
+            if (nivel_acceso == 3)
+            {
+                FrmVistaVendedor frm = new FrmVistaVendedor(id);
+                frm.ShowDialog();
+            }
+            else
+            {
+                FrmPrincipal frm = new FrmPrincipal(id);
+                frm.ShowDialog();
             }
         }
 

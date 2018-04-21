@@ -13,6 +13,7 @@ namespace AppVentas
         public string marca { get; set; }
         public decimal valor_compra { get; set; }
         public decimal valor_venta { get; set; }
+        public decimal valor_mayorista { get; set; }
         public DateTime fecha_introduccion { get; set; }
         public DateTime fecha_vencimiento { get; set; }
         public int stock { get; set; }

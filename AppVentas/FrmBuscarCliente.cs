@@ -15,8 +15,8 @@ namespace AppVentas
         private string nombre_cliente;
         private string nit_cliente;
 
-        public string Nombre_cliente { get => nombre_cliente; set => nombre_cliente = value; }
-        public string Nit_cliente { get => nit_cliente; set => nit_cliente = value; }
+        public string Nombre_cliente { get; set; }
+        public string Nit_cliente { get; set; }
 
         public FrmBuscarCliente()
         {

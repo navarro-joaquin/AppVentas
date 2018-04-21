@@ -46,6 +46,8 @@ namespace AppVentas
             txtNombre.ResetText();
             txtNITCI.ResetText();
             txtCodigoDescuento.ResetText();
+            txtTelefono.ResetText();
+            txtRepresentante.ResetText();
             txtNombre.Focus();
         }
 
@@ -73,10 +75,12 @@ namespace AppVentas
                     string nombre = txtNombre.Text;
                     string nit_ci = txtNITCI.Text;
                     string codigo_descuento = txtCodigoDescuento.Text;
+                    string telefono = txtTelefono.Text;
+                    string nombre_representante = txtRepresentante.Text;
                     
                     try
                     {
-                        this.clienteTableAdapter.InsertarClienteDescuento(nombre, nit_ci, codigo_descuento);
+                        this.clienteTableAdapter.InsertarClienteDescuento(nombre, nit_ci, codigo_descuento, telefono, nombre_representante);
                         MessageBox.Show("Registro guardado correctamente");
                         ActualizarListado();
                         LimpiarCajas();
@@ -100,9 +104,11 @@ namespace AppVentas
                         string nombre = txtNombre.Text;
                         string nit_ci = txtNITCI.Text;
                         string codigo_descuento = txtCodigoDescuento.Text;
+                        string telefono = txtTelefono.Text;
+                        string nombre_representante = txtRepresentante.Text;
                         try
                         {
-                            this.clienteTableAdapter.EditarClienteDescuento(nombre, nit_ci, codigo_descuento, id_editar);
+                            this.clienteTableAdapter.EditarClienteDescuento(nombre, nit_ci, codigo_descuento, telefono, nombre_representante, id_editar);
                             MessageBox.Show("guardado correctamente");
                             ActualizarListado();
                             LimpiarCajas();

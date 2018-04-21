@@ -110,6 +110,18 @@
     <Compile Include="FrmBuscarProducto.Designer.cs">
       <DependentUpon>FrmBuscarProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCajaCierre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCajaCierre.Designer.cs">
+      <DependentUpon>FrmCajaCierre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCajaInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCajaInicio.Designer.cs">
+      <DependentUpon>FrmCajaInicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +151,12 @@
     </Compile>
     <Compile Include="FrmDetalleVenta.Designer.cs">
       <DependentUpon>FrmDetalleVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDeudaProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDeudaProveedor.Designer.cs">
+      <DependentUpon>FrmDeudaProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoProformas.cs">
       <SubType>Form</SubType>
@@ -181,6 +199,24 @@
     </Compile>
     <Compile Include="FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPruebaReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPruebaReporte.Designer.cs">
+      <DependentUpon>FrmPruebaReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRepBalanceDia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRepBalanceDia.Designer.cs">
+      <DependentUpon>FrmRepBalanceDia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRepDeudaProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRepDeudaProveedores.Designer.cs">
+      <DependentUpon>FrmRepDeudaProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRepNuevosProductos.cs">
       <SubType>Form</SubType>
@@ -244,71 +280,111 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistroCaja.cs" />
+    <Compile Include="RepCaracteristicasProforma.cs" />
+    <Compile Include="RepPagoDeuda.cs" />
     <Compile Include="RepProforma.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="FrmAlertas.resx">
       <DependentUpon>FrmAlertas.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarProducto.resx">
       <DependentUpon>FrmBuscarProducto.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCajaCierre.resx">
+      <DependentUpon>FrmCajaCierre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCajaInicio.resx">
+      <DependentUpon>FrmCajaInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCierreDia.resx">
       <DependentUpon>FrmCierreDia.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConfiguracion.resx">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleVenta.resx">
       <DependentUpon>FrmDetalleVenta.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDeudaProveedor.resx">
+      <DependentUpon>FrmDeudaProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoProformas.resx">
       <DependentUpon>FrmListadoProformas.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPagado.resx">
       <DependentUpon>FrmPagado.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProforma.resx">
       <DependentUpon>FrmProforma.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPruebaReporte.resx">
+      <DependentUpon>FrmPruebaReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRepBalanceDia.resx">
+      <DependentUpon>FrmRepBalanceDia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRepDeudaProveedores.resx">
+      <DependentUpon>FrmRepDeudaProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRepNuevosProductos.resx">
       <DependentUpon>FrmRepNuevosProductos.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRepRecibo.resx">
       <DependentUpon>FrmRepRecibo.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRepTotalTienda.resx">
       <DependentUpon>FrmRepTotalTienda.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRepVentasDia.resx">
       <DependentUpon>FrmRepVentasDia.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRepVentasDiaAdm.resx">
       <DependentUpon>FrmRepVentasDiaAdm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTipoCliente.resx">
       <DependentUpon>FrmTipoCliente.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
@@ -332,7 +408,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RepBalanceDia.rdlc" />
+    <EmbeddedResource Include="RepCaracteristicasProforma.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RepDeudaProveedores.rdlc" />
     <EmbeddedResource Include="RepNuevosProductos.rdlc" />
+    <EmbeddedResource Include="RepPagoDeuda.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="RepProforma.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -399,7 +483,6 @@
     <None Include="Resources\Logo2.jpeg" />
     <None Include="Resources\Fondo.jpeg" />
     <None Include="Resources\Fondo Claro.jpeg" />
-    <Content Include="Caja.txt" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

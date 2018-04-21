@@ -20,6 +20,7 @@ namespace AppVentas
         private bool nuevoCliente = false;
         private int id_usuario = -1;
         private RepProforma proforma = new RepProforma();
+        private RepCaracteristicasProforma caracteristicas = new RepCaracteristicasProforma();
 
         public FrmProforma(int id)
         {
@@ -343,9 +344,10 @@ namespace AppVentas
                             this.detalle_proformaTableAdapter.InsertarDetalleProforma(id_producto, precio, cantidad, subtotal, id_proforma);
                         }
 
-                        //Imprimir recibo
+                        //Imprimir proforma
                         string numero_nit = "10381527";
                         proforma.Imprimir(txtNITCI.Text, txtNombreCliente.Text, DateTime.Today.ToShortDateString(), id_proforma.ToString().PadLeft(7, '0'), numero_nit, id_proforma);
+                        caracteristicas.Imprimir(DateTime.Today.ToShortDateString(), id_proforma);
 
                         //Limpiar datos del cliente
                         LimpiarCamposCliente();
