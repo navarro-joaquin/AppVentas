@@ -157,7 +157,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::AppVentas.Properties.Resources.Logo;
+            this.pictureBox1.BackgroundImage = global::AppVentas.Properties.Resources.Logo_MultiMarket;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(87, 80);
             this.pictureBox1.Name = "pictureBox1";

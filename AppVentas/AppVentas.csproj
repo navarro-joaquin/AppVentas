@@ -483,6 +483,7 @@
     <None Include="Resources\Logo2.jpeg" />
     <None Include="Resources\Fondo.jpeg" />
     <None Include="Resources\Fondo Claro.jpeg" />
+    <None Include="Resources\Logo MultiMarket.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -26,11 +26,8 @@ namespace AppVentas
             frm.Show();
         }
 
-        private void btnReporte_Click(object sender, EventArgs e)
+        private void btnCierre_Click(object sender, EventArgs e)
         {
-            //FrmRepVentasDia frm = new FrmRepVentasDia(id_usuario);
-            //frm.Show();
-
             FrmCajaCierre frm = new FrmCajaCierre(id_usuario);
             frm.Show();
         }

@@ -52,6 +52,7 @@
             this.MnuItemTotalTienda = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemVentasDiaAdm = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemDeudasProveedores = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemBalanceDia = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuVer = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemHerramientas = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemEstado = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +71,6 @@
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.usuarioTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.usuarioTableAdapter();
-            this.MnuItemBalanceDia = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +91,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.MnuVentanas;
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(753, 24);
+            this.menuStrip.Size = new System.Drawing.Size(792, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -268,6 +268,13 @@
             this.MnuItemDeudasProveedores.Text = "Deudas a Proveedores";
             this.MnuItemDeudasProveedores.Click += new System.EventHandler(this.MnuItemDeudasProveedores_Click);
             // 
+            // MnuItemBalanceDia
+            // 
+            this.MnuItemBalanceDia.Name = "MnuItemBalanceDia";
+            this.MnuItemBalanceDia.Size = new System.Drawing.Size(237, 22);
+            this.MnuItemBalanceDia.Text = "Balance Final Día";
+            this.MnuItemBalanceDia.Click += new System.EventHandler(this.MnuItemBalanceDia_Click);
+            // 
             // MnuVer
             // 
             this.MnuVer.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -376,7 +383,7 @@
             // 
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(753, 25);
+            this.toolStrip.Size = new System.Drawing.Size(792, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
@@ -384,9 +391,9 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 379);
+            this.statusStrip.Location = new System.Drawing.Point(0, 432);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(753, 22);
+            this.statusStrip.Size = new System.Drawing.Size(792, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -400,18 +407,11 @@
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
-            // MnuItemBalanceDia
-            // 
-            this.MnuItemBalanceDia.Name = "MnuItemBalanceDia";
-            this.MnuItemBalanceDia.Size = new System.Drawing.Size(237, 22);
-            this.MnuItemBalanceDia.Text = "Balance Final Día";
-            this.MnuItemBalanceDia.Click += new System.EventHandler(this.MnuItemBalanceDia_Click);
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 401);
+            this.ClientSize = new System.Drawing.Size(792, 454);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);

@@ -30,7 +30,7 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnVender = new System.Windows.Forms.Button();
-            this.btnReporte = new System.Windows.Forms.Button();
+            this.btnCierre = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnProforma = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -38,7 +38,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::AppVentas.Properties.Resources.Logo2;
+            this.pictureBox1.BackgroundImage = global::AppVentas.Properties.Resources.Logo_MultiMarket;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(199, 12);
             this.pictureBox1.Name = "pictureBox1";
@@ -61,20 +61,20 @@
             this.btnVender.UseVisualStyleBackColor = false;
             this.btnVender.Click += new System.EventHandler(this.btnVender_Click);
             // 
-            // btnReporte
+            // btnCierre
             // 
-            this.btnReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(76)))));
-            this.btnReporte.FlatAppearance.BorderSize = 0;
-            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporte.Font = new System.Drawing.Font("Trebuchet MS", 18F);
-            this.btnReporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.btnReporte.Location = new System.Drawing.Point(515, 213);
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(231, 73);
-            this.btnReporte.TabIndex = 2;
-            this.btnReporte.Text = "&Generar Reporte";
-            this.btnReporte.UseVisualStyleBackColor = false;
-            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            this.btnCierre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(182)))), ((int)(((byte)(76)))));
+            this.btnCierre.FlatAppearance.BorderSize = 0;
+            this.btnCierre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCierre.Font = new System.Drawing.Font("Trebuchet MS", 18F);
+            this.btnCierre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnCierre.Location = new System.Drawing.Point(515, 213);
+            this.btnCierre.Name = "btnCierre";
+            this.btnCierre.Size = new System.Drawing.Size(231, 73);
+            this.btnCierre.TabIndex = 2;
+            this.btnCierre.Text = "&Cierre Caja";
+            this.btnCierre.UseVisualStyleBackColor = false;
+            this.btnCierre.Click += new System.EventHandler(this.btnCierre_Click);
             // 
             // btnSalir
             // 
@@ -113,10 +113,10 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::AppVentas.Properties.Resources.Fondo_Claro;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(758, 457);
+            this.ClientSize = new System.Drawing.Size(758, 441);
             this.Controls.Add(this.btnProforma);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnReporte);
+            this.Controls.Add(this.btnCierre);
             this.Controls.Add(this.btnVender);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -134,7 +134,7 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnVender;
-        private System.Windows.Forms.Button btnReporte;
+        private System.Windows.Forms.Button btnCierre;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnProforma;
     }

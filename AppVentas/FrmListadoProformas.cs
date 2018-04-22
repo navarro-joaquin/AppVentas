@@ -13,11 +13,13 @@ namespace AppVentas
     public partial class FrmListadoProformas : Form
     {
         RepProforma proforma;
+        RepCaracteristicasProforma caracteristicas;
 
         public FrmListadoProformas()
         {
             InitializeComponent();
             proforma = new RepProforma();
+            caracteristicas = new RepCaracteristicasProforma();
         }
 
         private void FrmListadoProformas_Load(object sender, EventArgs e)
@@ -71,6 +73,7 @@ namespace AppVentas
             int id_proforma = Convert.ToInt32(dgvProformas.CurrentRow.Cells[0].Value.ToString());
 
             proforma.Imprimir(nit_cliente, nombre_cliente, fecha_proforma, numero_proforma, numero_nit, id_proforma);
+            caracteristicas.Imprimir(fecha_proforma, id_proforma);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

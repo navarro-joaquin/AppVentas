@@ -49,11 +49,18 @@ namespace AppVentas
             }
             else
             {
-                decimal monto_final = Convert.ToDecimal(txtMonto.Text);
-                this.balanceTableAdapter.CierreCaja(DateTime.Now, monto_final, id_balance);
-                MessageBox.Show("Cierre de Caja realizado correctamente!");
-                Cierre_correcto = true;
-                this.Close();
+                if (decimal.TryParse(txtMonto.Text, out decimal numero))
+                {
+                    decimal monto_final = numero;
+                    this.balanceTableAdapter.CierreCaja(DateTime.Now, monto_final, id_balance);
+                    MessageBox.Show("Cierre de Caja realizado correctamente!");
+                    Cierre_correcto = true;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Introduzca solamente números antes de continuar");
+                }
             }
         }
     }
