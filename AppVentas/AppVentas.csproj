@@ -128,12 +128,6 @@
     <Compile Include="FrmCategoria.Designer.cs">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCierreDia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCierreDia.Designer.cs">
-      <DependentUpon>FrmCierreDia.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,10 +298,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCierreDia.resx">
-      <DependentUpon>FrmCierreDia.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
@@ -484,6 +474,26 @@
     <None Include="Resources\Fondo.jpeg" />
     <None Include="Resources\Fondo Claro.jpeg" />
     <None Include="Resources\Logo MultiMarket.png" />
+    <None Include="Resources\Multimarket.jpeg" />
+    <None Include="Resources\salir.png" />
+    <None Include="Resources\categoria.png" />
+    <None Include="Resources\proveedor.png" />
+    <None Include="Resources\producto.png" />
+    <None Include="Resources\venta %282%29.png" />
+    <None Include="Resources\listado_venta.png" />
+    <None Include="Resources\proforma.png" />
+    <None Include="Resources\listado_proforma.png" />
+    <None Include="Resources\cliente.png" />
+    <None Include="Resources\usuario.png" />
+    <None Include="Resources\tipo_cliente.png" />
+    <None Include="Resources\reporte %281%29.png" />
+    <None Include="Resources\reporte %282%29.png" />
+    <None Include="Resources\reporte %286%29.png" />
+    <None Include="Resources\reporte %284%29.png" />
+    <None Include="Resources\reporte %285%29.png" />
+    <None Include="Resources\reporte %283%29.png" />
+    <None Include="Resources\deuda_proveedor.png" />
+    <None Include="Resources\cierre caja.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

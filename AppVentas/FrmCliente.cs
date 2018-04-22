@@ -22,6 +22,8 @@ namespace AppVentas
             InitializeComponent();
             nivel_acceso = acceso;
             Restringir();
+
+            this.MaximizeBox = false;
         }
 
         private void FrmCliente_Load(object sender, EventArgs e)
@@ -29,6 +31,8 @@ namespace AppVentas
             // TODO: esta línea de código carga datos en la tabla 'dbsisventasDataSet.cliente' Puede moverla o quitarla según sea necesario.
             this.clienteTableAdapter.Fill(this.dbsisventasDataSet.cliente);
 
+            this.Top = 0;
+            this.Left = 0;
             cmbBuscar.SelectedIndex = 0;
             TotalRegistros();
         }

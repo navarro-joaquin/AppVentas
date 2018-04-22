@@ -24,6 +24,8 @@ namespace AppVentas
             Total_venta = total_venta_;
             txtTotalVenta.Text = Total_venta.ToString("#0.00#");
             lblCambioImporte.Text = Total_venta.ToString("#0.00#");
+
+            this.MaximizeBox = false;
         }
 
         private void btnVender_Click(object sender, EventArgs e)

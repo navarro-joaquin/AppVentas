@@ -26,6 +26,8 @@ namespace AppVentas
             InitializeComponent();
             nivel_acceso = acceso;
             Restringir();
+
+            this.MaximizeBox = false;
         }
 
         private void FrmDeudaProveedor_Load(object sender, EventArgs e)
@@ -37,6 +39,8 @@ namespace AppVentas
             // TODO: esta línea de código carga datos en la tabla 'dbsisventasDataSet.vista_deuda_proveedor' Puede moverla o quitarla según sea necesario.
             this.vista_deuda_proveedorTableAdapter.Fill(this.dbsisventasDataSet.vista_deuda_proveedor);
 
+            this.Top = 0;
+            this.Left = 0;
             cmbBuscar.SelectedIndex = 0;
             TotalRegistros();
         }

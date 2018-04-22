@@ -31,6 +31,8 @@ namespace AppVentas
             cmbNivelAcceso.DisplayMember = "Value";
             nivel_acceso = acceso;
             Restringir();
+
+            this.MaximizeBox = false;
         }
 
         private void FrmUsuario_Load(object sender, EventArgs e)
@@ -38,6 +40,8 @@ namespace AppVentas
             // TODO: esta línea de código carga datos en la tabla 'dbsisventasDataSet.usuario' Puede moverla o quitarla según sea necesario.
             this.usuarioTableAdapter.Fill(this.dbsisventasDataSet.usuario);
 
+            this.Top = 0;
+            this.Left = 0;
             cmbBuscar.SelectedIndex = 0;
             TotalRegistros();
         }

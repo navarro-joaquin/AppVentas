@@ -46,8 +46,11 @@ namespace AppVentas
                         int id_balance = Convert.ToInt32(this.balanceTableAdapter.ObtenerID(DateTime.Today.ToShortDateString(), id));
                         if (id_balance == 0)
                         {
-                            FrmCajaInicio frm = new FrmCajaInicio(id);
-                            frm.ShowDialog();
+                            if (nivel_acceso != 2)
+                            {
+                                FrmCajaInicio frm = new FrmCajaInicio(id);
+                                frm.ShowDialog();
+                            }
                             Acceso(id, nivel_acceso);
                         }
                         else

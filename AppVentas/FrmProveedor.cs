@@ -22,6 +22,8 @@ namespace AppVentas
             InitializeComponent();
             nivel_acceso = acceso;
             Restringir();
+
+            this.MaximizeBox = false;
         }
 
         public FrmProveedor(string nombre)
@@ -37,6 +39,8 @@ namespace AppVentas
             // TODO: esta línea de código carga datos en la tabla 'dbsisventasDataSet.proveedor' Puede moverla o quitarla según sea necesario.
             this.proveedorTableAdapter.Fill(this.dbsisventasDataSet.proveedor);
 
+            this.Top = 0;
+            this.Left = 0;
             cmbBuscar.SelectedIndex = 0;
             TotalRegistros();
         }

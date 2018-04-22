@@ -18,6 +18,8 @@ namespace AppVentas
         {
             InitializeComponent();
             recibo = new RepRecibo();
+
+            this.MaximizeBox = false;
         }
 
         private void FrmVentas_Load(object sender, EventArgs e)
@@ -25,8 +27,9 @@ namespace AppVentas
             // TODO: esta línea de código carga datos en la tabla 'dbsisventasDataSet.vista_ventas_realizadas' Puede moverla o quitarla según sea necesario.
             this.vista_ventas_realizadasTableAdapter.Fill(this.dbsisventasDataSet.vista_ventas_realizadas);
 
+            this.Top = 0;
+            this.Left = 0;
             cmbBuscar.SelectedIndex = 0;
-
         }
 
         private void cmbBuscar_SelectedIndexChanged(object sender, EventArgs e)

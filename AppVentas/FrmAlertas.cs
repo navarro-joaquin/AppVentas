@@ -17,6 +17,7 @@ namespace AppVentas
         public FrmAlertas()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
         }
 
         private void FrmAlertas_Load(object sender, EventArgs e)
@@ -47,6 +48,11 @@ namespace AppVentas
                     lblTitulo.Text = "Listado de productos con fecha de vencimiento próxima";
                 }
             }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

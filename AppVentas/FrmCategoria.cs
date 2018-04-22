@@ -22,6 +22,8 @@ namespace AppVentas
             InitializeComponent();
             nivel_acceso = acceso;
             Restringir();
+            
+            this.MaximizeBox = false;
         }
 
         public FrmCategoria(string nombre)
@@ -37,6 +39,8 @@ namespace AppVentas
             // TODO: esta línea de código carga datos en la tabla 'dbsisventasDataSet.categoria' Puede moverla o quitarla según sea necesario.
             this.categoriaTableAdapter.Fill(this.dbsisventasDataSet.categoria);
 
+            this.Top = 0;
+            this.Left = 0;
             cmbBuscar.SelectedIndex = 0;
             TotalRegistros();
         }

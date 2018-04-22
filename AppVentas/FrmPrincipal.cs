@@ -37,22 +37,31 @@ namespace AppVentas
                     break;
                 case 2:
                     toolStripStatusLabel.Text = "Almacenero";
+                    //Menu
                     MnuVentas.Visible = false;
                     MnuProformas.Visible = false;
                     MnuPersonas.Visible = false;
                     MnuHerramientas.Visible = false;
                     MnuItemVentasDia.Visible = false;
                     MnuItemVentasDiaAdm.Visible = false;
-                    break;
-                case 3:
-                    toolStripStatusLabel.Text = "Vendedor";
-                    MnuPersonas.Visible = false;
-                    MnuAlmacen.Visible = false;
-                    MnuItemListadoVentas.Visible = false;
-                    MnuItemVentasDiaAdm.Visible = false;
-                    MnuItemRepNuevoAlmacen.Visible = false;
-                    MnuItemTotalTienda.Visible = false;
-                    MnuHerramientas.Visible = false;
+                    MnuItemDeudasProveedores.Visible = false;
+                    MnuItemBalanceDia.Visible = false;
+                    MnuCierreCaja.Visible = false;
+                    //Botones
+                    btnClientes.Visible = false;
+                    btnVenta.Visible = false;
+                    btnProforma.Visible = false;
+                    //Barra de herramientas
+                    separador1.Visible = false;
+                    tsbVenta.Visible = false;
+                    tsbListadoVenta.Visible = false;
+                    separador2.Visible = false;
+                    tsbProforma.Visible = false;
+                    tsbListadoProforma.Visible = false;
+                    separador3.Visible = false;
+                    tsbClientes.Visible = false;
+                    tsbUsuarios.Visible = false;
+                    tsbDeudaProveedor.Visible = false;
                     break;
             }
         }
@@ -226,6 +235,76 @@ namespace AppVentas
         {
             FrmRepBalanceDia frm = new FrmRepBalanceDia();
             frm.Show();
+        }
+
+        private void tsbProductos_Click(object sender, EventArgs e)
+        {
+            MnuItemProductos.PerformClick();
+        }
+
+        private void tsbProveedores_Click(object sender, EventArgs e)
+        {
+            MnuItemProveedores.PerformClick();
+        }
+
+        private void tsbVenta_Click(object sender, EventArgs e)
+        {
+            MnuItemNuevaVenta.PerformClick();
+        }
+
+        private void tsbListadoVenta_Click(object sender, EventArgs e)
+        {
+            MnuItemListadoVentas.PerformClick();
+        }
+
+        private void tsbProforma_Click(object sender, EventArgs e)
+        {
+            MnuItemNuevaProforma.PerformClick();
+        }
+
+        private void tsbListadoProforma_Click(object sender, EventArgs e)
+        {
+            MnuItemListadoProformas.PerformClick();
+        }
+
+        private void tsbClientes_Click(object sender, EventArgs e)
+        {
+            MnuItemClientes.PerformClick();
+        }
+
+        private void tsbUsuarios_Click(object sender, EventArgs e)
+        {
+            MnuItemUsuarios.PerformClick();
+        }
+
+        private void tsbDeudaProveedor_Click(object sender, EventArgs e)
+        {
+            MnuItemDeudaProveedores.PerformClick();
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            MnuItemProductos.PerformClick();
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            MnuItemProveedores.PerformClick();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            MnuItemClientes.PerformClick();
+        }
+
+        private void btnVenta_Click(object sender, EventArgs e)
+        {
+            MnuItemNuevaVenta.PerformClick();
+        }
+
+        private void btnProforma_Click(object sender, EventArgs e)
+        {
+            MnuItemNuevaProforma.PerformClick();
         }
     }
 }

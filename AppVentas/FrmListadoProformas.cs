@@ -20,6 +20,8 @@ namespace AppVentas
             InitializeComponent();
             proforma = new RepProforma();
             caracteristicas = new RepCaracteristicasProforma();
+
+            this.MaximizeBox = false;
         }
 
         private void FrmListadoProformas_Load(object sender, EventArgs e)
@@ -27,6 +29,8 @@ namespace AppVentas
             // TODO: esta línea de código carga datos en la tabla 'dbsisventasDataSet.vista_proformas_realizadas' Puede moverla o quitarla según sea necesario.
             this.vista_proformas_realizadasTableAdapter.Fill(this.dbsisventasDataSet.vista_proformas_realizadas);
 
+            this.Top = 0;
+            this.Left = 0;
             cmbBuscar.SelectedIndex = 0;
         }
 

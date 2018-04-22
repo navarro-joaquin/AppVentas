@@ -23,6 +23,8 @@ namespace AppVentas
         {
             InitializeComponent();
             id_usuario = id;
+
+            this.MaximizeBox = false;
         }
 
         private void FrmCajaCierre_Load(object sender, EventArgs e)
