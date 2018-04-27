@@ -28,7 +28,11 @@ namespace AppVentas
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            string fecha = dtpFecha.Value.ToShortDateString();
+            string fecha = DateTime.Now.ToString();
+
+            string fecha1 = DateTime.Now.ToShortDateString() + " 00:00:00";
+            string fecha2 = DateTime.Now.ToShortDateString() + " 23:59:59";
+
             int id_usuario = Convert.ToInt32(cmbUsuario.SelectedValue);
 
             List<ReportParameter> reportParams = new List<ReportParameter>();
@@ -40,12 +44,12 @@ namespace AppVentas
             string cs = AppVentas.Properties.Settings.Default.dbsisventasConnString;
             SqlConnection cn = new SqlConnection(cs);
             string query = "select v.numero_factura, v.total_venta, v.descuento, v.importe_pagado, c.nombre as cliente, (u.nombres + ' ' + u.apellidos) as usuario, " +
-                            "(select sum(total_venta) from venta where id_usuario = " + id_usuario + " and fecha = '" + fecha + "') as suma_total from venta v " +
+                            "(select sum(total_venta) from venta where id_usuario = " + id_usuario + " and fecha between '" + fecha1 + "' and '" + fecha2 + "') as suma_total from venta v " +
                             "inner join cliente c " +
                             "on v.id_cliente = c.id " +
                             "inner join usuario u " +
                             "on v.id_usuario = u.id " +
-                            "where u.id = " + id_usuario + " and v.fecha = '" + fecha + "'";
+                            "where u.id = " + id_usuario + " and v.fecha between '" + fecha1 + "' and '" + fecha2 + "'";
             SqlDataAdapter da = new SqlDataAdapter(query, cn);
             da.Fill(con, con.Tables[3].TableName);
 

@@ -169,13 +169,22 @@ namespace AppVentas
             string nit_ci = txtNITCI.Text;
             try
             {
-                string nombre = this.clienteTableAdapter.ObtenerNombre(nit_ci);
-
-                if (!nombre.Equals(""))
+                if (nit_ci.Equals("0"))
                 {
-                    txtNombreCliente.Text = nombre;
+                    txtNombreCliente.Text = "Sin nombre";
                     txtNombreCliente.Focus();
-                    nuevoCliente = false;
+                    nuevoCliente = true;
+                }
+                else
+                {
+                    string nombre = this.clienteTableAdapter.ObtenerNombre(nit_ci);
+
+                    if (!nombre.Equals(""))
+                    {
+                        txtNombreCliente.Text = nombre;
+                        txtNombreCliente.Focus();
+                        nuevoCliente = false;
+                    }
                 }
             }
             catch (Exception)
@@ -321,15 +330,23 @@ namespace AppVentas
                         }
                         else
                         {
+                            
                             string nit_ci = txtNITCI.Text;
                             string nombre = txtNombreCliente.Text;
 
+                            if (txtNITCI.Text.Equals("0"))
+                            {
+                                nuevoCliente = true;
+                            }
+
                             if (nuevoCliente)
                             {
+                                MessageBox.Show("Nuevo cliente");
                                 this.clienteTableAdapter.InsertarCliente(nombre, nit_ci);
                             }
                             else
                             {
+                                MessageBox.Show("Se encontró el cliente");
                                 int id = Convert.ToInt32(this.clienteTableAdapter.ObtenerID(nombre, nit_ci));
                                 this.clienteTableAdapter.EditarCliente(nombre, nit_ci, id);
                             }
@@ -339,6 +356,7 @@ namespace AppVentas
                         //Insertar nueva venta
 
                         int id_cliente = Convert.ToInt32(this.clienteTableAdapter.ObtenerID(txtNombreCliente.Text, txtNITCI.Text));
+                        MessageBox.Show(id_cliente.ToString());
 
                         DateTime fecha = DateTime.Now;
 
@@ -371,7 +389,7 @@ namespace AppVentas
                         if (confirmacion == DialogResult.Yes)
                         {
                             //Imprimir recibo
-                            string numero_nit = "10381527";
+                            string numero_nit = "7473186019";
                             recibo.Imprimir(txtNITCI.Text, txtNombreCliente.Text, fecha.ToString(), id_venta.ToString().PadLeft(7, '0'), numero_nit, id_venta);
                         }
 

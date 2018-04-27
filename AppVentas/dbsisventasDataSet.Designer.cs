@@ -16644,8 +16644,8 @@ SELECT id, numero_factura, fecha, total_venta, descuento, importe_pagado, codigo
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT SUM(importe_pagado) from venta where fecha BETWEEN @fecha1 AND @fecha2 AND" +
-                " id_usuario = @id";
+            this._commandCollection[3].CommandText = "SELECT SUM(total_venta - descuento) from venta where fecha BETWEEN @fecha1 AND @f" +
+                "echa2 AND id_usuario = @id";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha1", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha2", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17004,7 +17004,7 @@ SELECT id, numero_factura, fecha, total_venta, descuento, importe_pagado, codigo
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<decimal> ObtenerTotalVentas(System.DateTime fecha1, System.DateTime fecha2, int id) {
+        public virtual object ObtenerTotalVentas(System.DateTime fecha1, System.DateTime fecha2, int id) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             command.Parameters[0].Value = ((System.DateTime)(fecha1));
             command.Parameters[1].Value = ((System.DateTime)(fecha2));
@@ -17025,10 +17025,10 @@ SELECT id, numero_factura, fecha, total_venta, descuento, importe_pagado, codigo
             }
             if (((returnValue == null) 
                         || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return new global::System.Nullable<decimal>();
+                return null;
             }
             else {
-                return new global::System.Nullable<decimal>(((decimal)(returnValue)));
+                return ((object)(returnValue));
             }
         }
     }

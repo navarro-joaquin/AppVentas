@@ -105,7 +105,16 @@ namespace AppVentas
                     string marca = txtMarca.Text;
                     decimal valor_compra = Convert.ToDecimal(txtValorCompra.Text);
                     decimal valor_venta = Convert.ToDecimal(txtValorVenta.Text);
-                    decimal valor_mayorista = Convert.ToDecimal(txtValorMayorista.Text);
+                    decimal valor_mayorista;
+                    if (txtValorMayorista.Text.Equals(""))
+                    {
+                        valor_mayorista = valor_venta;
+
+                    }
+                    else
+                    {
+                        valor_mayorista = Convert.ToDecimal(txtValorMayorista.Text);
+                    }
                     string fecha_compra = dtpFechaCompra.Value.ToShortDateString();
                     string fecha_vencimiento = dtpFechaVencimiento.Value.ToShortDateString();
                     int stock = Convert.ToInt32(txtStock.Text);
@@ -146,7 +155,15 @@ namespace AppVentas
                         string marca = txtMarca.Text;
                         decimal valor_compra = Convert.ToDecimal(txtValorCompra.Text);
                         decimal valor_venta = Convert.ToDecimal(txtValorVenta.Text);
-                        decimal valor_mayorista = Convert.ToDecimal(txtValorMayorista.Text);
+                        decimal valor_mayorista;
+                        if (txtValorMayorista.Text.Equals(""))
+                        {
+                            valor_mayorista = valor_venta;
+                        }
+                        else
+                        {
+                            valor_mayorista = Convert.ToDecimal(txtValorMayorista.Text);
+                        }
                         string fecha_compra = dtpFechaCompra.Value.ToShortDateString();
                         string fecha_vencimiento = dtpFechaVencimiento.Value.ToShortDateString();
                         int stock = Convert.ToInt32(txtStock.Text);
