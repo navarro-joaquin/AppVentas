@@ -35,7 +35,7 @@ namespace AppVentas
             Consultas con = new Consultas();
             string cs = AppVentas.Properties.Settings.Default.dbsisventasConnString;
             SqlConnection cn = new SqlConnection(cs);
-            string query = "select dv.id, v.fecha, p.nombre_producto as producto, p.valor_compra, p.valor_venta, v.total_venta, v.descuento, v.importe_pagado, (v.importe_pagado - v.total_venta) as cambio, v.id as id_venta, v.numero_factura as nro_recibo, u.usuario, " +
+            string query = "select dv.id, v.fecha, p.nombre_producto as producto, p.valor_compra, p.valor_venta, v.total_venta, v.descuento, v.importe_pagado, (v.importe_pagado - v.total_venta + v.descuento) as cambio, v.id as id_venta, v.numero_factura as nro_recibo, u.usuario, " +
                             "(select sum(dv.subtotal - (p.valor_compra * dv.cantidad) - v.descuento) " +
                             "from detalle_venta dv " +
                             "inner join venta v " +

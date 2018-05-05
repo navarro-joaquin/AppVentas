@@ -63,7 +63,7 @@ namespace AppVentas
                 txtImportePagado.Text = "0.00";
             }
             decimal monto = Convert.ToDecimal(txtImportePagado.Text);
-            lblCambioImporte.Text = (Total_venta - monto).ToString("#0.00#");
+            lblCambioImporte.Text = (monto - Total_venta).ToString("#0.00#");
         }
     }
 }
