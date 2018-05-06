@@ -93,5 +93,24 @@ namespace AppVentas
 
             recibo.Imprimir(nit_cliente, nombre_cliente, fecha_venta, numero_recibo, numero_nit, id_venta);
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id_venta = Convert.ToInt32(dgvVentas.CurrentRow.Cells[0].Value);
+                ventaTableAdapter.EliminarVenta(id_venta);
+                this.vista_ventas_realizadasTableAdapter.Fill(this.dbsisventasDataSet.vista_ventas_realizadas);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al realizar la consulta");
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

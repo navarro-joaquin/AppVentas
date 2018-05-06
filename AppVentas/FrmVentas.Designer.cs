@@ -51,6 +51,7 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.ventaTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.ventaTableAdapter();
             this.gbxVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_ventas_realizadasBindingSource)).BeginInit();
@@ -247,6 +248,7 @@
             this.btnModificar.TabIndex = 8;
             this.btnModificar.Text = "&Modificar Venta";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -256,6 +258,11 @@
             this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Text = "&Eliminar Venta";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // ventaTableAdapter
+            // 
+            this.ventaTableAdapter.ClearBeforeFill = true;
             // 
             // FrmVentas
             // 
@@ -308,5 +315,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
+        private dbsisventasDataSetTableAdapters.ventaTableAdapter ventaTableAdapter;
     }
 }
