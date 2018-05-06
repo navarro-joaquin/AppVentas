@@ -22,7 +22,12 @@ namespace AppVentas
 
         private void FrmRepBalanceDia_Load(object sender, EventArgs e)
         {
-            string fecha = DateTime.Today.ToShortDateString();
+            
+        }
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            string fecha = dtpFecha.Value.ToShortDateString();
 
             string fecha1 = fecha + " 00:00:00";
             string fecha2 = fecha + " 23:59:59";
@@ -62,7 +67,6 @@ namespace AppVentas
             this.reportViewer1.LocalReport.DataSources.Add(rds);
             this.reportViewer1.LocalReport.Refresh();
 
-            this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
         }
     }

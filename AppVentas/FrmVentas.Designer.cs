@@ -33,13 +33,6 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.gbxVenta = new System.Windows.Forms.GroupBox();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
-            this.vista_ventas_realizadasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbsisventasDataSet = new AppVentas.dbsisventasDataSet();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.vista_ventas_realizadasTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.vista_ventas_realizadasTableAdapter();
-            this.tableAdapterManager = new AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +42,15 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vista_ventas_realizadasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbsisventasDataSet = new AppVentas.dbsisventasDataSet();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.vista_ventas_realizadasTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.vista_ventas_realizadasTableAdapter();
+            this.tableAdapterManager = new AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.gbxVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vista_ventas_realizadasBindingSource)).BeginInit();
@@ -70,7 +72,7 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(162, 17);
+            this.txtBuscar.Location = new System.Drawing.Point(148, 17);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(293, 21);
             this.txtBuscar.TabIndex = 3;
@@ -79,9 +81,9 @@
             // gbxVenta
             // 
             this.gbxVenta.Controls.Add(this.dgvVentas);
-            this.gbxVenta.Location = new System.Drawing.Point(12, 65);
+            this.gbxVenta.Location = new System.Drawing.Point(12, 44);
             this.gbxVenta.Name = "gbxVenta";
-            this.gbxVenta.Size = new System.Drawing.Size(872, 361);
+            this.gbxVenta.Size = new System.Drawing.Size(691, 382);
             this.gbxVenta.TabIndex = 4;
             this.gbxVenta.TabStop = false;
             this.gbxVenta.Text = "Listado de Ventas";
@@ -107,66 +109,9 @@
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.ReadOnly = true;
             this.dgvVentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVentas.Size = new System.Drawing.Size(860, 335);
+            this.dgvVentas.Size = new System.Drawing.Size(672, 356);
             this.dgvVentas.TabIndex = 0;
             this.dgvVentas.DoubleClick += new System.EventHandler(this.dgvVentas_DoubleClick);
-            // 
-            // vista_ventas_realizadasBindingSource
-            // 
-            this.vista_ventas_realizadasBindingSource.DataMember = "vista_ventas_realizadas";
-            this.vista_ventas_realizadasBindingSource.DataSource = this.dbsisventasDataSet;
-            // 
-            // dbsisventasDataSet
-            // 
-            this.dbsisventasDataSet.DataSetName = "dbsisventasDataSet";
-            this.dbsisventasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Location = new System.Drawing.Point(461, 17);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(253, 21);
-            this.dtpFecha.TabIndex = 5;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(720, 12);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 26);
-            this.btnBuscar.TabIndex = 6;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // vista_ventas_realizadasTableAdapter
-            // 
-            this.vista_ventas_realizadasTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.categoriaTableAdapter = null;
-            this.tableAdapterManager.clienteTableAdapter = null;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.detalle_proformaTableAdapter = null;
-            this.tableAdapterManager.detalle_ventaTableAdapter = null;
-            this.tableAdapterManager.productoTableAdapter = null;
-            this.tableAdapterManager.proformaTableAdapter = null;
-            this.tableAdapterManager.proveedorTableAdapter = null;
-            this.tableAdapterManager.tipo_clienteTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.usuarioTableAdapter = null;
-            this.tableAdapterManager.ventaTableAdapter = null;
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Location = new System.Drawing.Point(720, 45);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(164, 23);
-            this.btnImprimir.TabIndex = 7;
-            this.btnImprimir.Text = "&Imprimir Recibo";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -235,11 +180,90 @@
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             this.dataGridViewTextBoxColumn9.Width = 120;
             // 
+            // vista_ventas_realizadasBindingSource
+            // 
+            this.vista_ventas_realizadasBindingSource.DataMember = "vista_ventas_realizadas";
+            this.vista_ventas_realizadasBindingSource.DataSource = this.dbsisventasDataSet;
+            // 
+            // dbsisventasDataSet
+            // 
+            this.dbsisventasDataSet.DataSetName = "dbsisventasDataSet";
+            this.dbsisventasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Location = new System.Drawing.Point(450, 17);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(253, 21);
+            this.dtpFecha.TabIndex = 5;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(752, 17);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 26);
+            this.btnBuscar.TabIndex = 6;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // vista_ventas_realizadasTableAdapter
+            // 
+            this.vista_ventas_realizadasTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.balanceTableAdapter = null;
+            this.tableAdapterManager.categoriaTableAdapter = null;
+            this.tableAdapterManager.clienteTableAdapter = null;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.detalle_proformaTableAdapter = null;
+            this.tableAdapterManager.detalle_ventaTableAdapter = null;
+            this.tableAdapterManager.deuda_proveedorTableAdapter = null;
+            this.tableAdapterManager.productoTableAdapter = null;
+            this.tableAdapterManager.proformaTableAdapter = null;
+            this.tableAdapterManager.proveedorTableAdapter = null;
+            this.tableAdapterManager.tipo_clienteTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.usuarioTableAdapter = null;
+            this.tableAdapterManager.ventaTableAdapter = null;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(709, 64);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(118, 51);
+            this.btnImprimir.TabIndex = 7;
+            this.btnImprimir.Text = "&Imprimir Recibo";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(709, 299);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(118, 51);
+            this.btnModificar.TabIndex = 8;
+            this.btnModificar.Text = "&Modificar Venta";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(709, 369);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(118, 51);
+            this.btnEliminar.TabIndex = 9;
+            this.btnEliminar.Text = "&Eliminar Venta";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 438);
+            this.ClientSize = new System.Drawing.Size(838, 438);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dtpFecha);
@@ -282,5 +306,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

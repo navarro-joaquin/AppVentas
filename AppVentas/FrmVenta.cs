@@ -23,6 +23,7 @@ namespace AppVentas
         private RepRecibo recibo = new RepRecibo();
         private int porcentaje_descuento = 0;
         private List<Object> precios;
+        private bool producto = true;
 
         public FrmVenta(int id)
         {
@@ -65,7 +66,7 @@ namespace AppVentas
 
                 decimal valor_venta, valor_mayorista;
 
-                txtNombre.Text = fila["nombre_producto"].ToString();
+                cmbNombreProducto.Text = fila["nombre_producto"].ToString();
                 txtDescripcion.Text = fila["descripcion"].ToString();
                 txtStock.Text = fila["stock"].ToString();
                 valor_venta = Convert.ToDecimal(fila["valor_venta"].ToString());
@@ -104,7 +105,7 @@ namespace AppVentas
                 if (Convert.ToInt32(txtStock.Text) >= Convert.ToInt32(txtCantidad.Text))
                 {
                     string codigo_producto = txtCodigoProducto.Text;
-                    string nombre_producto = txtNombre.Text;
+                    string nombre_producto = cmbNombreProducto.Text;
                     int cantidad = Convert.ToInt32(txtCantidad.Text);
                     decimal precio = Convert.ToDecimal(cmbPrecios.Text);
                     decimal subtotal = cantidad * precio;
@@ -198,7 +199,7 @@ namespace AppVentas
         private void LimpiarCampos()
         {
             txtCodigoProducto.ResetText();
-            txtNombre.ResetText();
+            cmbNombreProducto.Text = "";
             txtDescripcion.ResetText();
             txtStock.ResetText();
             //txtPrecio.ResetText();
@@ -241,6 +242,7 @@ namespace AppVentas
             if (e.KeyChar == (char)Keys.Enter)
             {
                 AgregarProducto();
+                producto = true;
             }
         }
 
@@ -254,34 +256,7 @@ namespace AppVentas
 
         private void dgvVenta_DoubleClick(object sender, EventArgs e)
         {
-            string codigo_producto = dgvVenta.CurrentRow.Cells[0].Value.ToString();
-            string nombre_producto = dgvVenta.CurrentRow.Cells[1].Value.ToString();
-            int cantidad = Convert.ToInt32(dgvVenta.CurrentRow.Cells[2].Value.ToString());
-            decimal precio = Convert.ToDecimal(dgvVenta.CurrentRow.Cells[3].Value.ToString());
-            decimal subtotal = Convert.ToDecimal(dgvVenta.CurrentRow.Cells[4].Value.ToString());
-
-            total -= subtotal;
-
-            int nueva_cantidad = Convert.ToInt32(Interaction.InputBox("Ingrese la nueva cantidad", "Modificar cantidad", cantidad.ToString()));
-
-            int filaActual = dgvVenta.CurrentRow.Index;
-
-            dtDetalle.Rows.RemoveAt(filaActual);
-
-            subtotal = nueva_cantidad * precio;
-
-            DataRow filaNueva = dtDetalle.NewRow();
-            filaNueva["Código"] = codigo_producto;
-            filaNueva["Producto"] = nombre_producto;
-            filaNueva["Cantidad"] = nueva_cantidad;
-            filaNueva["Precio"] = precio;
-            filaNueva["Subtotal"] = subtotal;
-
-            dtDetalle.Rows.Add(filaNueva);
-
-            total += subtotal;
-            txtTotal.Text = total.ToString("#0.00#");
-
+            txtModCantidad.PerformClick();
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
@@ -412,6 +387,10 @@ namespace AppVentas
         {
             // TODO: esta línea de código carga datos en la tabla 'dbsisventasDataSet.tipo_cliente' Puede moverla o quitarla según sea necesario.
             this.tipo_clienteTableAdapter.Fill(this.dbsisventasDataSet.tipo_cliente);
+            // TODO: esta línea de código carga datos en la tabla 'dbsisventasDataSet.producto' Puede moverla o quitarla según sea necesario.
+            this.productoTableAdapter.Fill(this.dbsisventasDataSet.producto);
+
+            cmbNombreProducto.Text = "";
 
         }
 
@@ -442,6 +421,88 @@ namespace AppVentas
                     }
                 }
             }
+        }
+
+        private void cmbNombreProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (producto)
+            {
+                try
+                {
+                    string codigo_producto = cmbNombreProducto.SelectedValue.ToString();
+                    
+                    try
+                    {
+                        DataTable consulta = this.productoTableAdapter.DTBuscarProducto(codigo_producto);
+                        DataRow fila = consulta.Rows[0];
+
+                        decimal valor_venta, valor_mayorista;
+
+                        txtCodigoProducto.Text = fila["codigo"].ToString();
+                        txtDescripcion.Text = fila["descripcion"].ToString();
+                        txtStock.Text = fila["stock"].ToString();
+                        txtCantidad.Text = "1";
+                        valor_venta = Convert.ToDecimal(fila["valor_venta"].ToString());
+                        if (fila["valor_mayorista"].ToString() == "")
+                        {
+                            valor_mayorista = valor_venta;
+                        }
+                        else
+                        {
+                            valor_mayorista = Convert.ToDecimal(fila["valor_mayorista"].ToString());
+                        }
+                        CargarPrecios(valor_venta, valor_mayorista);
+                        producto = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("El producto no existe\n" + ex.Message);
+                    }
+                }
+                catch (Exception) { }
+            }
+        }
+
+        private void txtModCantidad_Click(object sender, EventArgs e)
+        {
+            string codigo_producto = dgvVenta.CurrentRow.Cells[0].Value.ToString();
+            string nombre_producto = dgvVenta.CurrentRow.Cells[1].Value.ToString();
+            int cantidad = Convert.ToInt32(dgvVenta.CurrentRow.Cells[2].Value.ToString());
+            decimal precio = Convert.ToDecimal(dgvVenta.CurrentRow.Cells[3].Value.ToString());
+            decimal subtotal = Convert.ToDecimal(dgvVenta.CurrentRow.Cells[4].Value.ToString());
+
+            total -= subtotal;
+
+            int nueva_cantidad = Convert.ToInt32(Interaction.InputBox("Ingrese la nueva cantidad", "Modificar cantidad", cantidad.ToString()));
+
+            int filaActual = dgvVenta.CurrentRow.Index;
+
+            dtDetalle.Rows.RemoveAt(filaActual);
+
+            subtotal = nueva_cantidad * precio;
+
+            DataRow filaNueva = dtDetalle.NewRow();
+            filaNueva["Código"] = codigo_producto;
+            filaNueva["Producto"] = nombre_producto;
+            filaNueva["Cantidad"] = nueva_cantidad;
+            filaNueva["Precio"] = precio;
+            filaNueva["Subtotal"] = subtotal;
+
+            dtDetalle.Rows.Add(filaNueva);
+
+            total += subtotal;
+            txtTotal.Text = total.ToString("#0.00#");
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            decimal subtotal = Convert.ToDecimal(dgvVenta.CurrentRow.Cells[4].Value.ToString());
+
+            int filaActual = dgvVenta.CurrentRow.Index;
+            dtDetalle.Rows.RemoveAt(filaActual);
+
+            total -= subtotal;
+            txtTotal.Text = total.ToString("#0.00#");
         }
     }
 }

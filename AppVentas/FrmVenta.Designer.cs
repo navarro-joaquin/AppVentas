@@ -38,7 +38,6 @@
             this.lblPrecio = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
@@ -64,16 +63,22 @@
             this.tipo_clienteTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.tipo_clienteTableAdapter();
             this.lblDescuento = new System.Windows.Forms.Label();
             this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.cmbNombreProducto = new System.Windows.Forms.ComboBox();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtModCantidad = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.gbxProducto.SuspendLayout();
             this.gbxCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tipoclienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).BeginInit();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxProducto
             // 
+            this.gbxProducto.Controls.Add(this.cmbNombreProducto);
             this.gbxProducto.Controls.Add(this.cmbPrecios);
             this.gbxProducto.Controls.Add(this.txtCantidad);
             this.gbxProducto.Controls.Add(this.lblCantidad);
@@ -82,7 +87,6 @@
             this.gbxProducto.Controls.Add(this.lblPrecio);
             this.gbxProducto.Controls.Add(this.txtDescripcion);
             this.gbxProducto.Controls.Add(this.lblDescripcion);
-            this.gbxProducto.Controls.Add(this.txtNombre);
             this.gbxProducto.Controls.Add(this.lblNombre);
             this.gbxProducto.Controls.Add(this.btnBuscarProducto);
             this.gbxProducto.Controls.Add(this.txtCodigoProducto);
@@ -162,14 +166,6 @@
             this.lblDescripcion.Size = new System.Drawing.Size(77, 18);
             this.lblDescripcion.TabIndex = 5;
             this.lblDescripcion.Text = "Descripción:";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(118, 79);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(425, 21);
-            this.txtNombre.TabIndex = 4;
             // 
             // lblNombre
             // 
@@ -290,9 +286,9 @@
             // gbxListado
             // 
             this.gbxListado.Controls.Add(this.dgvVenta);
-            this.gbxListado.Location = new System.Drawing.Point(14, 304);
+            this.gbxListado.Location = new System.Drawing.Point(94, 303);
             this.gbxListado.Name = "gbxListado";
-            this.gbxListado.Size = new System.Drawing.Size(738, 246);
+            this.gbxListado.Size = new System.Drawing.Size(658, 247);
             this.gbxListado.TabIndex = 1;
             this.gbxListado.TabStop = false;
             // 
@@ -301,11 +297,11 @@
             this.dgvVenta.AllowUserToAddRows = false;
             this.dgvVenta.AllowUserToDeleteRows = false;
             this.dgvVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVenta.Location = new System.Drawing.Point(7, 21);
+            this.dgvVenta.Location = new System.Drawing.Point(6, 20);
             this.dgvVenta.Name = "dgvVenta";
             this.dgvVenta.ReadOnly = true;
             this.dgvVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVenta.Size = new System.Drawing.Size(724, 218);
+            this.dgvVenta.Size = new System.Drawing.Size(646, 219);
             this.dgvVenta.TabIndex = 0;
             this.dgvVenta.DoubleClick += new System.EventHandler(this.dgvVenta_DoubleClick);
             // 
@@ -316,7 +312,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(17, 575);
+            this.lblTotal.Location = new System.Drawing.Point(14, 571);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(39, 18);
             this.lblTotal.TabIndex = 2;
@@ -325,7 +321,7 @@
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(66, 572);
+            this.txtTotal.Location = new System.Drawing.Point(63, 568);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(116, 20);
             this.txtTotal.TabIndex = 3;
@@ -337,7 +333,7 @@
             // 
             // btnVender
             // 
-            this.btnVender.Location = new System.Drawing.Point(639, 567);
+            this.btnVender.Location = new System.Drawing.Point(639, 556);
             this.btnVender.Name = "btnVender";
             this.btnVender.Size = new System.Drawing.Size(113, 45);
             this.btnVender.TabIndex = 4;
@@ -360,7 +356,7 @@
             // lblDescuento
             // 
             this.lblDescuento.AutoSize = true;
-            this.lblDescuento.Location = new System.Drawing.Point(243, 575);
+            this.lblDescuento.Location = new System.Drawing.Point(240, 571);
             this.lblDescuento.Name = "lblDescuento";
             this.lblDescuento.Size = new System.Drawing.Size(71, 18);
             this.lblDescuento.TabIndex = 5;
@@ -369,17 +365,58 @@
             // txtDescuento
             // 
             this.txtDescuento.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            this.txtDescuento.Location = new System.Drawing.Point(336, 571);
+            this.txtDescuento.Location = new System.Drawing.Point(333, 567);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(116, 20);
             this.txtDescuento.TabIndex = 6;
             this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // cmbNombreProducto
+            // 
+            this.cmbNombreProducto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbNombreProducto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbNombreProducto.DataSource = this.productoBindingSource;
+            this.cmbNombreProducto.DisplayMember = "nombre_producto";
+            this.cmbNombreProducto.FormattingEnabled = true;
+            this.cmbNombreProducto.Location = new System.Drawing.Point(118, 75);
+            this.cmbNombreProducto.Name = "cmbNombreProducto";
+            this.cmbNombreProducto.Size = new System.Drawing.Size(424, 26);
+            this.cmbNombreProducto.TabIndex = 14;
+            this.cmbNombreProducto.ValueMember = "codigo";
+            this.cmbNombreProducto.SelectedIndexChanged += new System.EventHandler(this.cmbNombreProducto_SelectedIndexChanged);
+            // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataMember = "producto";
+            this.productoBindingSource.DataSource = this.dbsisventasDataSet;
+            // 
+            // txtModCantidad
+            // 
+            this.txtModCantidad.Location = new System.Drawing.Point(12, 323);
+            this.txtModCantidad.Name = "txtModCantidad";
+            this.txtModCantidad.Size = new System.Drawing.Size(75, 46);
+            this.txtModCantidad.TabIndex = 1;
+            this.txtModCantidad.Text = "Mod.\r\nCantidad";
+            this.txtModCantidad.UseVisualStyleBackColor = true;
+            this.txtModCantidad.Click += new System.EventHandler(this.txtModCantidad_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(12, 501);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 41);
+            this.btnEliminar.TabIndex = 7;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 626);
+            this.ClientSize = new System.Drawing.Size(766, 607);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.txtModCantidad);
             this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.lblDescuento);
             this.Controls.Add(this.btnVender);
@@ -401,6 +438,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).EndInit();
             this.gbxListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,7 +452,6 @@
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.TextBox txtCodigoProducto;
@@ -443,5 +480,9 @@
         private System.Windows.Forms.Label lblDescuento;
         private System.Windows.Forms.TextBox txtDescuento;
         private System.Windows.Forms.ComboBox cmbPrecios;
+        private System.Windows.Forms.ComboBox cmbNombreProducto;
+        private System.Windows.Forms.BindingSource productoBindingSource;
+        private System.Windows.Forms.Button txtModCantidad;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
