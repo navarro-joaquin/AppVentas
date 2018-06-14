@@ -195,6 +195,9 @@
                   <Width>3.21458cm</Width>
                 </TablixColumn>
                 <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
                   <Width>3.135cm</Width>
                 </TablixColumn>
                 <TablixColumn>
@@ -294,6 +297,40 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox8</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Importe Total</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -472,6 +509,36 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="Textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!total_venta.Value - Fields!descuento.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="importe_pagado">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -541,6 +608,7 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -557,7 +625,7 @@
             <Top>2.82787cm</Top>
             <Left>0.63182cm</Left>
             <Height>1.34938cm</Height>
-            <Width>16.82749cm</Width>
+            <Width>19.32749cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -582,10 +650,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox14</rd:DefaultName>
-            <Top>5.12974cm</Top>
-            <Left>10.61953cm</Left>
+            <Top>4.78578cm</Top>
+            <Left>7.48453cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.135cm</Width>
+            <Width>3.13499cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -604,7 +672,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!suma_total.Value</Value>
+                    <Value>=Sum(Fields!total_venta.Value, "DetalleVentasDia") - Sum(Fields!descuento.Value, "DetalleVentasDia")</Value>
                     <Style />
                   </TextRun>
                   <TextRun>
@@ -612,14 +680,16 @@
                     <Style />
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox15</rd:DefaultName>
-            <Top>5.12974cm</Top>
-            <Left>13.75453cm</Left>
+            <Top>4.78578cm</Top>
+            <Left>10.61953cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.70479cm</Width>
+            <Width>2.97624cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -635,7 +705,7 @@
         <Height>2.5in</Height>
         <Style />
       </Body>
-      <Width>7.15625in</Width>
+      <Width>8.125in</Width>
       <Page>
         <PageHeight>27.94cm</PageHeight>
         <PageWidth>21.59cm</PageWidth>

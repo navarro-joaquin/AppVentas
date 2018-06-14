@@ -73,7 +73,7 @@ namespace AppVentas
             string nombre_cliente = dgvProformas.CurrentRow.Cells[5].Value.ToString();
             string fecha_proforma = dgvProformas.CurrentRow.Cells[2].Value.ToString();
             string numero_proforma = dgvProformas.CurrentRow.Cells[1].Value.ToString().PadLeft(7, '0');
-            string numero_nit = "10381527";
+            string numero_nit = "7473186019";
             int id_proforma = Convert.ToInt32(dgvProformas.CurrentRow.Cells[0].Value.ToString());
 
             proforma.Imprimir(nit_cliente, nombre_cliente, fecha_proforma, numero_proforma, numero_nit, id_proforma);

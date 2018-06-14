@@ -17,7 +17,7 @@ namespace AppVentas
         private Decimal total = 0;
         private bool nuevoRegistro = true;
         private DataGridViewRow fila;
-        private bool nuevoCliente = false;
+        private bool nuevoCliente = true;
         private int id_usuario = -1;
         private RepProforma proforma = new RepProforma();
         private RepCaracteristicasProforma caracteristicas = new RepCaracteristicasProforma();
@@ -145,13 +145,22 @@ namespace AppVentas
             string nit_ci = txtNITCI.Text;
             try
             {
-                string nombre = this.clienteTableAdapter.ObtenerNombre(nit_ci);
-
-                if (!nombre.Equals(""))
+                if (nit_ci.Equals("0"))
                 {
-                    txtNombreCliente.Text = nombre;
+                    txtNombreCliente.Text = "Sin nombre";
                     txtNombreCliente.Focus();
-                    nuevoCliente = false;
+                    nuevoCliente = true;
+                }
+                else
+                {
+                    string nombre = this.clienteTableAdapter.ObtenerNombre(nit_ci);
+
+                    if (!nombre.Equals(""))
+                    {
+                        txtNombreCliente.Text = nombre;
+                        txtNombreCliente.Focus();
+                        nuevoCliente = false;
+                    }
                 }
             }
             catch (Exception)
@@ -225,33 +234,7 @@ namespace AppVentas
 
         private void dgvProforma_DoubleClick(object sender, EventArgs e)
         {
-            string codigo_producto = dgvProforma.CurrentRow.Cells[0].Value.ToString();
-            string nombre_producto = dgvProforma.CurrentRow.Cells[1].Value.ToString();
-            int cantidad = Convert.ToInt32(dgvProforma.CurrentRow.Cells[2].Value.ToString());
-            decimal precio = Convert.ToDecimal(dgvProforma.CurrentRow.Cells[3].Value.ToString());
-            decimal subtotal = Convert.ToDecimal(dgvProforma.CurrentRow.Cells[4].Value.ToString());
-
-            total -= subtotal;
-
-            int nueva_cantidad = Convert.ToInt32(Interaction.InputBox("Ingrese la nueva cantidad", "Modificar cantidad", cantidad.ToString()));
-
-            int filaActual = dgvProforma.CurrentRow.Index;
-
-            dtDetalle.Rows.RemoveAt(filaActual);
-
-            subtotal = nueva_cantidad * precio;
-
-            DataRow filaNueva = dtDetalle.NewRow();
-            filaNueva["Código"] = codigo_producto;
-            filaNueva["Producto"] = nombre_producto;
-            filaNueva["Cantidad"] = nueva_cantidad;
-            filaNueva["Precio"] = precio;
-            filaNueva["Subtotal"] = subtotal;
-
-            dtDetalle.Rows.Add(filaNueva);
-
-            total += subtotal;
-            txtTotal.Text = total.ToString("#0.00#");
+            txtModCantidad.PerformClick();
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
@@ -299,6 +282,11 @@ namespace AppVentas
                         {
                             string nit_ci = txtNITCI.Text;
                             string nombre = txtNombreCliente.Text;
+
+                            if (txtNITCI.Text.Equals("0"))
+                            {
+                                nuevoCliente = true;
+                            }
 
                             if (nuevoCliente)
                             {
@@ -366,6 +354,48 @@ namespace AppVentas
         private void FrmProforma_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtModCantidad_Click(object sender, EventArgs e)
+        {
+            string codigo_producto = dgvProforma.CurrentRow.Cells[0].Value.ToString();
+            string nombre_producto = dgvProforma.CurrentRow.Cells[1].Value.ToString();
+            int cantidad = Convert.ToInt32(dgvProforma.CurrentRow.Cells[2].Value.ToString());
+            decimal precio = Convert.ToDecimal(dgvProforma.CurrentRow.Cells[3].Value.ToString());
+            decimal subtotal = Convert.ToDecimal(dgvProforma.CurrentRow.Cells[4].Value.ToString());
+
+            total -= subtotal;
+
+            int nueva_cantidad = Convert.ToInt32(Interaction.InputBox("Ingrese la nueva cantidad", "Modificar cantidad", cantidad.ToString()));
+
+            int filaActual = dgvProforma.CurrentRow.Index;
+
+            dtDetalle.Rows.RemoveAt(filaActual);
+
+            subtotal = nueva_cantidad * precio;
+
+            DataRow filaNueva = dtDetalle.NewRow();
+            filaNueva["Código"] = codigo_producto;
+            filaNueva["Producto"] = nombre_producto;
+            filaNueva["Cantidad"] = nueva_cantidad;
+            filaNueva["Precio"] = precio;
+            filaNueva["Subtotal"] = subtotal;
+
+            dtDetalle.Rows.Add(filaNueva);
+
+            total += subtotal;
+            txtTotal.Text = total.ToString("#0.00#");
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            decimal subtotal = Convert.ToDecimal(dgvProforma.CurrentRow.Cells[4].Value.ToString());
+
+            int filaActual = dgvProforma.CurrentRow.Index;
+            dtDetalle.Rows.RemoveAt(filaActual);
+
+            total -= subtotal;
+            txtTotal.Text = total.ToString("#0.00#");
         }
     }
 }

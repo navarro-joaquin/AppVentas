@@ -1254,13 +1254,13 @@ namespace AppVentas {
             
             private global::System.Data.DataColumn columnnombre_producto;
             
-            private global::System.Data.DataColumn columnvalor_venta;
-            
             private global::System.Data.DataColumn columnstock;
             
             private global::System.Data.DataColumn columnprecio_total;
             
             private global::System.Data.DataColumn columnprecio_final;
+            
+            private global::System.Data.DataColumn columnvalor_compra;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1313,14 +1313,6 @@ namespace AppVentas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn valor_ventaColumn {
-                get {
-                    return this.columnvalor_venta;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn stockColumn {
                 get {
                     return this.columnstock;
@@ -1340,6 +1332,14 @@ namespace AppVentas {
             public global::System.Data.DataColumn precio_finalColumn {
                 get {
                     return this.columnprecio_final;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn valor_compraColumn {
+                get {
+                    return this.columnvalor_compra;
                 }
             }
             
@@ -1380,15 +1380,15 @@ namespace AppVentas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DetalleTotalTiendaRow AddDetalleTotalTiendaRow(string codigo, string nombre_producto, decimal valor_venta, int stock, decimal precio_total, decimal precio_final) {
+            public DetalleTotalTiendaRow AddDetalleTotalTiendaRow(string codigo, string nombre_producto, int stock, decimal precio_total, decimal precio_final, decimal valor_compra) {
                 DetalleTotalTiendaRow rowDetalleTotalTiendaRow = ((DetalleTotalTiendaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codigo,
                         nombre_producto,
-                        valor_venta,
                         stock,
                         precio_total,
-                        precio_final};
+                        precio_final,
+                        valor_compra};
                 rowDetalleTotalTiendaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDetalleTotalTiendaRow);
                 return rowDetalleTotalTiendaRow;
@@ -1413,10 +1413,10 @@ namespace AppVentas {
             internal void InitVars() {
                 this.columncodigo = base.Columns["codigo"];
                 this.columnnombre_producto = base.Columns["nombre_producto"];
-                this.columnvalor_venta = base.Columns["valor_venta"];
                 this.columnstock = base.Columns["stock"];
                 this.columnprecio_total = base.Columns["precio_total"];
                 this.columnprecio_final = base.Columns["precio_final"];
+                this.columnvalor_compra = base.Columns["valor_compra"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1426,22 +1426,22 @@ namespace AppVentas {
                 base.Columns.Add(this.columncodigo);
                 this.columnnombre_producto = new global::System.Data.DataColumn("nombre_producto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre_producto);
-                this.columnvalor_venta = new global::System.Data.DataColumn("valor_venta", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvalor_venta);
                 this.columnstock = new global::System.Data.DataColumn("stock", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstock);
                 this.columnprecio_total = new global::System.Data.DataColumn("precio_total", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprecio_total);
                 this.columnprecio_final = new global::System.Data.DataColumn("precio_final", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprecio_final);
+                this.columnvalor_compra = new global::System.Data.DataColumn("valor_compra", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalor_compra);
                 this.columncodigo.AllowDBNull = false;
                 this.columncodigo.MaxLength = 60;
                 this.columnnombre_producto.AllowDBNull = false;
                 this.columnnombre_producto.MaxLength = 60;
-                this.columnvalor_venta.AllowDBNull = false;
                 this.columnstock.AllowDBNull = false;
                 this.columnprecio_total.ReadOnly = true;
                 this.columnprecio_final.ReadOnly = true;
+                this.columnvalor_compra.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3729,17 +3729,6 @@ namespace AppVentas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal valor_venta {
-                get {
-                    return ((decimal)(this[this.tableDetalleTotalTienda.valor_ventaColumn]));
-                }
-                set {
-                    this[this.tableDetalleTotalTienda.valor_ventaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int stock {
                 get {
                     return ((int)(this[this.tableDetalleTotalTienda.stockColumn]));
@@ -3780,6 +3769,17 @@ namespace AppVentas {
                 }
                 set {
                     this[this.tableDetalleTotalTienda.precio_finalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal valor_compra {
+                get {
+                    return ((decimal)(this[this.tableDetalleTotalTienda.valor_compraColumn]));
+                }
+                set {
+                    this[this.tableDetalleTotalTienda.valor_compraColumn] = value;
                 }
             }
             
@@ -5314,10 +5314,10 @@ on p.id_proveedor = pr.id";
             tableMapping.DataSetTable = "DetalleTotalTienda";
             tableMapping.ColumnMappings.Add("codigo", "codigo");
             tableMapping.ColumnMappings.Add("nombre_producto", "nombre_producto");
-            tableMapping.ColumnMappings.Add("valor_venta", "valor_venta");
             tableMapping.ColumnMappings.Add("stock", "stock");
             tableMapping.ColumnMappings.Add("precio_total", "precio_total");
             tableMapping.ColumnMappings.Add("precio_final", "precio_final");
+            tableMapping.ColumnMappings.Add("valor_compra", "valor_compra");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -5334,9 +5334,9 @@ on p.id_proveedor = pr.id";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "select codigo, nombre_producto, valor_venta, stock, (valor_venta * stock) as prec" +
-                "io_total, (select sum(valor_venta * stock) from producto) as precio_final from p" +
-                "roducto\r\n";
+            this._commandCollection[0].CommandText = "select codigo, nombre_producto, valor_compra, stock, (valor_compra * stock) as pr" +
+                "ecio_total, (select sum(valor_compra * stock) from producto) as precio_final fro" +
+                "m producto\r\n";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

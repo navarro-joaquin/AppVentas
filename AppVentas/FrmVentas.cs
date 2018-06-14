@@ -13,11 +13,14 @@ namespace AppVentas
     public partial class FrmVentas : Form
     {
         private RepRecibo recibo;
+        private int id_usuario;
 
-        public FrmVentas()
+        public FrmVentas(int id)
         {
             InitializeComponent();
             recibo = new RepRecibo();
+
+            id_usuario = id;
 
             this.MaximizeBox = false;
         }
@@ -88,7 +91,7 @@ namespace AppVentas
             string nombre_cliente = dgvVentas.CurrentRow.Cells[7].Value.ToString();
             string fecha_venta = dgvVentas.CurrentRow.Cells[2].Value.ToString();
             string numero_recibo = dgvVentas.CurrentRow.Cells[1].Value.ToString().PadLeft(7, '0');
-            string numero_nit = "10381527";
+            string numero_nit = "7473186019";
             int id_venta = Convert.ToInt32(dgvVentas.CurrentRow.Cells[0].Value.ToString());
 
             recibo.Imprimir(nit_cliente, nombre_cliente, fecha_venta, numero_recibo, numero_nit, id_venta);
@@ -110,7 +113,14 @@ namespace AppVentas
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            int id_venta = Convert.ToInt32(dgvVentas.CurrentRow.Cells[0].Value);
+            string nit_cliente = dgvVentas.CurrentRow.Cells[6].Value.ToString();
+            string nombre_cliente = dgvVentas.CurrentRow.Cells[7].Value.ToString();
 
+            FrmModificarVenta frm = new FrmModificarVenta(id_usuario, id_venta, nit_cliente, nombre_cliente);
+            frm.ShowDialog();
+
+            this.vista_ventas_realizadasTableAdapter.Fill(this.dbsisventasDataSet.vista_ventas_realizadas);
         }
     }
 }
