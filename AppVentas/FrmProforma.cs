@@ -333,7 +333,7 @@ namespace AppVentas
                         }
 
                         //Imprimir proforma
-                        string numero_nit = "7473186019";
+                        string numero_nit = "1104477010";
                         proforma.Imprimir(txtNITCI.Text, txtNombreCliente.Text, DateTime.Today.ToShortDateString(), id_proforma.ToString().PadLeft(7, '0'), numero_nit, id_proforma);
                         caracteristicas.Imprimir(DateTime.Today.ToShortDateString(), id_proforma);
 

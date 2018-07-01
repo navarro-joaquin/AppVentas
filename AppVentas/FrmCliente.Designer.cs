@@ -35,24 +35,17 @@
             System.Windows.Forms.Label lblTelefono;
             System.Windows.Forms.Label lblRepresentante;
             this.gbxDatos = new System.Windows.Forms.GroupBox();
+            this.txtRepresentante = new System.Windows.Forms.TextBox();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbsisventasDataSet = new AppVentas.dbsisventasDataSet();
             this.txtCodigoDescuento = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtNITCI = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lblTotalRegistros = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.cmbBuscar = new System.Windows.Forms.ComboBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbsisventasDataSet = new AppVentas.dbsisventasDataSet();
-            this.clienteTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.clienteTableAdapter();
-            this.tableAdapterManager = new AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtRepresentante = new System.Windows.Forms.TextBox();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,18 +53,25 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTotalRegistros = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.cmbBuscar = new System.Windows.Forms.ComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.clienteTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.clienteTableAdapter();
+            this.tableAdapterManager = new AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager();
             lblNombre = new System.Windows.Forms.Label();
             lblNITCI = new System.Windows.Forms.Label();
             lblCodigoDescuento = new System.Windows.Forms.Label();
             lblTelefono = new System.Windows.Forms.Label();
             lblRepresentante = new System.Windows.Forms.Label();
             this.gbxDatos.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -101,6 +101,24 @@
             lblCodigoDescuento.TabIndex = 4;
             lblCodigoDescuento.Text = "Código descuento:";
             // 
+            // lblTelefono
+            // 
+            lblTelefono.AutoSize = true;
+            lblTelefono.Location = new System.Drawing.Point(344, 65);
+            lblTelefono.Name = "lblTelefono";
+            lblTelefono.Size = new System.Drawing.Size(60, 18);
+            lblTelefono.TabIndex = 6;
+            lblTelefono.Text = "Teléfono:";
+            // 
+            // lblRepresentante
+            // 
+            lblRepresentante.AutoSize = true;
+            lblRepresentante.Location = new System.Drawing.Point(344, 92);
+            lblRepresentante.Name = "lblRepresentante";
+            lblRepresentante.Size = new System.Drawing.Size(94, 18);
+            lblRepresentante.TabIndex = 8;
+            lblRepresentante.Text = "Representante:";
+            // 
             // gbxDatos
             // 
             this.gbxDatos.Controls.Add(lblRepresentante);
@@ -120,12 +138,36 @@
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Introducción de Datos";
             // 
+            // txtRepresentante
+            // 
+            this.txtRepresentante.Location = new System.Drawing.Point(444, 89);
+            this.txtRepresentante.Name = "txtRepresentante";
+            this.txtRepresentante.Size = new System.Drawing.Size(158, 21);
+            this.txtRepresentante.TabIndex = 9;
+            // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataMember = "cliente";
+            this.clienteBindingSource.DataSource = this.dbsisventasDataSet;
+            // 
+            // dbsisventasDataSet
+            // 
+            this.dbsisventasDataSet.DataSetName = "dbsisventasDataSet";
+            this.dbsisventasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // txtCodigoDescuento
             // 
             this.txtCodigoDescuento.Location = new System.Drawing.Point(160, 89);
             this.txtCodigoDescuento.Name = "txtCodigoDescuento";
             this.txtCodigoDescuento.Size = new System.Drawing.Size(158, 21);
             this.txtCodigoDescuento.TabIndex = 5;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(444, 62);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(158, 21);
+            this.txtTelefono.TabIndex = 7;
             // 
             // txtNombre
             // 
@@ -186,125 +228,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // lblTotalRegistros
-            // 
-            this.lblTotalRegistros.AutoSize = true;
-            this.lblTotalRegistros.Location = new System.Drawing.Point(430, 57);
-            this.lblTotalRegistros.Name = "lblTotalRegistros";
-            this.lblTotalRegistros.Size = new System.Drawing.Size(127, 18);
-            this.lblTotalRegistros.TabIndex = 7;
-            this.lblTotalRegistros.Text = "Número de Registros:";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(155, 19);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(287, 21);
-            this.txtBuscar.TabIndex = 6;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            // 
-            // cmbBuscar
-            // 
-            this.cmbBuscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbBuscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbBuscar.FormattingEnabled = true;
-            this.cmbBuscar.Items.AddRange(new object[] {
-            "Nombre",
-            "NIT/CI"});
-            this.cmbBuscar.Location = new System.Drawing.Point(7, 17);
-            this.cmbBuscar.Name = "cmbBuscar";
-            this.cmbBuscar.Size = new System.Drawing.Size(140, 26);
-            this.cmbBuscar.TabIndex = 5;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.AutoScroll = true;
-            this.tabPage2.Controls.Add(this.gbxDatos);
-            this.tabPage2.Controls.Add(this.btnGuardar);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(638, 353);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Datos";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.Teal;
-            this.lblTitulo.Location = new System.Drawing.Point(15, 10);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(83, 24);
-            this.lblTitulo.TabIndex = 6;
-            this.lblTitulo.Text = "Clientes";
-            // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataMember = "cliente";
-            this.clienteBindingSource.DataSource = this.dbsisventasDataSet;
-            // 
-            // dbsisventasDataSet
-            // 
-            this.dbsisventasDataSet.DataSetName = "dbsisventasDataSet";
-            this.dbsisventasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clienteTableAdapter
-            // 
-            this.clienteTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.balanceTableAdapter = null;
-            this.tableAdapterManager.categoriaTableAdapter = null;
-            this.tableAdapterManager.clienteTableAdapter = this.clienteTableAdapter;
-            this.tableAdapterManager.detalle_proformaTableAdapter = null;
-            this.tableAdapterManager.detalle_ventaTableAdapter = null;
-            this.tableAdapterManager.productoTableAdapter = null;
-            this.tableAdapterManager.proformaTableAdapter = null;
-            this.tableAdapterManager.proveedorTableAdapter = null;
-            this.tableAdapterManager.tipo_clienteTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.usuarioTableAdapter = null;
-            this.tableAdapterManager.ventaTableAdapter = null;
-            // 
-            // lblTelefono
-            // 
-            lblTelefono.AutoSize = true;
-            lblTelefono.Location = new System.Drawing.Point(344, 65);
-            lblTelefono.Name = "lblTelefono";
-            lblTelefono.Size = new System.Drawing.Size(60, 18);
-            lblTelefono.TabIndex = 6;
-            lblTelefono.Text = "Teléfono:";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "telefono", true));
-            this.txtTelefono.Location = new System.Drawing.Point(444, 62);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(158, 21);
-            this.txtTelefono.TabIndex = 7;
-            // 
-            // lblRepresentante
-            // 
-            lblRepresentante.AutoSize = true;
-            lblRepresentante.Location = new System.Drawing.Point(344, 92);
-            lblRepresentante.Name = "lblRepresentante";
-            lblRepresentante.Size = new System.Drawing.Size(94, 18);
-            lblRepresentante.TabIndex = 8;
-            lblRepresentante.Text = "Representante:";
-            // 
-            // txtRepresentante
-            // 
-            this.txtRepresentante.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "nombre_representante", true));
-            this.txtRepresentante.Location = new System.Drawing.Point(444, 89);
-            this.txtRepresentante.Name = "txtRepresentante";
-            this.txtRepresentante.Size = new System.Drawing.Size(158, 21);
-            this.txtRepresentante.TabIndex = 9;
             // 
             // dgvCliente
             // 
@@ -373,6 +296,82 @@
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 150;
             // 
+            // lblTotalRegistros
+            // 
+            this.lblTotalRegistros.AutoSize = true;
+            this.lblTotalRegistros.Location = new System.Drawing.Point(430, 57);
+            this.lblTotalRegistros.Name = "lblTotalRegistros";
+            this.lblTotalRegistros.Size = new System.Drawing.Size(127, 18);
+            this.lblTotalRegistros.TabIndex = 7;
+            this.lblTotalRegistros.Text = "Número de Registros:";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(155, 19);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(287, 21);
+            this.txtBuscar.TabIndex = 6;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // cmbBuscar
+            // 
+            this.cmbBuscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbBuscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbBuscar.FormattingEnabled = true;
+            this.cmbBuscar.Items.AddRange(new object[] {
+            "Nombre",
+            "NIT/CI"});
+            this.cmbBuscar.Location = new System.Drawing.Point(7, 17);
+            this.cmbBuscar.Name = "cmbBuscar";
+            this.cmbBuscar.Size = new System.Drawing.Size(140, 26);
+            this.cmbBuscar.TabIndex = 5;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.AutoScroll = true;
+            this.tabPage2.Controls.Add(this.gbxDatos);
+            this.tabPage2.Controls.Add(this.btnGuardar);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(638, 353);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Datos";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.Teal;
+            this.lblTitulo.Location = new System.Drawing.Point(15, 10);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(83, 24);
+            this.lblTitulo.TabIndex = 6;
+            this.lblTitulo.Text = "Clientes";
+            // 
+            // clienteTableAdapter
+            // 
+            this.clienteTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.balanceTableAdapter = null;
+            this.tableAdapterManager.categoriaTableAdapter = null;
+            this.tableAdapterManager.clienteTableAdapter = this.clienteTableAdapter;
+            this.tableAdapterManager.detalle_proformaTableAdapter = null;
+            this.tableAdapterManager.detalle_ventaTableAdapter = null;
+            this.tableAdapterManager.deuda_proveedorTableAdapter = null;
+            this.tableAdapterManager.productoTableAdapter = null;
+            this.tableAdapterManager.proformaTableAdapter = null;
+            this.tableAdapterManager.proveedorTableAdapter = null;
+            this.tableAdapterManager.tipo_clienteTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.usuarioTableAdapter = null;
+            this.tableAdapterManager.ventaTableAdapter = null;
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -387,13 +386,13 @@
             this.Load += new System.EventHandler(this.FrmCliente_Load);
             this.gbxDatos.ResumeLayout(false);
             this.gbxDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

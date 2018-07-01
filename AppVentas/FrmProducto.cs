@@ -68,6 +68,7 @@ namespace AppVentas
 
             pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
             pbxImagen.Image = global::AppVentas.Properties.Resources.file;
+            
 
             cmbProveedor.SelectedIndex = 0;
             cmbCategoria.SelectedIndex = 0;

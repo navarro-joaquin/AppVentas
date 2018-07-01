@@ -38,8 +38,8 @@
             this.btnEntrar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.usuarioTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.usuarioTableAdapter();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.balanceTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.balanceTableAdapter();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbxDatos.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,7 +49,7 @@
             // 
             this.txtUsuario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtUsuario.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
-            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
+            this.txtUsuario.BackColor = System.Drawing.Color.White;
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsuario.Location = new System.Drawing.Point(52, 52);
             this.txtUsuario.Name = "txtUsuario";
@@ -59,6 +59,7 @@
             // 
             // gbxDatos
             // 
+            this.gbxDatos.BackColor = System.Drawing.Color.White;
             this.gbxDatos.Controls.Add(this.txtContraseña);
             this.gbxDatos.Controls.Add(this.lblContraseña);
             this.gbxDatos.Controls.Add(this.lblUsuario);
@@ -73,7 +74,7 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(241)))), ((int)(((byte)(239)))));
+            this.txtContraseña.BackColor = System.Drawing.Color.White;
             this.txtContraseña.Location = new System.Drawing.Point(52, 118);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(152, 23);
@@ -155,26 +156,26 @@
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::AppVentas.Properties.Resources.Logo_MultiMarket;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(87, 80);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(168, 97);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
             // balanceTableAdapter
             // 
             this.balanceTableAdapter.ClearBeforeFill = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::AppVentas.Properties.Resources.Blacmar_oficial1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(35, 80);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(260, 97);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmLogin
             // 
             this.AcceptButton = this.btnEntrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(231)))), ((int)(((byte)(247)))));
+            this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(332, 440);
             this.Controls.Add(this.pictureBox1);

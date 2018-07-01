@@ -63,6 +63,26 @@ namespace AppVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Blacmar_oficial {
+            get {
+                object obj = ResourceManager.GetObject("Blacmar_oficial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Blacmar_oficial1 {
+            get {
+                object obj = ResourceManager.GetObject("Blacmar_oficial1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap categoria {
             get {
                 object obj = ResourceManager.GetObject("categoria", resourceCulture);

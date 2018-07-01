@@ -89,7 +89,6 @@
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -398,16 +397,18 @@
             // 
             // MnuItemConfiguracion
             // 
+            this.MnuItemConfiguracion.Enabled = false;
             this.MnuItemConfiguracion.Name = "MnuItemConfiguracion";
             this.MnuItemConfiguracion.Size = new System.Drawing.Size(180, 22);
             this.MnuItemConfiguracion.Text = "Configuración";
+            this.MnuItemConfiguracion.Visible = false;
             this.MnuItemConfiguracion.Click += new System.EventHandler(this.MnuItemConfiguracion_Click);
             // 
             // MnuItemDeudaProveedores
             // 
             this.MnuItemDeudaProveedores.Image = global::AppVentas.Properties.Resources.deuda_proveedor;
             this.MnuItemDeudaProveedores.Name = "MnuItemDeudaProveedores";
-            this.MnuItemDeudaProveedores.Size = new System.Drawing.Size(176, 22);
+            this.MnuItemDeudaProveedores.Size = new System.Drawing.Size(180, 22);
             this.MnuItemDeudaProveedores.Text = "Deuda Proveedores";
             this.MnuItemDeudaProveedores.Click += new System.EventHandler(this.MnuItemDeudaProveedores_Click);
             // 
@@ -653,23 +654,12 @@
             this.btnProductos.UseVisualStyleBackColor = false;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackgroundImage = global::AppVentas.Properties.Resources.Multimarket;
-            this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 49);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(244, 383);
-            this.flowLayoutPanel1.TabIndex = 4;
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 454);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
@@ -737,7 +727,6 @@
         private System.Windows.Forms.ToolStripMenuItem MnuItemDeudaProveedores;
         private System.Windows.Forms.ToolStripMenuItem MnuItemDeudasProveedores;
         private System.Windows.Forms.ToolStripMenuItem MnuItemBalanceDia;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnProductos;

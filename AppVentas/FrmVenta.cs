@@ -358,7 +358,7 @@ namespace AppVentas
                         if (confirmacion == DialogResult.Yes)
                         {
                             //Imprimir recibo
-                            string numero_nit = "7473186019";
+                            string numero_nit = "1104477010";
                             recibo.Imprimir(txtNITCI.Text, txtNombreCliente.Text, fecha.ToString(), id_venta.ToString().PadLeft(7, '0'), numero_nit, id_venta);
                         }
 

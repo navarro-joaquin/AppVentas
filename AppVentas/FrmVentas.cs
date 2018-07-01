@@ -91,7 +91,7 @@ namespace AppVentas
             string nombre_cliente = dgvVentas.CurrentRow.Cells[7].Value.ToString();
             string fecha_venta = dgvVentas.CurrentRow.Cells[2].Value.ToString();
             string numero_recibo = dgvVentas.CurrentRow.Cells[1].Value.ToString().PadLeft(7, '0');
-            string numero_nit = "7473186019";
+            string numero_nit = "1104477010";
             int id_venta = Convert.ToInt32(dgvVentas.CurrentRow.Cells[0].Value.ToString());
 
             recibo.Imprimir(nit_cliente, nombre_cliente, fecha_venta, numero_recibo, numero_nit, id_venta);

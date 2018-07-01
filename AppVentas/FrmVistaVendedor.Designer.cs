@@ -38,11 +38,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::AppVentas.Properties.Resources.Logo_MultiMarket;
+            this.pictureBox1.BackgroundImage = global::AppVentas.Properties.Resources.Blacmar_oficial1;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(199, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(135, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(377, 165);
+            this.pictureBox1.Size = new System.Drawing.Size(479, 165);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 

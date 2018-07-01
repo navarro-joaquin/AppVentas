@@ -367,6 +367,7 @@
             // pbxImagen
             // 
             this.pbxImagen.Image = global::AppVentas.Properties.Resources.file;
+            this.pbxImagen.Image = global::AppVentas.Properties.Resources.file;
             this.pbxImagen.Location = new System.Drawing.Point(647, 28);
             this.pbxImagen.Name = "pbxImagen";
             this.pbxImagen.Size = new System.Drawing.Size(117, 112);
