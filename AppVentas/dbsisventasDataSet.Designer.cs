@@ -5797,6 +5797,10 @@ namespace AppVentas {
             
             private global::System.Data.DataColumn columnid_categoria;
             
+            private global::System.Data.DataColumn columnvalor_constructora;
+            
+            private global::System.Data.DataColumn columnvalor_familia;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public productoDataTable() {
@@ -5952,6 +5956,22 @@ namespace AppVentas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn valor_constructoraColumn {
+                get {
+                    return this.columnvalor_constructora;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn valor_familiaColumn {
+                get {
+                    return this.columnvalor_familia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5987,7 +6007,23 @@ namespace AppVentas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public productoRow AddproductoRow(string codigo, string nombre_producto, string marca, decimal valor_compra, decimal valor_venta, decimal valor_mayorista, System.DateTime fecha_compra, System.DateTime fecha_vencimiento, int stock, int stock_minimo, string descripcion, byte[] imagen, proveedorRow parentproveedorRowByFK_producto_proveedor, categoriaRow parentcategoriaRowByFK_producto_categoria) {
+            public productoRow AddproductoRow(
+                        string codigo, 
+                        string nombre_producto, 
+                        string marca, 
+                        decimal valor_compra, 
+                        decimal valor_venta, 
+                        decimal valor_mayorista, 
+                        System.DateTime fecha_compra, 
+                        System.DateTime fecha_vencimiento, 
+                        int stock, 
+                        int stock_minimo, 
+                        string descripcion, 
+                        byte[] imagen, 
+                        proveedorRow parentproveedorRowByFK_producto_proveedor, 
+                        categoriaRow parentcategoriaRowByFK_producto_categoria, 
+                        decimal valor_constructora, 
+                        decimal valor_familia) {
                 productoRow rowproductoRow = ((productoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -6004,7 +6040,9 @@ namespace AppVentas {
                         descripcion,
                         imagen,
                         null,
-                        null};
+                        null,
+                        valor_constructora,
+                        valor_familia};
                 if ((parentproveedorRowByFK_producto_proveedor != null)) {
                     columnValuesArray[13] = parentproveedorRowByFK_producto_proveedor[0];
                 }
@@ -6055,6 +6093,8 @@ namespace AppVentas {
                 this.columnimagen = base.Columns["imagen"];
                 this.columnid_proveedor = base.Columns["id_proveedor"];
                 this.columnid_categoria = base.Columns["id_categoria"];
+                this.columnvalor_constructora = base.Columns["valor_constructora"];
+                this.columnvalor_familia = base.Columns["valor_familia"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6090,6 +6130,10 @@ namespace AppVentas {
                 base.Columns.Add(this.columnid_proveedor);
                 this.columnid_categoria = new global::System.Data.DataColumn("id_categoria", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_categoria);
+                this.columnvalor_constructora = new global::System.Data.DataColumn("valor_constructora", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalor_constructora);
+                this.columnvalor_familia = new global::System.Data.DataColumn("valor_familia", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalor_familia);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -6276,6 +6320,10 @@ namespace AppVentas {
             
             private global::System.Data.DataColumn columncategoria;
             
+            private global::System.Data.DataColumn columnvalor_constructora;
+            
+            private global::System.Data.DataColumn columnvalor_familia;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public vista_productoDataTable() {
@@ -6431,6 +6479,22 @@ namespace AppVentas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn valor_constructoraColumn {
+                get {
+                    return this.columnvalor_constructora;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn valor_familiaColumn {
+                get {
+                    return this.columnvalor_familia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6466,7 +6530,24 @@ namespace AppVentas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public vista_productoRow Addvista_productoRow(int id, string codigo, string nombre_producto, string marca, decimal valor_compra, decimal valor_venta, decimal valor_mayorista, System.DateTime fecha_compra, System.DateTime fecha_vencimiento, int stock, int stock_minimo, string descripcion, byte[] imagen, string proveedor, string categoria) {
+            public vista_productoRow Addvista_productoRow(
+                        int id, 
+                        string codigo, 
+                        string nombre_producto, 
+                        string marca, 
+                        decimal valor_compra, 
+                        decimal valor_venta, 
+                        decimal valor_mayorista, 
+                        System.DateTime fecha_compra, 
+                        System.DateTime fecha_vencimiento, 
+                        int stock, 
+                        int stock_minimo, 
+                        string descripcion, 
+                        byte[] imagen, 
+                        string proveedor, 
+                        string categoria, 
+                        decimal valor_constructora, 
+                        decimal valor_familia) {
                 vista_productoRow rowvista_productoRow = ((vista_productoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -6483,7 +6564,9 @@ namespace AppVentas {
                         descripcion,
                         imagen,
                         proveedor,
-                        categoria};
+                        categoria,
+                        valor_constructora,
+                        valor_familia};
                 rowvista_productoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowvista_productoRow);
                 return rowvista_productoRow;
@@ -6528,6 +6611,8 @@ namespace AppVentas {
                 this.columnimagen = base.Columns["imagen"];
                 this.columnproveedor = base.Columns["proveedor"];
                 this.columncategoria = base.Columns["categoria"];
+                this.columnvalor_constructora = base.Columns["valor_constructora"];
+                this.columnvalor_familia = base.Columns["valor_familia"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6563,6 +6648,10 @@ namespace AppVentas {
                 base.Columns.Add(this.columnproveedor);
                 this.columncategoria = new global::System.Data.DataColumn("categoria", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncategoria);
+                this.columnvalor_constructora = new global::System.Data.DataColumn("valor_constructora", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalor_constructora);
+                this.columnvalor_familia = new global::System.Data.DataColumn("valor_familia", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalor_familia);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AllowDBNull = false;
@@ -9409,6 +9498,38 @@ namespace AppVentas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal valor_constructora {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableproducto.valor_constructoraColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'valor_constructora\' de la tabla \'producto\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproducto.valor_constructoraColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal valor_familia {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableproducto.valor_familiaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'valor_familia\' de la tabla \'producto\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproducto.valor_familiaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public categoriaRow categoriaRow {
                 get {
                     return ((categoriaRow)(this.GetParentRow(this.Table.ParentRelations["FK_producto_categoria"])));
@@ -9463,6 +9584,30 @@ namespace AppVentas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetimagenNull() {
                 this[this.tableproducto.imagenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isvalor_constructoraNull() {
+                return this.IsNull(this.tableproducto.valor_constructoraColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setvalor_constructoraNull() {
+                this[this.tableproducto.valor_constructoraColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isvalor_familiaNull() {
+                return this.IsNull(this.tableproducto.valor_familiaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setvalor_familiaNull() {
+                this[this.tableproducto.valor_familiaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9684,6 +9829,39 @@ namespace AppVentas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal valor_constructora {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablevista_producto.valor_constructoraColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'valor_constructora\' de la tabla \'vista_producto\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablevista_producto.valor_constructoraColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal valor_familia {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablevista_producto.valor_familiaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'valor_familia\' de la tabla \'vista_producto\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevista_producto.valor_familiaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Isvalor_mayoristaNull() {
                 return this.IsNull(this.tablevista_producto.valor_mayoristaColumn);
             }
@@ -9716,6 +9894,30 @@ namespace AppVentas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetimagenNull() {
                 this[this.tablevista_producto.imagenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isvalor_constructoraNull() {
+                return this.IsNull(this.tablevista_producto.valor_constructoraColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setvalor_constructoraNull() {
+                this[this.tablevista_producto.valor_constructoraColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isvalor_familiaNull() {
+                return this.IsNull(this.tablevista_producto.valor_familiaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setvalor_familiaNull() {
+                this[this.tablevista_producto.valor_familiaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -17268,10 +17470,12 @@ SELECT id, numero_factura, fecha, total_venta, descuento, importe_pagado, codigo
             tableMapping.ColumnMappings.Add("imagen", "imagen");
             tableMapping.ColumnMappings.Add("id_proveedor", "id_proveedor");
             tableMapping.ColumnMappings.Add("id_categoria", "id_categoria");
+            tableMapping.ColumnMappings.Add("valor_constructora", "valor_constructora");
+            tableMapping.ColumnMappings.Add("valor_familia", "valor_familia");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[producto] WHERE (([id] = @Original_id) AND ([codigo] = @Original_codigo) AND ([nombre_producto] = @Original_nombre_producto) AND ([marca] = @Original_marca) AND ([valor_compra] = @Original_valor_compra) AND ([valor_venta] = @Original_valor_venta) AND ((@IsNull_valor_mayorista = 1 AND [valor_mayorista] IS NULL) OR ([valor_mayorista] = @Original_valor_mayorista)) AND ([fecha_compra] = @Original_fecha_compra) AND ([fecha_vencimiento] = @Original_fecha_vencimiento) AND ([stock] = @Original_stock) AND ([stock_minimo] = @Original_stock_minimo) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ([id_proveedor] = @Original_id_proveedor) AND ([id_categoria] = @Original_id_categoria))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [producto] WHERE (([id] = @Original_id) AND ([codigo] = @Original_codigo) AND ([nombre_producto] = @Original_nombre_producto) AND ([marca] = @Original_marca) AND ([valor_compra] = @Original_valor_compra) AND ([valor_venta] = @Original_valor_venta) AND ((@IsNull_valor_mayorista = 1 AND [valor_mayorista] IS NULL) OR ([valor_mayorista] = @Original_valor_mayorista)) AND ([fecha_compra] = @Original_fecha_compra) AND ([fecha_vencimiento] = @Original_fecha_vencimiento) AND ([stock] = @Original_stock) AND ([stock_minimo] = @Original_stock_minimo) AND ([id_proveedor] = @Original_id_proveedor) AND ([id_categoria] = @Original_id_categoria) AND ((@IsNull_valor_constructora = 1 AND [valor_constructora] IS NULL) OR ([valor_constructora] = @Original_valor_constructora)) AND ((@IsNull_valor_familia = 1 AND [valor_familia] IS NULL) OR ([valor_familia] = @Original_valor_familia)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_codigo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -17285,14 +17489,16 @@ SELECT id, numero_factura, fecha, total_venta, descuento, importe_pagado, codigo
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha_vencimiento", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_vencimiento", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stock_minimo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stock_minimo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_proveedor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_proveedor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_categoria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_categoria", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_valor_constructora", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valor_constructora", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_valor_constructora", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valor_constructora", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_valor_familia", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valor_familia", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_valor_familia", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valor_familia", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[producto] ([codigo], [nombre_producto], [marca], [valor_compra], [valor_venta], [valor_mayorista], [fecha_compra], [fecha_vencimiento], [stock], [stock_minimo], [descripcion], [imagen], [id_proveedor], [id_categoria]) VALUES (@codigo, @nombre_producto, @marca, @valor_compra, @valor_venta, @valor_mayorista, @fecha_compra, @fecha_vencimiento, @stock, @stock_minimo, @descripcion, @imagen, @id_proveedor, @id_categoria);
-SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, id_proveedor, id_categoria FROM producto WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [producto] ([codigo], [nombre_producto], [marca], [valor_compra], [valor_venta], [valor_mayorista], [fecha_compra], [fecha_vencimiento], [stock], [stock_minimo], [descripcion], [imagen], [id_proveedor], [id_categoria], [valor_constructora], [valor_familia]) VALUES (@codigo, @nombre_producto, @marca, @valor_compra, @valor_venta, @valor_mayorista, @fecha_compra, @fecha_vencimiento, @stock, @stock_minimo, @descripcion, @imagen, @id_proveedor, @id_categoria, @valor_constructora, @valor_familia);
+SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, id_proveedor, id_categoria, valor_constructora, valor_familia FROM producto WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_producto", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre_producto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17308,10 +17514,31 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@imagen", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "imagen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_proveedor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_categoria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_categoria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_constructora", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valor_constructora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_familia", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valor_familia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[producto] SET [codigo] = @codigo, [nombre_producto] = @nombre_producto, [marca] = @marca, [valor_compra] = @valor_compra, [valor_venta] = @valor_venta, [valor_mayorista] = @valor_mayorista, [fecha_compra] = @fecha_compra, [fecha_vencimiento] = @fecha_vencimiento, [stock] = @stock, [stock_minimo] = @stock_minimo, [descripcion] = @descripcion, [imagen] = @imagen, [id_proveedor] = @id_proveedor, [id_categoria] = @id_categoria WHERE (([id] = @Original_id) AND ([codigo] = @Original_codigo) AND ([nombre_producto] = @Original_nombre_producto) AND ([marca] = @Original_marca) AND ([valor_compra] = @Original_valor_compra) AND ([valor_venta] = @Original_valor_venta) AND ((@IsNull_valor_mayorista = 1 AND [valor_mayorista] IS NULL) OR ([valor_mayorista] = @Original_valor_mayorista)) AND ([fecha_compra] = @Original_fecha_compra) AND ([fecha_vencimiento] = @Original_fecha_vencimiento) AND ([stock] = @Original_stock) AND ([stock_minimo] = @Original_stock_minimo) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ([id_proveedor] = @Original_id_proveedor) AND ([id_categoria] = @Original_id_categoria));
-SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, id_proveedor, id_categoria FROM producto WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [producto] SET [codigo] = @codigo, [nombre_producto] = @nombre_producto, [" +
+                "marca] = @marca, [valor_compra] = @valor_compra, [valor_venta] = @valor_venta, [" +
+                "valor_mayorista] = @valor_mayorista, [fecha_compra] = @fecha_compra, [fecha_venc" +
+                "imiento] = @fecha_vencimiento, [stock] = @stock, [stock_minimo] = @stock_minimo," +
+                " [descripcion] = @descripcion, [imagen] = @imagen, [id_proveedor] = @id_proveedo" +
+                "r, [id_categoria] = @id_categoria, [valor_constructora] = @valor_constructora, [" +
+                "valor_familia] = @valor_familia WHERE (([id] = @Original_id) AND ([codigo] = @Or" +
+                "iginal_codigo) AND ([nombre_producto] = @Original_nombre_producto) AND ([marca] " +
+                "= @Original_marca) AND ([valor_compra] = @Original_valor_compra) AND ([valor_ven" +
+                "ta] = @Original_valor_venta) AND ((@IsNull_valor_mayorista = 1 AND [valor_mayori" +
+                "sta] IS NULL) OR ([valor_mayorista] = @Original_valor_mayorista)) AND ([fecha_co" +
+                "mpra] = @Original_fecha_compra) AND ([fecha_vencimiento] = @Original_fecha_venci" +
+                "miento) AND ([stock] = @Original_stock) AND ([stock_minimo] = @Original_stock_mi" +
+                "nimo) AND ([id_proveedor] = @Original_id_proveedor) AND ([id_categoria] = @Origi" +
+                "nal_id_categoria) AND ((@IsNull_valor_constructora = 1 AND [valor_constructora] " +
+                "IS NULL) OR ([valor_constructora] = @Original_valor_constructora)) AND ((@IsNull" +
+                "_valor_familia = 1 AND [valor_familia] IS NULL) OR ([valor_familia] = @Original_" +
+                "valor_familia)));\r\nSELECT id, codigo, nombre_producto, marca, valor_compra, valo" +
+                "r_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, " +
+                "descripcion, imagen, id_proveedor, id_categoria, valor_constructora, valor_famil" +
+                "ia FROM producto WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_producto", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre_producto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17327,6 +17554,8 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@imagen", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "imagen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_proveedor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_categoria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_categoria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_constructora", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valor_constructora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_familia", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valor_familia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_codigo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nombre_producto", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nombre_producto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -17339,10 +17568,12 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha_vencimiento", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_vencimiento", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stock_minimo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stock_minimo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_proveedor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_proveedor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_categoria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_categoria", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_valor_constructora", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valor_constructora", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_valor_constructora", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valor_constructora", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_valor_familia", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valor_familia", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_valor_familia", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valor_familia", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -17361,7 +17592,7 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayor" +
                 "ista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen," +
-                " id_proveedor, id_categoria FROM dbo.producto";
+                " id_proveedor, id_categoria, valor_constructora, valor_familia FROM producto";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -17371,14 +17602,12 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_producto", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayor" +
-                "ista, fecha_compra, fecha_vencimiento, stock, descripcion, id_proveedor, id_cate" +
-                "goria, imagen, stock_minimo FROM producto WHERE codigo = @codigo";
+            this._commandCollection[2].CommandText = @"SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, valor_constructora, valor_familia, fecha_compra, fecha_vencimiento, stock, descripcion, id_proveedor, id_categoria, imagen, stock_minimo, valor_constructora, valor_familia FROM producto WHERE (codigo = @codigo)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"UPDATE [producto] SET [codigo] = @codigo, [nombre_producto] = @nombre_producto, [marca] = @marca, [valor_compra] = @valor_compra, [valor_venta] = @valor_venta, [valor_mayorista] = @valor_mayorista, [fecha_compra] = @fecha_compra, [fecha_vencimiento] = @fecha_vencimiento, [stock] = @stock, [stock_minimo] = @stock_minimo, [descripcion] = @descripcion, [imagen] = @imagen, [id_proveedor] = @id_proveedor, [id_categoria] = @id_categoria WHERE ([id] = @Original_id)
+            this._commandCollection[3].CommandText = @"UPDATE [producto] SET [codigo] = @codigo, [nombre_producto] = @nombre_producto, [marca] = @marca, [valor_compra] = @valor_compra, [valor_venta] = @valor_venta, [valor_mayorista] = @valor_mayorista, [valor_constructora] = @valor_constructora, [valor_familia] = @valor_familia, [fecha_compra] = @fecha_compra, [fecha_vencimiento] = @fecha_vencimiento, [stock] = @stock, [stock_minimo] = @stock_minimo, [descripcion] = @descripcion, [imagen] = @imagen, [id_proveedor] = @id_proveedor, [id_categoria] = @id_categoria WHERE ([id] = @Original_id)
 ";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17387,11 +17616,13 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_compra", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_compra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_venta", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_venta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_mayorista", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_mayorista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_constructora", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_constructora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_familia", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_familia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_compra", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_compra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_vencimiento", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_vencimiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stock", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "stock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stock_minimo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "stock_minimo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@imagen", global::System.Data.SqlDbType.Image, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "imagen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_proveedor", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_categoria", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_categoria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17403,7 +17634,7 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = @"INSERT INTO [producto] ([codigo], [nombre_producto], [marca], [valor_compra], [valor_venta], [valor_mayorista], [fecha_compra], [fecha_vencimiento], [stock], [stock_minimo], [descripcion], [imagen], [id_proveedor], [id_categoria]) VALUES (@codigo, @nombre_producto, @marca, @valor_compra, @valor_venta, @valor_mayorista, @fecha_compra, @fecha_vencimiento, @stock, @stock_minimo, @descripcion, @imagen, @id_proveedor, @id_categoria)";
+            this._commandCollection[5].CommandText = @"INSERT INTO [producto] ([codigo], [nombre_producto], [marca], [valor_compra], [valor_venta], [valor_mayorista], [valor_constructora], [valor_familia], [fecha_compra], [fecha_vencimiento], [stock], [stock_minimo], [descripcion], [imagen], [id_proveedor], [id_categoria]) VALUES (@codigo, @nombre_producto, @marca, @valor_compra, @valor_venta, @valor_mayorista, @valor_constructora, @valor_familia, @fecha_compra, @fecha_vencimiento, @stock, @stock_minimo, @descripcion, @imagen, @id_proveedor, @id_categoria)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_producto", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "nombre_producto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17411,17 +17642,19 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_compra", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_compra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_venta", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_venta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_mayorista", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_mayorista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_constructora", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_constructora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_familia", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_familia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_compra", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_compra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_vencimiento", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_vencimiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stock", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "stock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stock_minimo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "stock_minimo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@imagen", global::System.Data.SqlDbType.Image, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "imagen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_proveedor", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_categoria", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_categoria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = @"INSERT INTO [producto] ([codigo], [nombre_producto], [marca], [valor_compra], [valor_venta], [valor_mayorista], [fecha_compra], [fecha_vencimiento], [stock], [stock_minimo], [descripcion], [id_proveedor], [id_categoria]) VALUES (@codigo, @nombre_producto, @marca, @valor_compra, @valor_venta, @valor_mayorista, @fecha_compra, @fecha_vencimiento, @stock, @stock_minimo, @descripcion, @id_proveedor, @id_categoria)";
+            this._commandCollection[6].CommandText = @"INSERT INTO [producto] ([codigo], [nombre_producto], [marca], [valor_compra], [valor_venta], [valor_mayorista], [valor_constructora], [valor_familia], [fecha_compra], [fecha_vencimiento], [stock], [stock_minimo], [descripcion], [id_proveedor], [id_categoria]) VALUES (@codigo, @nombre_producto, @marca, @valor_compra, @valor_venta, @valor_mayorista, @valor_constructora, @valor_familia, @fecha_compra, @fecha_vencimiento, @stock, @stock_minimo, @descripcion, @id_proveedor, @id_categoria)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_producto", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "nombre_producto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17429,11 +17662,13 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_compra", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_compra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_venta", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_venta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_mayorista", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_mayorista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_constructora", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_constructora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valor_familia", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "valor_familia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_compra", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_compra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha_vencimiento", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fecha_vencimiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stock", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "stock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stock_minimo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "stock_minimo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_proveedor", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_categoria", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_categoria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
@@ -17446,8 +17681,8 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = "SELECT id FROM producto WHERE codigo = @codigo AND nombre_producto = @nombre_prod" +
-                "ucto";
+            this._commandCollection[8].CommandText = "SELECT id, valor_constructora, valor_familia FROM producto WHERE (codigo = @codig" +
+                "o) AND (nombre_producto = @nombre_producto)";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_producto", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "nombre_producto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17527,7 +17762,7 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_codigo, string Original_nombre_producto, string Original_marca, decimal Original_valor_compra, decimal Original_valor_venta, global::System.Nullable<decimal> Original_valor_mayorista, System.DateTime Original_fecha_compra, System.DateTime Original_fecha_vencimiento, int Original_stock, int Original_stock_minimo, string Original_descripcion, int Original_id_proveedor, int Original_id_categoria) {
+        public virtual int Delete(int Original_id, string Original_codigo, string Original_nombre_producto, string Original_marca, decimal Original_valor_compra, decimal Original_valor_venta, global::System.Nullable<decimal> Original_valor_mayorista, System.DateTime Original_fecha_compra, System.DateTime Original_fecha_vencimiento, int Original_stock, int Original_stock_minimo, int Original_id_proveedor, int Original_id_categoria, global::System.Nullable<decimal> Original_valor_constructora, global::System.Nullable<decimal> Original_valor_familia) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_codigo == null)) {
                 throw new global::System.ArgumentNullException("Original_codigo");
@@ -17561,16 +17796,24 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             this.Adapter.DeleteCommand.Parameters[9].Value = ((System.DateTime)(Original_fecha_vencimiento));
             this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_stock));
             this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_stock_minimo));
-            if ((Original_descripcion == null)) {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_id_proveedor));
+            this.Adapter.DeleteCommand.Parameters[13].Value = ((int)(Original_id_categoria));
+            if ((Original_valor_constructora.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((decimal)(Original_valor_constructora.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_descripcion));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_id_proveedor));
-            this.Adapter.DeleteCommand.Parameters[15].Value = ((int)(Original_id_categoria));
+            if ((Original_valor_familia.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((decimal)(Original_valor_familia.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -17591,7 +17834,23 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string codigo, string nombre_producto, string marca, decimal valor_compra, decimal valor_venta, global::System.Nullable<decimal> valor_mayorista, System.DateTime fecha_compra, System.DateTime fecha_vencimiento, int stock, int stock_minimo, string descripcion, byte[] imagen, int id_proveedor, int id_categoria) {
+        public virtual int Insert(
+                    string codigo, 
+                    string nombre_producto, 
+                    string marca, 
+                    decimal valor_compra, 
+                    decimal valor_venta, 
+                    global::System.Nullable<decimal> valor_mayorista, 
+                    System.DateTime fecha_compra, 
+                    System.DateTime fecha_vencimiento, 
+                    int stock, 
+                    int stock_minimo, 
+                    string descripcion, 
+                    byte[] imagen, 
+                    int id_proveedor, 
+                    int id_categoria, 
+                    global::System.Nullable<decimal> valor_constructora, 
+                    global::System.Nullable<decimal> valor_familia) {
             if ((codigo == null)) {
                 throw new global::System.ArgumentNullException("codigo");
             }
@@ -17636,6 +17895,18 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             }
             this.Adapter.InsertCommand.Parameters[12].Value = ((int)(id_proveedor));
             this.Adapter.InsertCommand.Parameters[13].Value = ((int)(id_categoria));
+            if ((valor_constructora.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((decimal)(valor_constructora.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((valor_familia.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((decimal)(valor_familia.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -17671,6 +17942,8 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
                     byte[] imagen, 
                     int id_proveedor, 
                     int id_categoria, 
+                    global::System.Nullable<decimal> valor_constructora, 
+                    global::System.Nullable<decimal> valor_familia, 
                     int Original_id, 
                     string Original_codigo, 
                     string Original_nombre_producto, 
@@ -17682,9 +17955,10 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
                     System.DateTime Original_fecha_vencimiento, 
                     int Original_stock, 
                     int Original_stock_minimo, 
-                    string Original_descripcion, 
                     int Original_id_proveedor, 
                     int Original_id_categoria, 
+                    global::System.Nullable<decimal> Original_valor_constructora, 
+                    global::System.Nullable<decimal> Original_valor_familia, 
                     int id) {
             if ((codigo == null)) {
                 throw new global::System.ArgumentNullException("codigo");
@@ -17730,50 +18004,70 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             }
             this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(id_proveedor));
             this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(id_categoria));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_id));
+            if ((valor_constructora.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(valor_constructora.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((valor_familia.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(valor_familia.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_id));
             if ((Original_codigo == null)) {
                 throw new global::System.ArgumentNullException("Original_codigo");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_codigo));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_codigo));
             }
             if ((Original_nombre_producto == null)) {
                 throw new global::System.ArgumentNullException("Original_nombre_producto");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_nombre_producto));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_nombre_producto));
             }
             if ((Original_marca == null)) {
                 throw new global::System.ArgumentNullException("Original_marca");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_marca));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_marca));
             }
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_valor_compra));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Original_valor_venta));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Original_valor_compra));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Original_valor_venta));
             if ((Original_valor_mayorista.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Original_valor_mayorista.Value));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(Original_valor_mayorista.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_fecha_compra));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_fecha_vencimiento));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_stock));
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_stock_minimo));
-            if ((Original_descripcion == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_descripcion));
-            }
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_fecha_compra));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_fecha_vencimiento));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_stock));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_stock_minimo));
             this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_id_proveedor));
             this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_id_categoria));
-            this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(id));
+            if ((Original_valor_constructora.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((decimal)(Original_valor_constructora.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((Original_valor_familia.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((decimal)(Original_valor_familia.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -17809,6 +18103,8 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
                     byte[] imagen, 
                     int id_proveedor, 
                     int id_categoria, 
+                    global::System.Nullable<decimal> valor_constructora, 
+                    global::System.Nullable<decimal> valor_familia, 
                     int Original_id, 
                     string Original_codigo, 
                     string Original_nombre_producto, 
@@ -17820,10 +18116,11 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
                     System.DateTime Original_fecha_vencimiento, 
                     int Original_stock, 
                     int Original_stock_minimo, 
-                    string Original_descripcion, 
                     int Original_id_proveedor, 
-                    int Original_id_categoria) {
-            return this.Update(codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, id_proveedor, id_categoria, Original_id, Original_codigo, Original_nombre_producto, Original_marca, Original_valor_compra, Original_valor_venta, Original_valor_mayorista, Original_fecha_compra, Original_fecha_vencimiento, Original_stock, Original_stock_minimo, Original_descripcion, Original_id_proveedor, Original_id_categoria, Original_id);
+                    int Original_id_categoria, 
+                    global::System.Nullable<decimal> Original_valor_constructora, 
+                    global::System.Nullable<decimal> Original_valor_familia) {
+            return this.Update(codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, id_proveedor, id_categoria, valor_constructora, valor_familia, Original_id, Original_codigo, Original_nombre_producto, Original_marca, Original_valor_compra, Original_valor_venta, Original_valor_mayorista, Original_fecha_compra, Original_fecha_vencimiento, Original_stock, Original_stock_minimo, Original_id_proveedor, Original_id_categoria, Original_valor_constructora, Original_valor_familia, Original_id);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17855,7 +18152,24 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int EditarProducto(string codigo, string nombre_producto, string marca, decimal valor_compra, decimal valor_venta, global::System.Nullable<decimal> valor_mayorista, string fecha_compra, string fecha_vencimiento, int stock, int stock_minimo, string descripcion, byte[] imagen, int id_proveedor, int id_categoria, int Original_id) {
+        public virtual int EditarProducto(
+                    string codigo, 
+                    string nombre_producto, 
+                    string marca, 
+                    decimal valor_compra, 
+                    decimal valor_venta, 
+                    global::System.Nullable<decimal> valor_mayorista, 
+                    global::System.Nullable<decimal> valor_constructora, 
+                    global::System.Nullable<decimal> valor_familia, 
+                    string fecha_compra, 
+                    string fecha_vencimiento, 
+                    int stock, 
+                    int stock_minimo, 
+                    string descripcion, 
+                    byte[] imagen, 
+                    int id_proveedor, 
+                    int id_categoria, 
+                    int Original_id) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((codigo == null)) {
                 throw new global::System.ArgumentNullException("codigo");
@@ -17883,35 +18197,47 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             else {
                 command.Parameters[5].Value = global::System.DBNull.Value;
             }
+            if ((valor_constructora.HasValue == true)) {
+                command.Parameters[6].Value = ((decimal)(valor_constructora.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((valor_familia.HasValue == true)) {
+                command.Parameters[7].Value = ((decimal)(valor_familia.Value));
+            }
+            else {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
             if ((fecha_compra == null)) {
                 throw new global::System.ArgumentNullException("fecha_compra");
             }
             else {
-                command.Parameters[6].Value = ((string)(fecha_compra));
+                command.Parameters[8].Value = ((string)(fecha_compra));
             }
             if ((fecha_vencimiento == null)) {
                 throw new global::System.ArgumentNullException("fecha_vencimiento");
             }
             else {
-                command.Parameters[7].Value = ((string)(fecha_vencimiento));
+                command.Parameters[9].Value = ((string)(fecha_vencimiento));
             }
-            command.Parameters[8].Value = ((int)(stock));
-            command.Parameters[9].Value = ((int)(stock_minimo));
+            command.Parameters[10].Value = ((int)(stock));
+            command.Parameters[11].Value = ((int)(stock_minimo));
             if ((descripcion == null)) {
-                command.Parameters[10].Value = global::System.DBNull.Value;
+                command.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[10].Value = ((string)(descripcion));
+                command.Parameters[12].Value = ((string)(descripcion));
             }
             if ((imagen == null)) {
-                command.Parameters[11].Value = global::System.DBNull.Value;
+                command.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[11].Value = ((byte[])(imagen));
+                command.Parameters[13].Value = ((byte[])(imagen));
             }
-            command.Parameters[12].Value = ((int)(id_proveedor));
-            command.Parameters[13].Value = ((int)(id_categoria));
-            command.Parameters[14].Value = ((int)(Original_id));
+            command.Parameters[14].Value = ((int)(id_proveedor));
+            command.Parameters[15].Value = ((int)(id_categoria));
+            command.Parameters[16].Value = ((int)(Original_id));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -17957,7 +18283,23 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertarProducto(string codigo, string nombre_producto, string marca, decimal valor_compra, decimal valor_venta, global::System.Nullable<decimal> valor_mayorista, string fecha_compra, string fecha_vencimiento, int stock, int stock_minimo, string descripcion, byte[] imagen, int id_proveedor, int id_categoria) {
+        public virtual int InsertarProducto(
+                    string codigo, 
+                    string nombre_producto, 
+                    string marca, 
+                    decimal valor_compra, 
+                    decimal valor_venta, 
+                    global::System.Nullable<decimal> valor_mayorista, 
+                    global::System.Nullable<decimal> valor_constructora, 
+                    global::System.Nullable<decimal> valor_familia, 
+                    string fecha_compra, 
+                    string fecha_vencimiento, 
+                    int stock, 
+                    int stock_minimo, 
+                    string descripcion, 
+                    byte[] imagen, 
+                    int id_proveedor, 
+                    int id_categoria) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             if ((codigo == null)) {
                 throw new global::System.ArgumentNullException("codigo");
@@ -17985,34 +18327,46 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             else {
                 command.Parameters[5].Value = global::System.DBNull.Value;
             }
+            if ((valor_constructora.HasValue == true)) {
+                command.Parameters[6].Value = ((decimal)(valor_constructora.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((valor_familia.HasValue == true)) {
+                command.Parameters[7].Value = ((decimal)(valor_familia.Value));
+            }
+            else {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
             if ((fecha_compra == null)) {
                 throw new global::System.ArgumentNullException("fecha_compra");
             }
             else {
-                command.Parameters[6].Value = ((string)(fecha_compra));
+                command.Parameters[8].Value = ((string)(fecha_compra));
             }
             if ((fecha_vencimiento == null)) {
                 throw new global::System.ArgumentNullException("fecha_vencimiento");
             }
             else {
-                command.Parameters[7].Value = ((string)(fecha_vencimiento));
+                command.Parameters[9].Value = ((string)(fecha_vencimiento));
             }
-            command.Parameters[8].Value = ((int)(stock));
-            command.Parameters[9].Value = ((int)(stock_minimo));
+            command.Parameters[10].Value = ((int)(stock));
+            command.Parameters[11].Value = ((int)(stock_minimo));
             if ((descripcion == null)) {
-                command.Parameters[10].Value = global::System.DBNull.Value;
+                command.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[10].Value = ((string)(descripcion));
+                command.Parameters[12].Value = ((string)(descripcion));
             }
             if ((imagen == null)) {
-                command.Parameters[11].Value = global::System.DBNull.Value;
+                command.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[11].Value = ((byte[])(imagen));
+                command.Parameters[13].Value = ((byte[])(imagen));
             }
-            command.Parameters[12].Value = ((int)(id_proveedor));
-            command.Parameters[13].Value = ((int)(id_categoria));
+            command.Parameters[14].Value = ((int)(id_proveedor));
+            command.Parameters[15].Value = ((int)(id_categoria));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -18034,7 +18388,7 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertarSinImagen(string codigo, string nombre_producto, string marca, decimal valor_compra, decimal valor_venta, global::System.Nullable<decimal> valor_mayorista, string fecha_compra, string fecha_vencimiento, int stock, int stock_minimo, string descripcion, int id_proveedor, int id_categoria) {
+        public virtual int InsertarSinImagen(string codigo, string nombre_producto, string marca, decimal valor_compra, decimal valor_venta, global::System.Nullable<decimal> valor_mayorista, global::System.Nullable<decimal> valor_constructora, global::System.Nullable<decimal> valor_familia, string fecha_compra, string fecha_vencimiento, int stock, int stock_minimo, string descripcion, int id_proveedor, int id_categoria) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             if ((codigo == null)) {
                 throw new global::System.ArgumentNullException("codigo");
@@ -18062,28 +18416,40 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             else {
                 command.Parameters[5].Value = global::System.DBNull.Value;
             }
+            if ((valor_constructora.HasValue == true)) {
+                command.Parameters[6].Value = ((decimal)(valor_constructora.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((valor_familia.HasValue == true)) {
+                command.Parameters[7].Value = ((decimal)(valor_familia.Value));
+            }
+            else {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
             if ((fecha_compra == null)) {
                 throw new global::System.ArgumentNullException("fecha_compra");
             }
             else {
-                command.Parameters[6].Value = ((string)(fecha_compra));
+                command.Parameters[8].Value = ((string)(fecha_compra));
             }
             if ((fecha_vencimiento == null)) {
                 throw new global::System.ArgumentNullException("fecha_vencimiento");
             }
             else {
-                command.Parameters[7].Value = ((string)(fecha_vencimiento));
+                command.Parameters[9].Value = ((string)(fecha_vencimiento));
             }
-            command.Parameters[8].Value = ((int)(stock));
-            command.Parameters[9].Value = ((int)(stock_minimo));
+            command.Parameters[10].Value = ((int)(stock));
+            command.Parameters[11].Value = ((int)(stock_minimo));
             if ((descripcion == null)) {
-                command.Parameters[10].Value = global::System.DBNull.Value;
+                command.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[10].Value = ((string)(descripcion));
+                command.Parameters[12].Value = ((string)(descripcion));
             }
-            command.Parameters[11].Value = ((int)(id_proveedor));
-            command.Parameters[12].Value = ((int)(id_categoria));
+            command.Parameters[13].Value = ((int)(id_proveedor));
+            command.Parameters[14].Value = ((int)(id_categoria));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -18309,6 +18675,8 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             tableMapping.ColumnMappings.Add("imagen", "imagen");
             tableMapping.ColumnMappings.Add("proveedor", "proveedor");
             tableMapping.ColumnMappings.Add("categoria", "categoria");
+            tableMapping.ColumnMappings.Add("valor_constructora", "valor_constructora");
+            tableMapping.ColumnMappings.Add("valor_familia", "valor_familia");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -18327,43 +18695,31 @@ SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayo
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayor" +
                 "ista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen," +
-                " proveedor, categoria FROM dbo.vista_producto";
+                " proveedor, categoria, valor_constructora, valor_familia FROM vista_producto";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayor" +
-                "ista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen," +
-                " proveedor, categoria FROM dbo.vista_producto WHERE categoria LIKE (\'%\' + @categ" +
-                "oria + \'%\')";
+            this._commandCollection[1].CommandText = @"SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, proveedor, categoria, valor_constructora, valor_familia FROM vista_producto WHERE (categoria LIKE '%' + @categoria + '%')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@categoria", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "categoria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayor" +
-                "ista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen," +
-                " proveedor, categoria FROM dbo.vista_producto WHERE codigo LIKE (\'%\' + @codigo +" +
-                " \'%\')";
+            this._commandCollection[2].CommandText = @"SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, proveedor, categoria, valor_constructora, valor_familia FROM vista_producto WHERE (codigo LIKE '%' + @codigo + '%')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayor" +
-                "ista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen," +
-                " proveedor, categoria FROM dbo.vista_producto WHERE marca LIKE (\'%\' + @marca + \'" +
-                "%\')";
+            this._commandCollection[3].CommandText = @"SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, proveedor, categoria, valor_constructora, valor_familia FROM vista_producto WHERE (marca LIKE '%' + @marca + '%')";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@marca", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "marca", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, proveedor, categoria FROM dbo.vista_producto WHERE nombre_producto LIKE ('%' + @nombre_producto + '%')";
+            this._commandCollection[4].CommandText = @"SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, proveedor, categoria, valor_constructora, valor_familia FROM vista_producto WHERE (nombre_producto LIKE '%' + @nombre_producto + '%')";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_producto", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "nombre_producto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayor" +
-                "ista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen," +
-                " proveedor, categoria FROM dbo.vista_producto WHERE proveedor LIKE (\'%\' + @prove" +
-                "edor + \'%\')";
+            this._commandCollection[5].CommandText = @"SELECT id, codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, proveedor, categoria, valor_constructora, valor_familia FROM vista_producto WHERE (proveedor LIKE '%' + @proveedor + '%')";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@proveedor", global::System.Data.SqlDbType.VarChar, 60, global::System.Data.ParameterDirection.Input, 0, 0, "proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

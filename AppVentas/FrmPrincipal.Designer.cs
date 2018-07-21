@@ -90,6 +90,7 @@
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.MnuItemReporteVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -260,7 +261,8 @@
             this.MnuItemTotalTienda,
             this.MnuItemVentasDiaAdm,
             this.MnuItemDeudasProveedores,
-            this.MnuItemBalanceDia});
+            this.MnuItemBalanceDia,
+            this.MnuItemReporteVentas});
             this.MnuReportes.Name = "MnuReportes";
             this.MnuReportes.Size = new System.Drawing.Size(65, 20);
             this.MnuReportes.Text = "&Reportes";
@@ -664,6 +666,12 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(244, 383);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
+            // MnuItemReporteVentas
+            // 
+            this.MnuItemReporteVentas.Name = "MnuItemReporteVentas";
+            this.MnuItemReporteVentas.Size = new System.Drawing.Size(237, 22);
+            this.MnuItemReporteVentas.Text = "Reporte de Ventas";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
@@ -757,6 +765,7 @@
         private System.Windows.Forms.ToolStripButton tsbClientes;
         private System.Windows.Forms.ToolStripButton tsbUsuarios;
         private System.Windows.Forms.ToolStripButton tsbDeudaProveedor;
+        private System.Windows.Forms.ToolStripMenuItem MnuItemReporteVentas;
     }
 }
 

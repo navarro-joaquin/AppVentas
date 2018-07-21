@@ -30,8 +30,8 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gbxMontos = new System.Windows.Forms.GroupBox();
-            this.lblInicial = new System.Windows.Forms.Label();
             this.lblTotalVentas = new System.Windows.Forms.Label();
+            this.lblInicial = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.gbxMonto = new System.Windows.Forms.GroupBox();
@@ -64,16 +64,6 @@
             this.gbxMontos.TabIndex = 3;
             this.gbxMontos.TabStop = false;
             // 
-            // lblInicial
-            // 
-            this.lblInicial.AutoSize = true;
-            this.lblInicial.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInicial.Location = new System.Drawing.Point(23, 29);
-            this.lblInicial.Name = "lblInicial";
-            this.lblInicial.Size = new System.Drawing.Size(109, 20);
-            this.lblInicial.TabIndex = 0;
-            this.lblInicial.Text = "Monto Inicial : ";
-            // 
             // lblTotalVentas
             // 
             this.lblTotalVentas.AutoSize = true;
@@ -83,6 +73,16 @@
             this.lblTotalVentas.Size = new System.Drawing.Size(127, 20);
             this.lblTotalVentas.TabIndex = 1;
             this.lblTotalVentas.Text = "Total Ventas Día: ";
+            // 
+            // lblInicial
+            // 
+            this.lblInicial.AutoSize = true;
+            this.lblInicial.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInicial.Location = new System.Drawing.Point(23, 29);
+            this.lblInicial.Name = "lblInicial";
+            this.lblInicial.Size = new System.Drawing.Size(109, 20);
+            this.lblInicial.TabIndex = 0;
+            this.lblInicial.Text = "Monto Inicial : ";
             // 
             // lblUsuario
             // 
@@ -144,6 +144,7 @@
             // 
             // FrmCajaCierre
             // 
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(324, 373);

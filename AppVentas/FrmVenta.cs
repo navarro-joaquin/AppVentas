@@ -34,11 +34,13 @@ namespace AppVentas
             id_usuario = id;
         }
 
-        private void CargarPrecios(decimal valor_venta, decimal valor_mayorista)
+        private void CargarPrecios(decimal valor_venta, decimal valor_mayorista, decimal valor_constructora, decimal valor_familia)
         {
             precios = new List<object>();
             precios.Add(new { Id = valor_venta, Value = valor_venta });
             precios.Add(new { Id = valor_mayorista, Value = valor_mayorista });
+            precios.Add(new { Id = valor_constructora, Value = valor_constructora });
+            precios.Add(new { Id = valor_familia, Value = valor_familia });
             cmbPrecios.DataSource = precios;
             cmbPrecios.ValueMember = "Id";
             cmbPrecios.DisplayMember = "Value";
@@ -64,7 +66,7 @@ namespace AppVentas
                 DataTable consulta = this.productoTableAdapter.DTBuscarProducto(codigo_producto);
                 DataRow fila = consulta.Rows[0];
 
-                decimal valor_venta, valor_mayorista;
+                decimal valor_venta, valor_mayorista, valor_constructora, valor_familia;
 
                 cmbNombreProducto.Text = fila["nombre_producto"].ToString();
                 txtDescripcion.Text = fila["descripcion"].ToString();
@@ -78,7 +80,23 @@ namespace AppVentas
                 {
                     valor_mayorista = Convert.ToDecimal(fila["valor_mayorista"].ToString());
                 }
-                CargarPrecios(valor_venta, valor_mayorista);
+                if (fila["valor_constructora"].ToString() == "")
+                {
+                    valor_constructora = valor_venta;
+                }
+                else
+                {
+                    valor_constructora = Convert.ToDecimal(fila["valor_constructora"].ToString());
+                }
+                if (fila["valor_familia"].ToString() == "")
+                {
+                    valor_familia = valor_venta;
+                }
+                else
+                {
+                    valor_familia = Convert.ToDecimal(fila["valor_familia"].ToString());
+                }
+                CargarPrecios(valor_venta, valor_mayorista, valor_constructora, valor_familia);
             }
             catch (Exception ex)
             {
@@ -430,7 +448,7 @@ namespace AppVentas
                         DataTable consulta = this.productoTableAdapter.DTBuscarProducto(codigo_producto);
                         DataRow fila = consulta.Rows[0];
 
-                        decimal valor_venta, valor_mayorista;
+                        decimal valor_venta, valor_mayorista, valor_constructora, valor_familia;
 
                         txtCodigoProducto.Text = fila["codigo"].ToString();
                         txtDescripcion.Text = fila["descripcion"].ToString();
@@ -445,7 +463,23 @@ namespace AppVentas
                         {
                             valor_mayorista = Convert.ToDecimal(fila["valor_mayorista"].ToString());
                         }
-                        CargarPrecios(valor_venta, valor_mayorista);
+                        if (fila["valor_constructora"].ToString() == "")
+                        {
+                            valor_constructora = valor_venta;
+                        }
+                        else
+                        {
+                            valor_constructora = Convert.ToDecimal(fila["valor_constructora"].ToString());
+                        }
+                        if (fila["valor_familia"].ToString() == "")
+                        {
+                            valor_familia = valor_venta;
+                        }
+                        else
+                        {
+                            valor_familia = Convert.ToDecimal(fila["valor_familia"].ToString());
+                        }
+                        CargarPrecios(valor_venta, valor_mayorista, valor_constructora, valor_familia);
                         producto = false;
                         txtCantidad.Focus();
                     }

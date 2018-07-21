@@ -60,6 +60,8 @@ namespace AppVentas
             txtValorCompra.ResetText();
             txtValorVenta.ResetText();
             txtValorMayorista.ResetText();
+            txtValorConstructora.ResetText();
+            txtValorFamilia.ResetText();
             dtpFechaCompra.ResetText();
             dtpFechaVencimiento.ResetText();
             txtStock.ResetText();
@@ -109,11 +111,28 @@ namespace AppVentas
                     if (txtValorMayorista.Text.Equals(""))
                     {
                         valor_mayorista = valor_venta;
-
                     }
                     else
                     {
                         valor_mayorista = Convert.ToDecimal(txtValorMayorista.Text);
+                    }
+                    decimal valor_constructora;
+                    if (txtValorConstructora.Text.Equals(""))
+                    {
+                        valor_constructora = valor_venta;
+                    }
+                    else
+                    {
+                        valor_constructora = Convert.ToDecimal(txtValorConstructora.Text);
+                    }
+                    decimal valor_familia;
+                    if (txtValorFamilia.Text.Equals(""))
+                    {
+                        valor_familia = valor_venta;
+                    }
+                    else
+                    {
+                        valor_familia = Convert.ToDecimal(txtValorFamilia.Text);
                     }
                     string fecha_compra = dtpFechaCompra.Value.ToShortDateString();
                     string fecha_vencimiento = dtpFechaVencimiento.Value.ToShortDateString();
@@ -125,7 +144,7 @@ namespace AppVentas
 
                     try
                     {
-                        this.productoTableAdapter.InsertarProducto(codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, id_proveedor, id_categoria);
+                        this.productoTableAdapter.InsertarProducto(codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, valor_constructora, valor_familia, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, id_proveedor, id_categoria);
                         MessageBox.Show("Registro guardado correctamente");
                         ActualizarListado();
                         LimpiarCajas();
@@ -164,6 +183,24 @@ namespace AppVentas
                         {
                             valor_mayorista = Convert.ToDecimal(txtValorMayorista.Text);
                         }
+                        decimal valor_constructora;
+                        if (txtValorConstructora.Text.Equals(""))
+                        {
+                            valor_constructora = valor_venta;
+                        }
+                        else
+                        {
+                            valor_constructora = Convert.ToDecimal(txtValorConstructora.Text);
+                        }
+                        decimal valor_familia;
+                        if (txtValorFamilia.Text.Equals(""))
+                        {
+                            valor_familia = valor_venta;
+                        }
+                        else
+                        {
+                            valor_familia = Convert.ToDecimal(txtValorFamilia.Text);
+                        }
                         string fecha_compra = dtpFechaCompra.Value.ToShortDateString();
                         string fecha_vencimiento = dtpFechaVencimiento.Value.ToShortDateString();
                         int stock = Convert.ToInt32(txtStock.Text);
@@ -174,7 +211,7 @@ namespace AppVentas
 
                         try
                         {
-                            this.productoTableAdapter.EditarProducto(codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, id_proveedor, id_categoria, id_editar);
+                            this.productoTableAdapter.EditarProducto(codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, valor_constructora, valor_familia, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, id_proveedor, id_categoria, id_editar);
                             MessageBox.Show("guardado correctamente");
                             ActualizarListado();
                             LimpiarCajas();
@@ -231,13 +268,15 @@ namespace AppVentas
                 txtValorCompra.Text = dgvProducto.CurrentRow.Cells[4].Value.ToString();
                 txtValorVenta.Text = dgvProducto.CurrentRow.Cells[5].Value.ToString();
                 txtValorMayorista.Text = dgvProducto.CurrentRow.Cells[6].Value.ToString();
-                dtpFechaCompra.Value = Convert.ToDateTime(dgvProducto.CurrentRow.Cells[7].Value.ToString());
-                dtpFechaVencimiento.Value = Convert.ToDateTime(dgvProducto.CurrentRow.Cells[8].Value.ToString());
-                txtStock.Text = dgvProducto.CurrentRow.Cells[9].Value.ToString();
-                txtStockMinimo.Text = dgvProducto.CurrentRow.Cells[10].Value.ToString();
-                txtDescripcion.Text = dgvProducto.CurrentRow.Cells[11].Value.ToString();
+                txtValorConstructora.Text = dgvProducto.CurrentRow.Cells[7].Value.ToString();
+                txtValorFamilia.Text = dgvProducto.CurrentRow.Cells[8].Value.ToString();
+                dtpFechaCompra.Value = Convert.ToDateTime(dgvProducto.CurrentRow.Cells[9].Value.ToString());
+                dtpFechaVencimiento.Value = Convert.ToDateTime(dgvProducto.CurrentRow.Cells[10].Value.ToString());
+                txtStock.Text = dgvProducto.CurrentRow.Cells[11].Value.ToString();
+                txtStockMinimo.Text = dgvProducto.CurrentRow.Cells[12].Value.ToString();
+                txtDescripcion.Text = dgvProducto.CurrentRow.Cells[13].Value.ToString();
 
-                if (dgvProducto.CurrentRow.Cells[12].Value is DBNull)
+                if (dgvProducto.CurrentRow.Cells[14].Value is DBNull)
                 {
                     pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
                     pbxImagen.Image = global::AppVentas.Properties.Resources.file;
@@ -245,14 +284,14 @@ namespace AppVentas
                 else
                 {
 
-                    byte[] imagenBuffer = (byte[])dgvProducto.CurrentRow.Cells[12].Value;
+                    byte[] imagenBuffer = (byte[])dgvProducto.CurrentRow.Cells[14].Value;
                     System.IO.MemoryStream ms = new System.IO.MemoryStream(imagenBuffer);
                     pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
                     pbxImagen.Image = Image.FromStream(ms);
                 }
 
-                cmbProveedor.Text = dgvProducto.CurrentRow.Cells[13].Value.ToString();
-                cmbCategoria.Text = dgvProducto.CurrentRow.Cells[14].Value.ToString();
+                cmbProveedor.Text = dgvProducto.CurrentRow.Cells[15].Value.ToString();
+                cmbCategoria.Text = dgvProducto.CurrentRow.Cells[16].Value.ToString();
 
                 tabControl1.SelectedIndex = 1;
 
@@ -345,6 +384,8 @@ namespace AppVentas
                 decimal valor_compra = hoja.valor_compra;
                 decimal valor_venta = hoja.valor_venta;
                 decimal valor_mayorista = hoja.valor_mayorista;
+                decimal valor_constructora = hoja.valor_constructora;
+                decimal valor_familia = hoja.valor_familia;
                 DateTime fecha_introduccion = hoja.fecha_introduccion;
                 DateTime fecha_vencimiento = hoja.fecha_vencimiento;
                 int stock = hoja.stock;
@@ -389,7 +430,7 @@ namespace AppVentas
                     if (id_producto == 0)
                     {
                         //Insertar producto
-                        this.productoTableAdapter.InsertarSinImagen(codigo_producto, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_introduccion.ToShortDateString(), fecha_vencimiento.ToShortDateString(), stock, stock_minimo, descripcion, id_proveedor, id_categoria);
+                        this.productoTableAdapter.InsertarSinImagen(codigo_producto, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, valor_constructora, valor_familia, fecha_introduccion.ToShortDateString(), fecha_vencimiento.ToShortDateString(), stock, stock_minimo, descripcion, id_proveedor, id_categoria);
                         nuevos++;
                     }
                     else

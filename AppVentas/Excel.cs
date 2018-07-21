@@ -33,6 +33,8 @@ namespace AppVentas
                                  valor_compra = Convert.ToDecimal(no_null(row["Precio de compra"].Cast<string>())),
                                  valor_venta = Convert.ToDecimal(no_null(row["Precio de venta"].Cast<string>())),
                                  valor_mayorista = Convert.ToDecimal(no_null(row["Precio mayorista"].Cast<string>())),
+                                 valor_constructora = Convert.ToDecimal(no_null(row["Precio constructora"].Cast<string>())),
+                                 valor_familia = Convert.ToDecimal(no_null(row["Precio familia"].Cast<string>())),
                                  fecha_introduccion = DateTime.Today,
                                  fecha_vencimiento = Convert.ToDateTime(no_null(row["Fecha de vencimiento"].Cast<string>())),
                                  stock = Convert.ToInt32(no_null(row["Stock"].Cast<string>())),
