@@ -185,16 +185,22 @@
                   <Width>1.99756cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.44735cm</Width>
+                  <Width>3.32047cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.44735cm</Width>
+                  <Width>1.81235cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.44735cm</Width>
+                  <Width>1.77263cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.44735cm</Width>
+                  <Width>1.6536cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.54777cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.44735cm</Width>
@@ -203,10 +209,7 @@
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.44735cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>2.12993cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
@@ -500,6 +503,39 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox19</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Ganancia</Value>
+                                  <Style>
+                                    <FontFamily>trebuchet MS</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -850,6 +886,39 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="Textbox16">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=(Fields!total_venta.Value - Fields!descuento.Value) - Fields!valor_compra.Value</Value>
+                                  <Style>
+                                    <FontFamily>trebuchet MS</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox16</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="usuario">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -887,6 +956,7 @@
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -938,7 +1008,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox24</rd:DefaultName>
-            <Top>5.81766cm</Top>
+            <Top>6.79662cm</Top>
             <Left>17.36613cm</Left>
             <Height>0.6cm</Height>
             <Width>4.94735cm</Width>
@@ -970,7 +1040,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox25</rd:DefaultName>
-            <Top>6.77016cm</Top>
+            <Top>7.74912cm</Top>
             <Left>17.36613cm</Left>
             <Height>0.6cm</Height>
             <Width>4.94735cm</Width>
@@ -1081,7 +1151,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>5.81766cm</Top>
+            <Top>6.79662cm</Top>
             <Left>22.31348cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
@@ -1103,7 +1173,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!total_venta.Value, "DetalleBalanceDia") - Sum(Fields!descuento.Value, "DetalleBalanceDia") - Fields!deudas_pagadas.Value</Value>
+                    <Value>=Sum(Fields!total_venta.Value, "DetalleBalanceDia") - Sum(Fields!descuento.Value, "DetalleBalanceDia") - Fields!deudas_pagadas.Value + ((Sum(Fields!total_venta.Value, "DetalleBalanceDia") - Sum(Fields!descuento.Value, "DetalleBalanceDia")) - Sum(Fields!valor_compra.Value, "DetalleBalanceDia"))</Value>
                     <Style>
                       <FontFamily>trebuchet MS</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1120,11 +1190,82 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox14</rd:DefaultName>
-            <Top>6.77016cm</Top>
+            <Top>7.74912cm</Top>
             <Left>22.31348cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox27">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Total ganancias día: </Value>
+                    <Style>
+                      <FontFamily>trebuchet MS</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox23</rd:DefaultName>
+            <Top>5.84384cm</Top>
+            <Left>17.36613cm</Left>
+            <Height>0.6cm</Height>
+            <Width>4.94735cm</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox17">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=(Sum(Fields!total_venta.Value, "DetalleBalanceDia") - Sum(Fields!descuento.Value, "DetalleBalanceDia")) - Sum(Fields!valor_compra.Value, "DetalleBalanceDia")</Value>
+                    <Style>
+                      <FontFamily>trebuchet MS</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> Bs.</Value>
+                    <Style>
+                      <FontFamily>trebuchet MS</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox10</rd:DefaultName>
+            <Top>5.84384cm</Top>
+            <Left>22.31348cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>11</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>

@@ -401,13 +401,14 @@
             this.MnuItemConfiguracion.Name = "MnuItemConfiguracion";
             this.MnuItemConfiguracion.Size = new System.Drawing.Size(180, 22);
             this.MnuItemConfiguracion.Text = "Configuración";
+            this.MnuItemConfiguracion.Visible = false;
             this.MnuItemConfiguracion.Click += new System.EventHandler(this.MnuItemConfiguracion_Click);
             // 
             // MnuItemDeudaProveedores
             // 
             this.MnuItemDeudaProveedores.Image = global::AppVentas.Properties.Resources.deuda_proveedor;
             this.MnuItemDeudaProveedores.Name = "MnuItemDeudaProveedores";
-            this.MnuItemDeudaProveedores.Size = new System.Drawing.Size(176, 22);
+            this.MnuItemDeudaProveedores.Size = new System.Drawing.Size(180, 22);
             this.MnuItemDeudaProveedores.Text = "Deuda Proveedores";
             this.MnuItemDeudaProveedores.Click += new System.EventHandler(this.MnuItemDeudaProveedores_Click);
             // 

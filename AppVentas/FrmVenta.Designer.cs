@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbxProducto = new System.Windows.Forms.GroupBox();
+            this.cmbNombreProducto = new System.Windows.Forms.ComboBox();
+            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbsisventasDataSet = new AppVentas.dbsisventasDataSet();
             this.cmbPrecios = new System.Windows.Forms.ComboBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
@@ -45,7 +48,6 @@
             this.gbxCliente = new System.Windows.Forms.GroupBox();
             this.cmbTipoCliente = new System.Windows.Forms.ComboBox();
             this.tipoclienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbsisventasDataSet = new AppVentas.dbsisventasDataSet();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.lblNombreCliente = new System.Windows.Forms.Label();
@@ -63,17 +65,15 @@
             this.tipo_clienteTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.tipo_clienteTableAdapter();
             this.lblDescuento = new System.Windows.Forms.Label();
             this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.cmbNombreProducto = new System.Windows.Forms.ComboBox();
-            this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtModCantidad = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.gbxProducto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).BeginInit();
             this.gbxCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tipoclienteBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).BeginInit();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxProducto
@@ -98,6 +98,30 @@
             this.gbxProducto.TabStop = false;
             this.gbxProducto.Text = "Producto:";
             // 
+            // cmbNombreProducto
+            // 
+            this.cmbNombreProducto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbNombreProducto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbNombreProducto.DataSource = this.productoBindingSource;
+            this.cmbNombreProducto.DisplayMember = "nombre_producto";
+            this.cmbNombreProducto.FormattingEnabled = true;
+            this.cmbNombreProducto.Location = new System.Drawing.Point(118, 75);
+            this.cmbNombreProducto.Name = "cmbNombreProducto";
+            this.cmbNombreProducto.Size = new System.Drawing.Size(424, 26);
+            this.cmbNombreProducto.TabIndex = 14;
+            this.cmbNombreProducto.ValueMember = "codigo";
+            this.cmbNombreProducto.SelectedIndexChanged += new System.EventHandler(this.cmbNombreProducto_SelectedIndexChanged);
+            // 
+            // productoBindingSource
+            // 
+            this.productoBindingSource.DataMember = "producto";
+            this.productoBindingSource.DataSource = this.dbsisventasDataSet;
+            // 
+            // dbsisventasDataSet
+            // 
+            this.dbsisventasDataSet.DataSetName = "dbsisventasDataSet";
+            this.dbsisventasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // cmbPrecios
             // 
             this.cmbPrecios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -113,6 +137,7 @@
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(77, 21);
             this.txtCantidad.TabIndex = 10;
+            this.txtCantidad.Enter += new System.EventHandler(this.txtCantidad_Enter);
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // lblCantidad
@@ -234,11 +259,6 @@
             // 
             this.tipoclienteBindingSource.DataMember = "tipo_cliente";
             this.tipoclienteBindingSource.DataSource = this.dbsisventasDataSet;
-            // 
-            // dbsisventasDataSet
-            // 
-            this.dbsisventasDataSet.DataSetName = "dbsisventasDataSet";
-            this.dbsisventasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnBuscarCliente
             // 
@@ -371,25 +391,6 @@
             this.txtDescuento.TabIndex = 6;
             this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // cmbNombreProducto
-            // 
-            this.cmbNombreProducto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbNombreProducto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbNombreProducto.DataSource = this.productoBindingSource;
-            this.cmbNombreProducto.DisplayMember = "nombre_producto";
-            this.cmbNombreProducto.FormattingEnabled = true;
-            this.cmbNombreProducto.Location = new System.Drawing.Point(118, 75);
-            this.cmbNombreProducto.Name = "cmbNombreProducto";
-            this.cmbNombreProducto.Size = new System.Drawing.Size(424, 26);
-            this.cmbNombreProducto.TabIndex = 14;
-            this.cmbNombreProducto.ValueMember = "codigo";
-            this.cmbNombreProducto.SelectedIndexChanged += new System.EventHandler(this.cmbNombreProducto_SelectedIndexChanged);
-            // 
-            // productoBindingSource
-            // 
-            this.productoBindingSource.DataMember = "producto";
-            this.productoBindingSource.DataSource = this.dbsisventasDataSet;
-            // 
             // txtModCantidad
             // 
             this.txtModCantidad.Location = new System.Drawing.Point(12, 323);
@@ -432,13 +433,13 @@
             this.Load += new System.EventHandler(this.FrmVenta_Load);
             this.gbxProducto.ResumeLayout(false);
             this.gbxProducto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).EndInit();
             this.gbxCliente.ResumeLayout(false);
             this.gbxCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tipoclienteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbsisventasDataSet)).EndInit();
             this.gbxListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

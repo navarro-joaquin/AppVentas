@@ -159,7 +159,7 @@ namespace AppVentas
 
         private void MnuItemListadoVentas_Click(object sender, EventArgs e)
         {
-            FrmVentas frm = new FrmVentas();
+            FrmVentas frm = new FrmVentas(id_usuario);
             frm.MdiParent = this;
             frm.Show();
         }

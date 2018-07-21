@@ -12,26 +12,43 @@ using Microsoft.VisualBasic;
 
 namespace AppVentas
 {
-    public partial class FrmVenta : Form
+    public partial class FrmModificarVenta : Form
     {
+        //DataTable que carga los productos anteriormente vendidos
         private DataTable dtDetalle;
+        //Variable donde se almacena el total de la venta realizada
         private Decimal total = 0;
+        //Bandera que sirve para el registro de nuevos productos en el grid de venta
         private bool nuevoRegistro = true;
+        //Fila para agregar en el grid de productos en venta
         private DataGridViewRow fila;
+        //Bandera para la insercion de nuevos clientes a base de datos
         private bool nuevoCliente = true;
+        //Variable que contiene el id del usuario logeado en el sistema
         private int id_usuario = -1;
+        //Variable que contiene el id de la venta a modificar
+        private int venta = 100;
+        //Clase para la impresión automática del recibo sin vista previa
         private RepRecibo recibo = new RepRecibo();
+        //Variable que contiene el porcentaje de descuento de acuerdo al tipo de cliente
         private int porcentaje_descuento = 0;
+        //Lista de objetos que almacena los precios del producto seleccionado
         private List<Object> precios;
+        //Bandera evita el cambio accidental de producto al seleccionarlo por nombre (revisar)
         private bool producto = true;
 
-        public FrmVenta(int id)
+        public FrmModificarVenta(int id, int id_venta, string nit, string nombre)
         {
             InitializeComponent();
+            venta = id_venta;
             CrearTabla();
+            total = Convert.ToDecimal(this.ventaTableAdapter.ObtenerTotalVenta(venta));
+            Decimal descuento = Convert.ToDecimal(this.ventaTableAdapter.ObtenerDescuento(venta));
             txtTotal.Text = total.ToString("#0.00#");
-            txtDescuento.Text = total.ToString("#0.00#");
+            txtDescuento.Text = descuento.ToString("#0.00#");
             id_usuario = id;
+            txtNombreCliente.Text = nombre;
+            txtNITCI.Text = nit;
         }
 
         private void CargarPrecios(decimal valor_venta, decimal valor_mayorista)
@@ -46,12 +63,10 @@ namespace AppVentas
 
         private void CrearTabla()
         {
-            dtDetalle = new DataTable("Detalle");
-            dtDetalle.Columns.Add("Código", Type.GetType("System.String"));
-            dtDetalle.Columns.Add("Producto", Type.GetType("System.String"));
-            dtDetalle.Columns.Add("Cantidad", Type.GetType("System.Int32"));
-            dtDetalle.Columns.Add("Precio", Type.GetType("System.Decimal"));
-            dtDetalle.Columns.Add("Subtotal", Type.GetType("System.Decimal"));
+            dtDetalle = vista_detalle_ventaTableAdapter.DTBuscarPorVenta(venta);
+            
+            dtDetalle.Columns.Remove("id");
+            dtDetalle.Columns.Remove("id_venta");
 
             dgvVenta.DataSource = dtDetalle;
         }
@@ -111,11 +126,11 @@ namespace AppVentas
                     decimal subtotal = cantidad * precio;
 
                     DataRow filaNueva = dtDetalle.NewRow();
-                    filaNueva["Código"] = codigo_producto;
-                    filaNueva["Producto"] = nombre_producto;
-                    filaNueva["Cantidad"] = cantidad;
-                    filaNueva["Precio"] = precio;
-                    filaNueva["Subtotal"] = subtotal;
+                    filaNueva["codigo"] = codigo_producto;
+                    filaNueva["producto"] = nombre_producto;
+                    filaNueva["cantidad"] = cantidad;
+                    filaNueva["precio"] = precio;
+                    filaNueva["subtotal"] = subtotal;
 
                     total += subtotal;
                     txtTotal.Text = total.ToString("#0.00#");
@@ -149,11 +164,11 @@ namespace AppVentas
                 subtotal = nueva_cantidad * precio;
 
                 DataRow filaNueva = dtDetalle.NewRow();
-                filaNueva["Código"] = codigo_producto;
-                filaNueva["Producto"] = nombre_producto;
-                filaNueva["Cantidad"] = nueva_cantidad;
-                filaNueva["Precio"] = precio;
-                filaNueva["Subtotal"] = subtotal;
+                filaNueva["codigo"] = codigo_producto;
+                filaNueva["producto"] = nombre_producto;
+                filaNueva["cantidad"] = nueva_cantidad;
+                filaNueva["precio"] = precio;
+                filaNueva["subtotal"] = subtotal;
 
                 dtDetalle.Rows.Add(filaNueva);
 
@@ -327,6 +342,10 @@ namespace AppVentas
                             nuevoCliente = true;
                         }
 
+                        //Eliminar venta anterior
+
+                        ventaTableAdapter.EliminarVenta(venta);
+
                         //Insertar nueva venta
 
                         int id_cliente = Convert.ToInt32(this.clienteTableAdapter.ObtenerID(txtNombreCliente.Text, txtNITCI.Text));
@@ -334,10 +353,10 @@ namespace AppVentas
                         DateTime fecha = DateTime.Now;
 
                         this.ventaTableAdapter.InsertarVenta(fecha, total, descuento, importe_pagado, "00-00-00-00-00", "", id_cliente, id_usuario);
-
+                        
                         int id_venta = Convert.ToInt32(this.ventaTableAdapter.ObtenerID(fecha, total, descuento, importe_pagado, "00-00-00-00-00", "", id_cliente, id_usuario));
-
-                        //Insertar detalle de venta
+                        
+                        //Insertar nuevo detalle de venta con los datos anteriores y nuevos
 
                         foreach (DataGridViewRow row in dgvVenta.Rows)
                         {
@@ -372,6 +391,9 @@ namespace AppVentas
                         total = 0;
                         txtTotal.Text = total.ToString("#0.00#");
                         txtDescuento.Text = total.ToString("#0.00#");
+
+                        //Cerrar formulario
+                        this.Close();
                     }
                 }
             }
@@ -477,11 +499,11 @@ namespace AppVentas
             subtotal = nueva_cantidad * precio;
 
             DataRow filaNueva = dtDetalle.NewRow();
-            filaNueva["Código"] = codigo_producto;
-            filaNueva["Producto"] = nombre_producto;
-            filaNueva["Cantidad"] = nueva_cantidad;
-            filaNueva["Precio"] = precio;
-            filaNueva["Subtotal"] = subtotal;
+            filaNueva["codigo"] = codigo_producto;
+            filaNueva["producto"] = nombre_producto;
+            filaNueva["cantidad"] = nueva_cantidad;
+            filaNueva["precio"] = precio;
+            filaNueva["subtotal"] = subtotal;
 
             dtDetalle.Rows.Add(filaNueva);
 

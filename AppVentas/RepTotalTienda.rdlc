@@ -25,10 +25,6 @@
           <DataField>nombre_producto</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="valor_venta">
-          <DataField>valor_venta</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
         <Field Name="stock">
           <DataField>stock</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -39,6 +35,10 @@
         </Field>
         <Field Name="precio_final">
           <DataField>precio_final</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="valor_compra">
+          <DataField>valor_compra</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
@@ -155,7 +155,7 @@
                   <Width>6.2574cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.22823cm</Width>
+                  <Width>3.26351cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.48677cm</Width>
@@ -238,14 +238,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox7">
+                        <Textbox Name="Textbox8">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Precio venta</Value>
+                                  <Value>Precio Compra</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -256,7 +256,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <rd:DefaultName>Textbox8</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -405,14 +405,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="valor_venta">
+                        <Textbox Name="valor_compra1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!valor_venta.Value</Value>
+                                  <Value>=Fields!valor_compra.Value</Value>
                                   <Style />
                                 </TextRun>
                                 <TextRun>
@@ -423,7 +423,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>valor_venta</rd:DefaultName>
+                          <rd:DefaultName>valor_compra1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -528,7 +528,7 @@
             <Top>3.2512cm</Top>
             <Left>0.47307cm</Left>
             <Height>1.34938cm</Height>
-            <Width>18.53376cm</Width>
+            <Width>18.56904cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -552,7 +552,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
             <Top>5.26203cm</Top>
-            <Left>15.99089cm</Left>
+            <Left>16.02617cm</Left>
             <Height>0.6cm</Height>
             <Width>3.01594cm</Width>
             <ZIndex>4</ZIndex>
@@ -602,7 +602,7 @@
         <Height>2.60417in</Height>
         <Style />
       </Body>
-      <Width>7.65475in</Width>
+      <Width>8.46726in</Width>
       <Page>
         <PageHeight>27.94cm</PageHeight>
         <PageWidth>21.59cm</PageWidth>

@@ -36,12 +36,15 @@
             // 
             // reportViewer1
             // 
+            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "AppVentas.RepBalanceDia.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 51);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(933, 571);
+            this.reportViewer1.Size = new System.Drawing.Size(959, 571);
             this.reportViewer1.TabIndex = 0;
             // 
             // dtpFecha
@@ -75,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 623);
+            this.ClientSize = new System.Drawing.Size(959, 623);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.dtpFecha);

@@ -40,7 +40,7 @@ namespace AppVentas
             string cs = AppVentas.Properties.Settings.Default.dbsisventasConnString;
             SqlConnection cn = new SqlConnection(cs);
             string query = "select v.numero_factura, v.total_venta, v.descuento, v.importe_pagado, c.nombre as cliente, (u.nombres + ' ' + u.apellidos) as usuario, " +
-                            "(select sum(total_venta) from venta where id_usuario = " + id_usuario + " and fecha between '" + fecha1 + "' and '" + fecha2 + "') as suma_total from venta v " +
+                            "(select sum(total_venta - descuento) from venta where id_usuario = " + id_usuario + " and fecha between '" + fecha1 + "' and '" + fecha2 + "') as suma_total from venta v " +
                             "inner join cliente c " +
                             "on v.id_cliente = c.id " +
                             "inner join usuario u " +
