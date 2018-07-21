@@ -41,6 +41,7 @@
             this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "AppVentas.RepBalanceDia.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(-1, 55);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
@@ -87,6 +88,7 @@
             this.btnGenerar.TabIndex = 5;
             this.btnGenerar.Text = "&Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
             // FrmReporteVentas
             // 

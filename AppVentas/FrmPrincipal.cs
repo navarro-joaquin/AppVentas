@@ -306,5 +306,11 @@ namespace AppVentas
         {
             MnuItemNuevaProforma.PerformClick();
         }
+
+        private void MnuItemReporteVentas_Click(object sender, EventArgs e)
+        {
+            FrmReporteVentas frm = new FrmReporteVentas();
+            frm.Show();
+        }
     }
 }

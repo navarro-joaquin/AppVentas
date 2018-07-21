@@ -109,7 +109,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Balance Final del Día</Value>
+                    <Value>Balance Final</Value>
                     <Style>
                       <FontFamily>trebuchet MS</FontFamily>
                       <FontSize>20pt</FontSize>
@@ -998,7 +998,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Total deudas pagadas dia: </Value>
+                    <Value>Total deudas pagadas: </Value>
                     <Style>
                       <FontFamily>trebuchet MS</FontFamily>
                     </Style>
@@ -1030,7 +1030,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Balance Final Día: </Value>
+                    <Value>Balance Final: </Value>
                     <Style>
                       <FontFamily>trebuchet MS</FontFamily>
                     </Style>
@@ -1062,7 +1062,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Total ventas día: </Value>
+                    <Value>Total ventas: </Value>
                     <Style>
                       <FontFamily>trebuchet MS</FontFamily>
                     </Style>
@@ -1212,7 +1212,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Total ganancias día: </Value>
+                    <Value>Total ganancias: </Value>
                     <Style>
                       <FontFamily>trebuchet MS</FontFamily>
                     </Style>

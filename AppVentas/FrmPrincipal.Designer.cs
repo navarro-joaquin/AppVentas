@@ -53,6 +53,7 @@
             this.MnuItemVentasDiaAdm = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemDeudasProveedores = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemBalanceDia = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemReporteVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuVer = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemHerramientas = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemEstado = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,7 +91,6 @@
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.MnuItemReporteVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -315,6 +315,13 @@
             this.MnuItemBalanceDia.Text = "Balance Final Día";
             this.MnuItemBalanceDia.Click += new System.EventHandler(this.MnuItemBalanceDia_Click);
             // 
+            // MnuItemReporteVentas
+            // 
+            this.MnuItemReporteVentas.Name = "MnuItemReporteVentas";
+            this.MnuItemReporteVentas.Size = new System.Drawing.Size(237, 22);
+            this.MnuItemReporteVentas.Text = "Reporte de Ventas";
+            this.MnuItemReporteVentas.Click += new System.EventHandler(this.MnuItemReporteVentas_Click);
+            // 
             // MnuVer
             // 
             this.MnuVer.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -401,7 +408,7 @@
             // MnuItemConfiguracion
             // 
             this.MnuItemConfiguracion.Name = "MnuItemConfiguracion";
-            this.MnuItemConfiguracion.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemConfiguracion.Size = new System.Drawing.Size(176, 22);
             this.MnuItemConfiguracion.Text = "Configuración";
             this.MnuItemConfiguracion.Visible = false;
             this.MnuItemConfiguracion.Click += new System.EventHandler(this.MnuItemConfiguracion_Click);
@@ -410,7 +417,7 @@
             // 
             this.MnuItemDeudaProveedores.Image = global::AppVentas.Properties.Resources.deuda_proveedor;
             this.MnuItemDeudaProveedores.Name = "MnuItemDeudaProveedores";
-            this.MnuItemDeudaProveedores.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemDeudaProveedores.Size = new System.Drawing.Size(176, 22);
             this.MnuItemDeudaProveedores.Text = "Deuda Proveedores";
             this.MnuItemDeudaProveedores.Click += new System.EventHandler(this.MnuItemDeudaProveedores_Click);
             // 
@@ -665,12 +672,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(244, 383);
             this.flowLayoutPanel1.TabIndex = 4;
-            // 
-            // MnuItemReporteVentas
-            // 
-            this.MnuItemReporteVentas.Name = "MnuItemReporteVentas";
-            this.MnuItemReporteVentas.Size = new System.Drawing.Size(237, 22);
-            this.MnuItemReporteVentas.Text = "Reporte de Ventas";
             // 
             // FrmPrincipal
             // 
