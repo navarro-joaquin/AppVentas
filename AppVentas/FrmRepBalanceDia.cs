@@ -27,7 +27,7 @@ namespace AppVentas
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            string fecha = dtpFecha.Value.ToShortDateString();
+            string fecha = dtpFecha.Value.ToString("yyyy-MM-dd");
 
             string fecha1 = fecha + " 00:00:00";
             string fecha2 = fecha + " 23:59:59";

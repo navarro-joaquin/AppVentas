@@ -83,6 +83,16 @@ namespace AppVentas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Captura {
+            get {
+                object obj = ResourceManager.GetObject("Captura", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap categoria {
             get {
                 object obj = ResourceManager.GetObject("categoria", resourceCulture);
@@ -146,6 +156,16 @@ namespace AppVentas.Properties {
         internal static System.Drawing.Bitmap Fondo_Claro {
             get {
                 object obj = ResourceManager.GetObject("Fondo Claro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hand_tools_pattern_wallpaper_355859 {
+            get {
+                object obj = ResourceManager.GetObject("hand-tools-pattern-wallpaper-355859", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

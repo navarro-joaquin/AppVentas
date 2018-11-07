@@ -37,7 +37,7 @@ namespace AppVentas
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            if (cmbBuscar.Text.Equals("Codigo"))
+            if (cmbBuscar.Text.Equals("Código"))
             {
                 this.vista_productoTableAdapter.BuscarCodigoProducto(this.dbsisventasDataSet.vista_producto, txtBuscar.Text);
             }

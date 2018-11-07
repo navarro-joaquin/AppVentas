@@ -29,7 +29,11 @@ namespace AppVentas
         private void btnCierre_Click(object sender, EventArgs e)
         {
             FrmCajaCierre frm = new FrmCajaCierre(id_usuario);
-            frm.Show();
+            frm.ShowDialog();
+            if (frm.Cierre_correcto)
+            {
+                this.Close();
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

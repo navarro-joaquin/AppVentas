@@ -172,7 +172,7 @@ namespace AppVentas
                         string descripcion = txtDescripcion.Text;
                         int id_proveedor = Convert.ToInt32(cmbProveedor.SelectedValue);
                         int id_categoria = Convert.ToInt32(cmbCategoria.SelectedValue);
-
+                        
                         try
                         {
                             this.productoTableAdapter.EditarProducto(codigo, nombre_producto, marca, valor_compra, valor_venta, valor_mayorista, fecha_compra, fecha_vencimiento, stock, stock_minimo, descripcion, imagen, id_proveedor, id_categoria, id_editar);

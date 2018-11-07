@@ -28,10 +28,10 @@ namespace AppVentas
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            string fecha = DateTime.Now.ToString();
+            string fecha = DateTime.Now.ToString("yyyy-MM-dd");
 
-            string fecha1 = DateTime.Now.ToShortDateString() + " 00:00:00";
-            string fecha2 = DateTime.Now.ToShortDateString() + " 23:59:59";
+            string fecha1 = fecha + " 00:00:00";
+            string fecha2 = fecha + " 23:59:59";
 
             int id_usuario = Convert.ToInt32(cmbUsuario.SelectedValue);
 

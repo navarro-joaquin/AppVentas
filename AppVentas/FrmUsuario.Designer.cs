@@ -98,7 +98,7 @@
             // lblApellidos
             // 
             lblApellidos.AutoSize = true;
-            lblApellidos.Location = new System.Drawing.Point(405, 36);
+            lblApellidos.Location = new System.Drawing.Point(377, 37);
             lblApellidos.Name = "lblApellidos";
             lblApellidos.Size = new System.Drawing.Size(61, 18);
             lblApellidos.TabIndex = 4;
@@ -116,7 +116,7 @@
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new System.Drawing.Point(405, 65);
+            lblTelefono.Location = new System.Drawing.Point(377, 66);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new System.Drawing.Size(60, 18);
             lblTelefono.TabIndex = 8;
@@ -134,7 +134,7 @@
             // lblNivelAcceso
             // 
             lblNivelAcceso.AutoSize = true;
-            lblNivelAcceso.Location = new System.Drawing.Point(405, 138);
+            lblNivelAcceso.Location = new System.Drawing.Point(377, 139);
             lblNivelAcceso.Name = "lblNivelAcceso";
             lblNivelAcceso.Size = new System.Drawing.Size(99, 18);
             lblNivelAcceso.TabIndex = 12;
@@ -179,7 +179,7 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(811, 291);
+            this.dgvUsuarios.Size = new System.Drawing.Size(742, 291);
             this.dgvUsuarios.TabIndex = 0;
             this.dgvUsuarios.DoubleClick += new System.EventHandler(this.dgvUsuarios_DoubleClick);
             // 
@@ -264,11 +264,16 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.balanceTableAdapter = null;
             this.tableAdapterManager.categoriaTableAdapter = null;
             this.tableAdapterManager.clienteTableAdapter = null;
+            this.tableAdapterManager.detalle_proformaTableAdapter = null;
             this.tableAdapterManager.detalle_ventaTableAdapter = null;
+            this.tableAdapterManager.deuda_proveedorTableAdapter = null;
             this.tableAdapterManager.productoTableAdapter = null;
+            this.tableAdapterManager.proformaTableAdapter = null;
             this.tableAdapterManager.proveedorTableAdapter = null;
+            this.tableAdapterManager.tipo_clienteTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = AppVentas.dbsisventasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuarioTableAdapter = this.usuarioTableAdapter;
             this.tableAdapterManager.ventaTableAdapter = null;
@@ -293,7 +298,7 @@
             this.gbxDatos.Controls.Add(this.txtContraseña);
             this.gbxDatos.Location = new System.Drawing.Point(20, 70);
             this.gbxDatos.Name = "gbxDatos";
-            this.gbxDatos.Size = new System.Drawing.Size(785, 195);
+            this.gbxDatos.Size = new System.Drawing.Size(731, 195);
             this.gbxDatos.TabIndex = 1;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Introducción de Datos";
@@ -302,57 +307,57 @@
             // 
             this.txtNombres.Location = new System.Drawing.Point(113, 34);
             this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(270, 21);
+            this.txtNombres.Size = new System.Drawing.Size(246, 21);
             this.txtNombres.TabIndex = 3;
             // 
             // txtApellidos
             // 
-            this.txtApellidos.Location = new System.Drawing.Point(497, 33);
+            this.txtApellidos.Location = new System.Drawing.Point(469, 34);
             this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(270, 21);
+            this.txtApellidos.Size = new System.Drawing.Size(238, 21);
             this.txtApellidos.TabIndex = 5;
             // 
             // txtCI
             // 
             this.txtCI.Location = new System.Drawing.Point(113, 63);
             this.txtCI.Name = "txtCI";
-            this.txtCI.Size = new System.Drawing.Size(158, 21);
+            this.txtCI.Size = new System.Drawing.Size(139, 21);
             this.txtCI.TabIndex = 7;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(497, 62);
+            this.txtTelefono.Location = new System.Drawing.Point(469, 63);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(158, 21);
+            this.txtTelefono.Size = new System.Drawing.Size(142, 21);
             this.txtTelefono.TabIndex = 9;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(113, 92);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(270, 21);
+            this.txtDireccion.Size = new System.Drawing.Size(246, 21);
             this.txtDireccion.TabIndex = 11;
             // 
             // cmbNivelAcceso
             // 
             this.cmbNivelAcceso.FormattingEnabled = true;
-            this.cmbNivelAcceso.Location = new System.Drawing.Point(514, 135);
+            this.cmbNivelAcceso.Location = new System.Drawing.Point(486, 136);
             this.cmbNivelAcceso.Name = "cmbNivelAcceso";
-            this.cmbNivelAcceso.Size = new System.Drawing.Size(140, 26);
+            this.cmbNivelAcceso.Size = new System.Drawing.Size(125, 26);
             this.cmbNivelAcceso.TabIndex = 13;
             // 
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(113, 122);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(158, 21);
+            this.txtUsuario.Size = new System.Drawing.Size(139, 21);
             this.txtUsuario.TabIndex = 15;
             // 
             // txtContraseña
             // 
             this.txtContraseña.Location = new System.Drawing.Point(113, 151);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(158, 21);
+            this.txtContraseña.Size = new System.Drawing.Size(139, 21);
             this.txtContraseña.TabIndex = 17;
             this.txtContraseña.UseSystemPasswordChar = true;
             // 
@@ -368,7 +373,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(726, 7);
+            this.btnEliminar.Location = new System.Drawing.Point(657, 7);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(92, 32);
             this.btnEliminar.TabIndex = 3;
@@ -383,7 +388,7 @@
             this.tabControl1.Location = new System.Drawing.Point(14, 51);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(834, 398);
+            this.tabControl1.Size = new System.Drawing.Size(765, 398);
             this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -396,7 +401,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(826, 367);
+            this.tabPage1.Size = new System.Drawing.Size(757, 367);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -439,7 +444,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(826, 367);
+            this.tabPage2.Size = new System.Drawing.Size(757, 367);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Datos";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -459,7 +464,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 459);
+            this.ClientSize = new System.Drawing.Size(786, 459);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

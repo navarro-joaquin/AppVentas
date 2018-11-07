@@ -26,36 +26,43 @@ namespace AppVentas
 
         private void FrmRepVentasDia_Load(object sender, EventArgs e)
         {
-            string fecha = DateTime.Now.ToString();
+            try
+            {
+                string fecha = DateTime.Now.ToString("yyyy-MM-dd");
 
-            string fecha1 = DateTime.Now.ToShortDateString() + " 00:00:00";
-            string fecha2 = DateTime.Now.ToShortDateString() + " 23:59:59";
+                string fecha1 = fecha + " 00:00:00";
+                string fecha2 = fecha + " 23:59:59";
 
-            List<ReportParameter> reportParams = new List<ReportParameter>();
-            reportParams.Add(new ReportParameter("Fecha", fecha));
+                List<ReportParameter> reportParams = new List<ReportParameter>();
+                reportParams.Add(new ReportParameter("Fecha", fecha));
 
-            this.reportViewer1.LocalReport.SetParameters(reportParams);
+                this.reportViewer1.LocalReport.SetParameters(reportParams);
 
-            Consultas con = new Consultas();
-            string cs = AppVentas.Properties.Settings.Default.dbsisventasConnString;
-            SqlConnection cn = new SqlConnection(cs);
-            string query = "select v.numero_factura, v.total_venta, v.descuento, v.importe_pagado, c.nombre as cliente, (u.nombres + ' ' + u.apellidos) as usuario, " +
-                            "(select sum(total_venta - descuento) from venta where id_usuario = " + id_usuario + " and fecha between '" + fecha1 + "' and '" + fecha2 + "') as suma_total from venta v " +
-                            "inner join cliente c " +
-                            "on v.id_cliente = c.id " +
-                            "inner join usuario u " +
-                            "on v.id_usuario = u.id " +
-                            "where u.id = " + id_usuario + " and v.fecha between '" + fecha1 + "' and '" + fecha2 + "'";
-            SqlDataAdapter da = new SqlDataAdapter(query, cn);
-            da.Fill(con, con.Tables[3].TableName);
+                Consultas con = new Consultas();
+                string cs = AppVentas.Properties.Settings.Default.dbsisventasConnString;
+                SqlConnection cn = new SqlConnection(cs);
+                string query = "select v.numero_factura, v.total_venta, v.descuento, v.importe_pagado, c.nombre as cliente, (u.nombres + ' ' + u.apellidos) as usuario, " +
+                                "(select sum(total_venta - descuento) from venta where id_usuario = " + id_usuario + " and fecha between '" + fecha1 + "' and '" + fecha2 + "') as suma_total from venta v " +
+                                "inner join cliente c " +
+                                "on v.id_cliente = c.id " +
+                                "inner join usuario u " +
+                                "on v.id_usuario = u.id " +
+                                "where u.id = " + id_usuario + " and v.fecha between '" + fecha1 + "' and '" + fecha2 + "'";
+                SqlDataAdapter da = new SqlDataAdapter(query, cn);
+                da.Fill(con, con.Tables[3].TableName);
 
-            ReportDataSource rds = new ReportDataSource("DetalleVentasDia", con.Tables[3]);
+                ReportDataSource rds = new ReportDataSource("DetalleVentasDia", con.Tables[3]);
 
-            this.reportViewer1.LocalReport.DataSources.Clear();
-            this.reportViewer1.LocalReport.DataSources.Add(rds);
-            this.reportViewer1.Refresh();
+                this.reportViewer1.LocalReport.DataSources.Clear();
+                this.reportViewer1.LocalReport.DataSources.Add(rds);
+                this.reportViewer1.Refresh();
 
-            this.reportViewer1.RefreshReport();
+                this.reportViewer1.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             //GenerarPDF();
         }

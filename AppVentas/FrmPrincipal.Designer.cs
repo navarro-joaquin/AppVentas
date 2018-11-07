@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.MnuArchivo = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemSalir = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,19 +54,19 @@
             this.MnuItemVentasDiaAdm = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemDeudasProveedores = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemBalanceDia = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuVer = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuItemHerramientas = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuItemEstado = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuHerramientas = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemDeudaProveedores = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuVentanas = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemCascada = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemVertical = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemHorizontal = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.MnuItemCerrarTodo = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuHerramientas = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuItemConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuItemDeudaProveedores = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuVer = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemHerramientas = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemEstado = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tsbProductos = new System.Windows.Forms.ToolStripButton();
             this.tsbProveedores = new System.Windows.Forms.ToolStripButton();
@@ -84,11 +85,13 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.usuarioTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.usuarioTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAlertas = new System.Windows.Forms.Button();
             this.btnProforma = new System.Windows.Forms.Button();
             this.btnVenta = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
+            this.MnuItemEntregas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -104,10 +107,10 @@
             this.MnuProformas,
             this.MnuPersonas,
             this.MnuReportes,
-            this.MnuVer,
-            this.MnuVentanas,
             this.MnuHerramientas,
-            this.MnuCierreCaja});
+            this.MnuCierreCaja,
+            this.MnuVentanas,
+            this.MnuVer});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.MnuVentanas;
             this.menuStrip.Name = "menuStrip";
@@ -138,7 +141,8 @@
             this.MnuAlmacen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MnuItemCategorias,
             this.MnuItemProveedores,
-            this.MnuItemProductos});
+            this.MnuItemProductos,
+            this.MnuItemEntregas});
             this.MnuAlmacen.Name = "MnuAlmacen";
             this.MnuAlmacen.Size = new System.Drawing.Size(66, 20);
             this.MnuAlmacen.Text = "&Almacen";
@@ -147,7 +151,7 @@
             // 
             this.MnuItemCategorias.Image = global::AppVentas.Properties.Resources.categoria;
             this.MnuItemCategorias.Name = "MnuItemCategorias";
-            this.MnuItemCategorias.Size = new System.Drawing.Size(139, 22);
+            this.MnuItemCategorias.Size = new System.Drawing.Size(180, 22);
             this.MnuItemCategorias.Text = "&Categorías";
             this.MnuItemCategorias.Click += new System.EventHandler(this.MnuItemCategorias_Click);
             // 
@@ -155,7 +159,7 @@
             // 
             this.MnuItemProveedores.Image = global::AppVentas.Properties.Resources.proveedor;
             this.MnuItemProveedores.Name = "MnuItemProveedores";
-            this.MnuItemProveedores.Size = new System.Drawing.Size(139, 22);
+            this.MnuItemProveedores.Size = new System.Drawing.Size(180, 22);
             this.MnuItemProveedores.Text = "&Proveedores";
             this.MnuItemProveedores.Click += new System.EventHandler(this.MnuItemProveedores_Click);
             // 
@@ -163,7 +167,7 @@
             // 
             this.MnuItemProductos.Image = global::AppVentas.Properties.Resources.producto;
             this.MnuItemProductos.Name = "MnuItemProductos";
-            this.MnuItemProductos.Size = new System.Drawing.Size(139, 22);
+            this.MnuItemProductos.Size = new System.Drawing.Size(180, 22);
             this.MnuItemProductos.Text = "Productos";
             this.MnuItemProductos.Click += new System.EventHandler(this.MnuItemProductos_Click);
             // 
@@ -312,34 +316,39 @@
             this.MnuItemBalanceDia.Text = "Balance Final Día";
             this.MnuItemBalanceDia.Click += new System.EventHandler(this.MnuItemBalanceDia_Click);
             // 
-            // MnuVer
+            // MnuHerramientas
             // 
-            this.MnuVer.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MnuItemHerramientas,
-            this.MnuItemEstado});
-            this.MnuVer.Name = "MnuVer";
-            this.MnuVer.Size = new System.Drawing.Size(35, 20);
-            this.MnuVer.Text = "&Ver";
+            this.MnuHerramientas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MnuItemConfiguracion,
+            this.MnuItemDeudaProveedores});
+            this.MnuHerramientas.Name = "MnuHerramientas";
+            this.MnuHerramientas.Size = new System.Drawing.Size(90, 20);
+            this.MnuHerramientas.Text = "Herramientas";
             // 
-            // MnuItemHerramientas
+            // MnuItemConfiguracion
             // 
-            this.MnuItemHerramientas.Checked = true;
-            this.MnuItemHerramientas.CheckOnClick = true;
-            this.MnuItemHerramientas.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.MnuItemHerramientas.Name = "MnuItemHerramientas";
-            this.MnuItemHerramientas.Size = new System.Drawing.Size(189, 22);
-            this.MnuItemHerramientas.Text = "&Barra de herramientas";
-            this.MnuItemHerramientas.Click += new System.EventHandler(this.MnuItemHerramientas_Click);
+            this.MnuItemConfiguracion.Enabled = false;
+            this.MnuItemConfiguracion.Name = "MnuItemConfiguracion";
+            this.MnuItemConfiguracion.Size = new System.Drawing.Size(176, 22);
+            this.MnuItemConfiguracion.Text = "Configuración";
+            this.MnuItemConfiguracion.Visible = false;
+            this.MnuItemConfiguracion.Click += new System.EventHandler(this.MnuItemConfiguracion_Click);
             // 
-            // MnuItemEstado
+            // MnuItemDeudaProveedores
             // 
-            this.MnuItemEstado.Checked = true;
-            this.MnuItemEstado.CheckOnClick = true;
-            this.MnuItemEstado.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.MnuItemEstado.Name = "MnuItemEstado";
-            this.MnuItemEstado.Size = new System.Drawing.Size(189, 22);
-            this.MnuItemEstado.Text = "&Barra de estado";
-            this.MnuItemEstado.Click += new System.EventHandler(this.MnuItemEstado_Click);
+            this.MnuItemDeudaProveedores.Image = global::AppVentas.Properties.Resources.deuda_proveedor;
+            this.MnuItemDeudaProveedores.Name = "MnuItemDeudaProveedores";
+            this.MnuItemDeudaProveedores.Size = new System.Drawing.Size(176, 22);
+            this.MnuItemDeudaProveedores.Text = "Deuda Proveedores";
+            this.MnuItemDeudaProveedores.Click += new System.EventHandler(this.MnuItemDeudaProveedores_Click);
+            // 
+            // MnuCierreCaja
+            // 
+            this.MnuCierreCaja.Image = global::AppVentas.Properties.Resources.cierre_caja;
+            this.MnuCierreCaja.Name = "MnuCierreCaja";
+            this.MnuCierreCaja.Size = new System.Drawing.Size(108, 20);
+            this.MnuCierreCaja.Text = "&Cierre de Caja";
+            this.MnuCierreCaja.Click += new System.EventHandler(this.MnuCierreCaja_Click);
             // 
             // MnuVentanas
             // 
@@ -386,39 +395,34 @@
             this.MnuItemCerrarTodo.Text = "C&errar todo";
             this.MnuItemCerrarTodo.Click += new System.EventHandler(this.MnuItemCerrarTodo_Click);
             // 
-            // MnuHerramientas
+            // MnuVer
             // 
-            this.MnuHerramientas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MnuItemConfiguracion,
-            this.MnuItemDeudaProveedores});
-            this.MnuHerramientas.Name = "MnuHerramientas";
-            this.MnuHerramientas.Size = new System.Drawing.Size(90, 20);
-            this.MnuHerramientas.Text = "Herramientas";
+            this.MnuVer.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MnuItemHerramientas,
+            this.MnuItemEstado});
+            this.MnuVer.Name = "MnuVer";
+            this.MnuVer.Size = new System.Drawing.Size(35, 20);
+            this.MnuVer.Text = "&Ver";
             // 
-            // MnuItemConfiguracion
+            // MnuItemHerramientas
             // 
-            this.MnuItemConfiguracion.Enabled = false;
-            this.MnuItemConfiguracion.Name = "MnuItemConfiguracion";
-            this.MnuItemConfiguracion.Size = new System.Drawing.Size(180, 22);
-            this.MnuItemConfiguracion.Text = "Configuración";
-            this.MnuItemConfiguracion.Visible = false;
-            this.MnuItemConfiguracion.Click += new System.EventHandler(this.MnuItemConfiguracion_Click);
+            this.MnuItemHerramientas.Checked = true;
+            this.MnuItemHerramientas.CheckOnClick = true;
+            this.MnuItemHerramientas.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MnuItemHerramientas.Name = "MnuItemHerramientas";
+            this.MnuItemHerramientas.Size = new System.Drawing.Size(189, 22);
+            this.MnuItemHerramientas.Text = "&Barra de herramientas";
+            this.MnuItemHerramientas.Click += new System.EventHandler(this.MnuItemHerramientas_Click);
             // 
-            // MnuItemDeudaProveedores
+            // MnuItemEstado
             // 
-            this.MnuItemDeudaProveedores.Image = global::AppVentas.Properties.Resources.deuda_proveedor;
-            this.MnuItemDeudaProveedores.Name = "MnuItemDeudaProveedores";
-            this.MnuItemDeudaProveedores.Size = new System.Drawing.Size(180, 22);
-            this.MnuItemDeudaProveedores.Text = "Deuda Proveedores";
-            this.MnuItemDeudaProveedores.Click += new System.EventHandler(this.MnuItemDeudaProveedores_Click);
-            // 
-            // MnuCierreCaja
-            // 
-            this.MnuCierreCaja.Image = global::AppVentas.Properties.Resources.cierre_caja;
-            this.MnuCierreCaja.Name = "MnuCierreCaja";
-            this.MnuCierreCaja.Size = new System.Drawing.Size(108, 20);
-            this.MnuCierreCaja.Text = "&Cierre de Caja";
-            this.MnuCierreCaja.Click += new System.EventHandler(this.MnuCierreCaja_Click);
+            this.MnuItemEstado.Checked = true;
+            this.MnuItemEstado.CheckOnClick = true;
+            this.MnuItemEstado.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MnuItemEstado.Name = "MnuItemEstado";
+            this.MnuItemEstado.Size = new System.Drawing.Size(189, 22);
+            this.MnuItemEstado.Text = "&Barra de estado";
+            this.MnuItemEstado.Click += new System.EventHandler(this.MnuItemEstado_Click);
             // 
             // toolStrip
             // 
@@ -568,6 +572,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnAlertas);
             this.panel1.Controls.Add(this.btnProforma);
             this.panel1.Controls.Add(this.btnVenta);
             this.panel1.Controls.Add(this.btnClientes);
@@ -578,6 +583,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 383);
             this.panel1.TabIndex = 5;
+            // 
+            // btnAlertas
+            // 
+            this.btnAlertas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(157)))), ((int)(((byte)(120)))));
+            this.btnAlertas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAlertas.FlatAppearance.BorderSize = 0;
+            this.btnAlertas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlertas.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlertas.Location = new System.Drawing.Point(0, 325);
+            this.btnAlertas.Name = "btnAlertas";
+            this.btnAlertas.Size = new System.Drawing.Size(200, 65);
+            this.btnAlertas.TabIndex = 5;
+            this.btnAlertas.Text = "Alertas";
+            this.btnAlertas.UseVisualStyleBackColor = false;
+            this.btnAlertas.Click += new System.EventHandler(this.btnAlertas_Click);
             // 
             // btnProforma
             // 
@@ -654,16 +674,25 @@
             this.btnProductos.UseVisualStyleBackColor = false;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
+            // MnuItemEntregas
+            // 
+            this.MnuItemEntregas.Name = "MnuItemEntregas";
+            this.MnuItemEntregas.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemEntregas.Text = "Entregas";
+            this.MnuItemEntregas.Click += new System.EventHandler(this.MnuItemEntregas_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::AppVentas.Properties.Resources.hand_tools_pattern_wallpaper_355859;
             this.ClientSize = new System.Drawing.Size(792, 454);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
             this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -745,6 +774,8 @@
         private System.Windows.Forms.ToolStripButton tsbClientes;
         private System.Windows.Forms.ToolStripButton tsbUsuarios;
         private System.Windows.Forms.ToolStripButton tsbDeudaProveedor;
+        private System.Windows.Forms.Button btnAlertas;
+        private System.Windows.Forms.ToolStripMenuItem MnuItemEntregas;
     }
 }
 

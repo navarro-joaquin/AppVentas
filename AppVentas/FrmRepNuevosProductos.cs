@@ -43,6 +43,8 @@ namespace AppVentas
                 fecha = dtpFecha.Value.ToShortDateString();
             }
 
+            fecha = dtpFecha.Value.ToString("yyyy-MM-dd");
+
             List<ReportParameter> reportParams = new List<ReportParameter>();
             reportParams.Add(new ReportParameter("Fecha", fecha));
 

@@ -155,6 +155,12 @@
     <Compile Include="FrmDeudaProveedor.Designer.cs">
       <DependentUpon>FrmDeudaProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEntregaProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEntregaProductos.Designer.cs">
+      <DependentUpon>FrmEntregaProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoProformas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,12 @@
     </Compile>
     <Compile Include="FrmRepBalanceDia.Designer.cs">
       <DependentUpon>FrmRepBalanceDia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRepDetalleEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRepDetalleEntrega.Designer.cs">
+      <DependentUpon>FrmRepDetalleEntrega.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRepDeudaProveedores.cs">
       <SubType>Form</SubType>
@@ -329,6 +341,9 @@
     <EmbeddedResource Include="FrmDeudaProveedor.resx">
       <DependentUpon>FrmDeudaProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEntregaProductos.resx">
+      <DependentUpon>FrmEntregaProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoProformas.resx">
       <DependentUpon>FrmListadoProformas.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -362,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRepBalanceDia.resx">
       <DependentUpon>FrmRepBalanceDia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRepDetalleEntrega.resx">
+      <DependentUpon>FrmRepDetalleEntrega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRepDeudaProveedores.resx">
       <DependentUpon>FrmRepDeudaProveedores.cs</DependentUpon>
@@ -415,6 +433,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="RepDeudaProveedores.rdlc" />
+    <EmbeddedResource Include="RepEntregaProducto.rdlc" />
     <EmbeddedResource Include="RepNuevosProductos.rdlc" />
     <EmbeddedResource Include="RepPagoDeuda.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -486,7 +505,8 @@
     <None Include="Resources\Blacmar_oficial1.png" />
     <Content Include="logo_blacmar.ico" />
     <None Include="Resources\logo_blacmar.PNG" />
-    <Content Include="YouTube_23392.ico" />
+    <None Include="Resources\Captura.PNG" />
+    <None Include="Resources\hand-tools-pattern-wallpaper-355859.jpg" />
     <None Include="Resources\Logo2.jpeg" />
     <None Include="Resources\Fondo.jpeg" />
     <None Include="Resources\Fondo Claro.jpeg" />
@@ -511,7 +531,6 @@
     <None Include="Resources\reporte %283%29.png" />
     <None Include="Resources\deuda_proveedor.png" />
     <None Include="Resources\cierre caja.png" />
-    <Content Include="Logo MultiMarket.ico" />
     <Content Include="logo.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

@@ -306,5 +306,18 @@ namespace AppVentas
         {
             MnuItemNuevaProforma.PerformClick();
         }
+
+        private void btnAlertas_Click(object sender, EventArgs e)
+        {
+            FrmAlertas frm = new FrmAlertas();
+            frm.Show();
+        }
+
+        private void MnuItemEntregas_Click(object sender, EventArgs e)
+        {
+            FrmEntregaProductos frm = new FrmEntregaProductos(id_usuario, nivel_acceso);
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

@@ -253,6 +253,7 @@
             this.cmbTipoCliente.Size = new System.Drawing.Size(121, 26);
             this.cmbTipoCliente.TabIndex = 5;
             this.cmbTipoCliente.ValueMember = "porcentaje_descuento";
+            this.cmbTipoCliente.Visible = false;
             this.cmbTipoCliente.SelectedIndexChanged += new System.EventHandler(this.cmbTipoCliente_SelectedIndexChanged);
             // 
             // tipoclienteBindingSource
@@ -318,6 +319,7 @@
             this.dgvVenta.AllowUserToDeleteRows = false;
             this.dgvVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVenta.Location = new System.Drawing.Point(6, 20);
+            this.dgvVenta.MultiSelect = false;
             this.dgvVenta.Name = "dgvVenta";
             this.dgvVenta.ReadOnly = true;
             this.dgvVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

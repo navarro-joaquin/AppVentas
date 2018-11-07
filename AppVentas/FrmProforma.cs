@@ -358,44 +358,58 @@ namespace AppVentas
 
         private void txtModCantidad_Click(object sender, EventArgs e)
         {
-            string codigo_producto = dgvProforma.CurrentRow.Cells[0].Value.ToString();
-            string nombre_producto = dgvProforma.CurrentRow.Cells[1].Value.ToString();
-            int cantidad = Convert.ToInt32(dgvProforma.CurrentRow.Cells[2].Value.ToString());
-            decimal precio = Convert.ToDecimal(dgvProforma.CurrentRow.Cells[3].Value.ToString());
-            decimal subtotal = Convert.ToDecimal(dgvProforma.CurrentRow.Cells[4].Value.ToString());
+            if (!(dgvProforma.RowCount == 0))
+            {
+                string codigo_producto = dgvProforma.CurrentRow.Cells[0].Value.ToString();
+                string nombre_producto = dgvProforma.CurrentRow.Cells[1].Value.ToString();
+                int cantidad = Convert.ToInt32(dgvProforma.CurrentRow.Cells[2].Value.ToString());
+                decimal precio = Convert.ToDecimal(dgvProforma.CurrentRow.Cells[3].Value.ToString());
+                decimal subtotal = Convert.ToDecimal(dgvProforma.CurrentRow.Cells[4].Value.ToString());
 
-            total -= subtotal;
+                total -= subtotal;
 
-            int nueva_cantidad = Convert.ToInt32(Interaction.InputBox("Ingrese la nueva cantidad", "Modificar cantidad", cantidad.ToString()));
+                int nueva_cantidad = Convert.ToInt32(Interaction.InputBox("Ingrese la nueva cantidad", "Modificar cantidad", cantidad.ToString()));
 
-            int filaActual = dgvProforma.CurrentRow.Index;
+                int filaActual = dgvProforma.CurrentRow.Index;
 
-            dtDetalle.Rows.RemoveAt(filaActual);
+                dtDetalle.Rows.RemoveAt(filaActual);
 
-            subtotal = nueva_cantidad * precio;
+                subtotal = nueva_cantidad * precio;
 
-            DataRow filaNueva = dtDetalle.NewRow();
-            filaNueva["Código"] = codigo_producto;
-            filaNueva["Producto"] = nombre_producto;
-            filaNueva["Cantidad"] = nueva_cantidad;
-            filaNueva["Precio"] = precio;
-            filaNueva["Subtotal"] = subtotal;
+                DataRow filaNueva = dtDetalle.NewRow();
+                filaNueva["Código"] = codigo_producto;
+                filaNueva["Producto"] = nombre_producto;
+                filaNueva["Cantidad"] = nueva_cantidad;
+                filaNueva["Precio"] = precio;
+                filaNueva["Subtotal"] = subtotal;
 
-            dtDetalle.Rows.Add(filaNueva);
+                dtDetalle.Rows.Add(filaNueva);
 
-            total += subtotal;
-            txtTotal.Text = total.ToString("#0.00#");
+                total += subtotal;
+                txtTotal.Text = total.ToString("#0.00#");
+            }
+            else
+            {
+                MessageBox.Show("No se encuentran productos en lista");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            decimal subtotal = Convert.ToDecimal(dgvProforma.CurrentRow.Cells[4].Value.ToString());
+            if (!(dgvProforma.RowCount == 0))
+            {
+                decimal subtotal = Convert.ToDecimal(dgvProforma.CurrentRow.Cells[4].Value.ToString());
 
-            int filaActual = dgvProforma.CurrentRow.Index;
-            dtDetalle.Rows.RemoveAt(filaActual);
+                int filaActual = dgvProforma.CurrentRow.Index;
+                dtDetalle.Rows.RemoveAt(filaActual);
 
-            total -= subtotal;
-            txtTotal.Text = total.ToString("#0.00#");
+                total -= subtotal;
+                txtTotal.Text = total.ToString("#0.00#");
+            }
+            else
+            {
+                MessageBox.Show("No se encuentran productos en lista");
+            }
         }
     }
 }
