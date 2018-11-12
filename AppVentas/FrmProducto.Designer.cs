@@ -72,13 +72,6 @@
             this.proveedorTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.proveedorTableAdapter();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lblTotalRegistros = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.cmbBuscar = new System.Windows.Forms.ComboBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnExcel = new System.Windows.Forms.Button();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.vista_productoTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.vista_productoTableAdapter();
             this.dgvProducto = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,6 +88,14 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTotalRegistros = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.cmbBuscar = new System.Windows.Forms.ComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnExcel = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.vista_productoTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.vista_productoTableAdapter();
+            this.btnBajas = new System.Windows.Forms.Button();
             lblCodigo = new System.Windows.Forms.Label();
             lblNombreProducto = new System.Windows.Forms.Label();
             lblMarca = new System.Windows.Forms.Label();
@@ -117,8 +118,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -367,7 +368,6 @@
             // pbxImagen
             // 
             this.pbxImagen.Image = global::AppVentas.Properties.Resources.file;
-            this.pbxImagen.Image = global::AppVentas.Properties.Resources.file;
             this.pbxImagen.Location = new System.Drawing.Point(647, 28);
             this.pbxImagen.Name = "pbxImagen";
             this.pbxImagen.Size = new System.Drawing.Size(117, 112);
@@ -461,10 +461,14 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.bajasTableAdapter = null;
+            this.tableAdapterManager.balanceTableAdapter = null;
             this.tableAdapterManager.categoriaTableAdapter = this.categoriaTableAdapter;
             this.tableAdapterManager.clienteTableAdapter = null;
             this.tableAdapterManager.detalle_proformaTableAdapter = null;
             this.tableAdapterManager.detalle_ventaTableAdapter = null;
+            this.tableAdapterManager.deuda_proveedorTableAdapter = null;
+            this.tableAdapterManager.entregaTableAdapter = null;
             this.tableAdapterManager.productoTableAdapter = this.productoTableAdapter;
             this.tableAdapterManager.proformaTableAdapter = null;
             this.tableAdapterManager.proveedorTableAdapter = this.proveedorTableAdapter;
@@ -494,6 +498,7 @@
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
+            this.tabPage1.Controls.Add(this.btnBajas);
             this.tabPage1.Controls.Add(this.dgvProducto);
             this.tabPage1.Controls.Add(this.lblTotalRegistros);
             this.tabPage1.Controls.Add(this.txtBuscar);
@@ -506,78 +511,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // lblTotalRegistros
-            // 
-            this.lblTotalRegistros.AutoSize = true;
-            this.lblTotalRegistros.Location = new System.Drawing.Point(546, 45);
-            this.lblTotalRegistros.Name = "lblTotalRegistros";
-            this.lblTotalRegistros.Size = new System.Drawing.Size(127, 18);
-            this.lblTotalRegistros.TabIndex = 6;
-            this.lblTotalRegistros.Text = "Número de Registros:";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(155, 14);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(366, 21);
-            this.txtBuscar.TabIndex = 5;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            // 
-            // cmbBuscar
-            // 
-            this.cmbBuscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbBuscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbBuscar.FormattingEnabled = true;
-            this.cmbBuscar.Items.AddRange(new object[] {
-            "Código",
-            "Nombre Producto",
-            "Marca",
-            "Proveedor",
-            "Categoría"});
-            this.cmbBuscar.Location = new System.Drawing.Point(7, 11);
-            this.cmbBuscar.Name = "cmbBuscar";
-            this.cmbBuscar.Size = new System.Drawing.Size(140, 26);
-            this.cmbBuscar.TabIndex = 4;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.btnExcel);
-            this.tabPage2.Controls.Add(this.gbxDatos);
-            this.tabPage2.Controls.Add(this.btnGuardar);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(793, 404);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Datos";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnExcel
-            // 
-            this.btnExcel.Location = new System.Drawing.Point(688, 350);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(97, 46);
-            this.btnExcel.TabIndex = 3;
-            this.btnExcel.Text = "Importar\r\ndesde Excel";
-            this.btnExcel.UseVisualStyleBackColor = true;
-            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.Teal;
-            this.lblTitulo.Location = new System.Drawing.Point(14, 10);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(99, 24);
-            this.lblTitulo.TabIndex = 6;
-            this.lblTitulo.Text = "Productos";
-            // 
-            // vista_productoTableAdapter
-            // 
-            this.vista_productoTableAdapter.ClearBeforeFill = true;
             // 
             // dgvProducto
             // 
@@ -716,6 +649,88 @@
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
+            // lblTotalRegistros
+            // 
+            this.lblTotalRegistros.AutoSize = true;
+            this.lblTotalRegistros.Location = new System.Drawing.Point(546, 45);
+            this.lblTotalRegistros.Name = "lblTotalRegistros";
+            this.lblTotalRegistros.Size = new System.Drawing.Size(127, 18);
+            this.lblTotalRegistros.TabIndex = 6;
+            this.lblTotalRegistros.Text = "Número de Registros:";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(155, 14);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(366, 21);
+            this.txtBuscar.TabIndex = 5;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // cmbBuscar
+            // 
+            this.cmbBuscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbBuscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbBuscar.FormattingEnabled = true;
+            this.cmbBuscar.Items.AddRange(new object[] {
+            "Código",
+            "Nombre Producto",
+            "Marca",
+            "Proveedor",
+            "Categoría"});
+            this.cmbBuscar.Location = new System.Drawing.Point(7, 11);
+            this.cmbBuscar.Name = "cmbBuscar";
+            this.cmbBuscar.Size = new System.Drawing.Size(140, 26);
+            this.cmbBuscar.TabIndex = 4;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.btnExcel);
+            this.tabPage2.Controls.Add(this.gbxDatos);
+            this.tabPage2.Controls.Add(this.btnGuardar);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(793, 404);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Datos";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Location = new System.Drawing.Point(688, 350);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(97, 46);
+            this.btnExcel.TabIndex = 3;
+            this.btnExcel.Text = "Importar\r\ndesde Excel";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.Teal;
+            this.lblTitulo.Location = new System.Drawing.Point(14, 10);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(99, 24);
+            this.lblTitulo.TabIndex = 6;
+            this.lblTitulo.Text = "Productos";
+            // 
+            // vista_productoTableAdapter
+            // 
+            this.vista_productoTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnBajas
+            // 
+            this.btnBajas.Location = new System.Drawing.Point(595, 6);
+            this.btnBajas.Name = "btnBajas";
+            this.btnBajas.Size = new System.Drawing.Size(92, 32);
+            this.btnBajas.TabIndex = 7;
+            this.btnBajas.Text = "&Dar de baja";
+            this.btnBajas.UseVisualStyleBackColor = true;
+            this.btnBajas.Click += new System.EventHandler(this.btnBajas_Click);
+            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -739,8 +754,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -800,5 +815,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private dbsisventasDataSetTableAdapters.vista_productoTableAdapter vista_productoTableAdapter;
+        private System.Windows.Forms.Button btnBajas;
     }
 }

@@ -412,5 +412,34 @@ namespace AppVentas
                 frm.Show();
             }
         }
+
+        private void btnBajas_Click(object sender, EventArgs e)
+        {
+            DialogResult confirmacion;
+            confirmacion = MessageBox.Show("¿Desea dar de baja los registros seleccionados?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (confirmacion == DialogResult.OK)
+            {
+                try
+                {
+                    int id;
+
+                    int nro_filas = dgvProducto.Rows.GetRowCount(DataGridViewElementStates.Selected);
+
+                    for (int i = 0; i < nro_filas; i++)
+                    {
+                        id = Convert.ToInt32(dgvProducto.SelectedRows[i].Cells[0].Value);
+                        this.productoTableAdapter.spbajas(id);
+                    }
+
+                    MessageBox.Show(nro_filas + " registros fueron dados de baja");
+                    ActualizarListado();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error5" + ex.Message);
+                }
+            }
+        }
     }
 }

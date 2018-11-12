@@ -120,6 +120,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Left>0cm</Left>
             <Height>1.73771cm</Height>
             <Width>16.93333cm</Width>
             <Style>
@@ -150,7 +151,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.9141cm</Top>
+            <Top>2.69049cm</Top>
+            <Left>0cm</Left>
             <Height>0.6cm</Height>
             <Width>8.06979cm</Width>
             <ZIndex>1</ZIndex>
@@ -334,7 +336,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DetalleEntrega</DataSetName>
-            <Top>2.69049cm</Top>
+            <Top>3.46688cm</Top>
+            <Left>0cm</Left>
             <Height>1.2cm</Height>
             <Width>8.06979cm</Width>
             <ZIndex>2</ZIndex>
@@ -367,7 +370,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
-            <Top>4.65349cm</Top>
+            <Top>5.42988cm</Top>
+            <Left>0cm</Left>
             <Height>0.6cm</Height>
             <Width>8.06979cm</Width>
             <ZIndex>3</ZIndex>
@@ -398,7 +402,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
-            <Top>1.9141cm</Top>
+            <Top>2.69049cm</Top>
             <Left>8.06979cm</Left>
             <Height>0.6cm</Height>
             <Width>8.86354cm</Width>
@@ -583,7 +587,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DetalleVentaEntrega</DataSetName>
-            <Top>2.69049cm</Top>
+            <Top>3.46688cm</Top>
             <Left>8.06979cm</Left>
             <Height>1.2cm</Height>
             <Width>8.86354cm</Width>
@@ -617,7 +621,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox17</rd:DefaultName>
-            <Top>4.65349cm</Top>
+            <Top>5.42988cm</Top>
             <Left>8.06979cm</Left>
             <Height>0.6cm</Height>
             <Width>8.86354cm</Width>
@@ -626,6 +630,117 @@
               <Border>
                 <Style>None</Style>
               </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Fecha">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Fecha: </Value>
+                    <Style>
+                      <FontFamily>trebuchet MS</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!Fecha.Value</Value>
+                    <Style>
+                      <FontFamily>trebuchet MS</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Fecha</rd:DefaultName>
+            <Top>1.9141cm</Top>
+            <Left>0cm</Left>
+            <Height>0.6cm</Height>
+            <Width>8.06979cm</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="VendedorLogin">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!VendedorLogin.Value</Value>
+                    <Style>
+                      <FontFamily>trebuchet MS</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>VendedorLogin</rd:DefaultName>
+            <Top>7.29933cm</Top>
+            <Left>8.24618cm</Left>
+            <Height>0.6cm</Height>
+            <Width>8.77566cm</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <TopBorder>
+                <Style>Solid</Style>
+              </TopBorder>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="AlmaceneroLogin">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!AlmaceneroLogin.Value</Value>
+                    <Style>
+                      <FontFamily>trebuchet MS</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>AlmaceneroLogin</rd:DefaultName>
+            <Top>7.29933cm</Top>
+            <Height>0.6cm</Height>
+            <Width>7.8934cm</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <TopBorder>
+                <Style>Solid</Style>
+              </TopBorder>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -654,6 +769,14 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="VendedorLogin">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AlmaceneroLogin">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -664,6 +787,16 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>Fecha</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>VendedorLogin</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>AlmaceneroLogin</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

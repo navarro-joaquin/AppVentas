@@ -37,6 +37,7 @@
             this.MnuItemCategorias = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemProveedores = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemEntregas = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemNuevaVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemListadoVentas = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,7 +92,7 @@
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
-            this.MnuItemEntregas = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuItemBajas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -142,7 +143,8 @@
             this.MnuItemCategorias,
             this.MnuItemProveedores,
             this.MnuItemProductos,
-            this.MnuItemEntregas});
+            this.MnuItemEntregas,
+            this.MnuItemBajas});
             this.MnuAlmacen.Name = "MnuAlmacen";
             this.MnuAlmacen.Size = new System.Drawing.Size(66, 20);
             this.MnuAlmacen.Text = "&Almacen";
@@ -170,6 +172,13 @@
             this.MnuItemProductos.Size = new System.Drawing.Size(180, 22);
             this.MnuItemProductos.Text = "Productos";
             this.MnuItemProductos.Click += new System.EventHandler(this.MnuItemProductos_Click);
+            // 
+            // MnuItemEntregas
+            // 
+            this.MnuItemEntregas.Name = "MnuItemEntregas";
+            this.MnuItemEntregas.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemEntregas.Text = "Entregas";
+            this.MnuItemEntregas.Click += new System.EventHandler(this.MnuItemEntregas_Click);
             // 
             // MnuVentas
             // 
@@ -674,12 +683,12 @@
             this.btnProductos.UseVisualStyleBackColor = false;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
-            // MnuItemEntregas
+            // MnuItemBajas
             // 
-            this.MnuItemEntregas.Name = "MnuItemEntregas";
-            this.MnuItemEntregas.Size = new System.Drawing.Size(180, 22);
-            this.MnuItemEntregas.Text = "Entregas";
-            this.MnuItemEntregas.Click += new System.EventHandler(this.MnuItemEntregas_Click);
+            this.MnuItemBajas.Name = "MnuItemBajas";
+            this.MnuItemBajas.Size = new System.Drawing.Size(180, 22);
+            this.MnuItemBajas.Text = "Bajas";
+            this.MnuItemBajas.Click += new System.EventHandler(this.MnuItemBajas_Click);
             // 
             // FrmPrincipal
             // 
@@ -776,6 +785,7 @@
         private System.Windows.Forms.ToolStripButton tsbDeudaProveedor;
         private System.Windows.Forms.Button btnAlertas;
         private System.Windows.Forms.ToolStripMenuItem MnuItemEntregas;
+        private System.Windows.Forms.ToolStripMenuItem MnuItemBajas;
     }
 }
 

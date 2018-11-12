@@ -31,6 +31,7 @@
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.btnGenerar = new System.Windows.Forms.Button();
+            this.usuarioTableAdapter = new AppVentas.dbsisventasDataSetTableAdapters.usuarioTableAdapter();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -39,7 +40,7 @@
             this.reportViewer1.Location = new System.Drawing.Point(-2, 44);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(816, 389);
+            this.reportViewer1.Size = new System.Drawing.Size(701, 389);
             this.reportViewer1.TabIndex = 0;
             // 
             // dtpFecha
@@ -51,7 +52,7 @@
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(706, 10);
+            this.btnGenerar.Location = new System.Drawing.Point(533, 10);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(96, 23);
             this.btnGenerar.TabIndex = 2;
@@ -59,11 +60,15 @@
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
+            // usuarioTableAdapter
+            // 
+            this.usuarioTableAdapter.ClearBeforeFill = true;
+            // 
             // FrmRepDetalleEntrega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 434);
+            this.ClientSize = new System.Drawing.Size(699, 434);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.reportViewer1);
@@ -81,5 +86,6 @@
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Button btnGenerar;
+        private dbsisventasDataSetTableAdapters.usuarioTableAdapter usuarioTableAdapter;
     }
 }

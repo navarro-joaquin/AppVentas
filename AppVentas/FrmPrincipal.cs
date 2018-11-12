@@ -319,5 +319,12 @@ namespace AppVentas
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void MnuItemBajas_Click(object sender, EventArgs e)
+        {
+            FrmBajas frm = new FrmBajas();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

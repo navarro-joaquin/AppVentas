@@ -101,6 +101,12 @@
     <Compile Include="FrmAlertas.Designer.cs">
       <DependentUpon>FrmAlertas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBajas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBajas.Designer.cs">
+      <DependentUpon>FrmBajas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +313,9 @@
     <EmbeddedResource Include="FrmAlertas.resx">
       <DependentUpon>FrmAlertas.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBajas.resx">
+      <DependentUpon>FrmBajas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
